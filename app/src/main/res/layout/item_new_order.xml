@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="@dimen/dimension8"
+    android:layout_marginTop="@dimen/dimension8"
+    android:layout_marginEnd="@dimen/dimension8"
+    app:cardBackgroundColor="@color/backGroundItem"
+    app:cardCornerRadius="@dimen/dimension8">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont50"
+            style="@style/mnb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension8"
+            android:layout_marginTop="@dimen/dimension8"
+            android:text="تصفيف لاشعر"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension8"
+            android:layout_marginTop="@dimen/dimension16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont50"
+            app:srcCompat="@drawable/ic_calendar_com_" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont51"
+            style="@style/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension8"
+            android:text="ماي"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+            app:layout_constraintStart_toEndOf="@+id/imageView17"
+            app:layout_constraintTop_toTopOf="@+id/imageView17" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont52"
+            style="@style/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension8"
+            android:text="2019, 24"
+            app:font_name="@string/Dubai_Light"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont51"
+            app:layout_constraintStart_toEndOf="@+id/textViewCustomFont51"
+            app:layout_constraintTop_toTopOf="@+id/textViewCustomFont51"
+            app:layout_constraintVertical_bias="0.578" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont53"
+            style="@style/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension8"
+            android:text="على"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont52"
+            app:layout_constraintStart_toEndOf="@+id/textViewCustomFont52" />
+
+        <com.example.fontutil.TextViewCustomFont
+            style="@style/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension8"
+            android:text="4:30 PM"
+            app:font_name="@string/Dubai_Light"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont53"
+            app:layout_constraintStart_toEndOf="@+id/textViewCustomFont53" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont54"
+            style="@style/inTh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension4"
+            android:text="في المحل"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintStart_toStartOf="@+id/imageView17"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont51" />
+
+        <com.example.fontutil.ButtonCustomFont
+            android:id="@+id/buttonCustomFont11"
+            style="@style/vdf"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimension30"
+            android:layout_marginTop="@dimen/dimension8"
+            android:layout_marginBottom="@dimen/dimension8"
+            android:background="@drawable/servi"
+            android:paddingStart="@dimen/dimension24"
+            android:paddingEnd="@dimen/dimension24"
+            android:text="@string/ok"
+            android:textAllCaps="false"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textViewCustomFont54"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont54" />
+
+        <com.example.fontutil.ButtonCustomFont
+            style="@style/vdf"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimension30"
+            android:layout_marginStart="@dimen/dimension16"
+            android:background="@android:color/transparent"
+            android:paddingStart="@dimen/dimension24"
+            android:paddingEnd="@dimen/dimension24"
+            android:textAllCaps="false"
+            android:text="@string/cancel"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonCustomFont11"
+            app:layout_constraintStart_toEndOf="@+id/buttonCustomFont11"
+            app:layout_constraintTop_toTopOf="@+id/buttonCustomFont11" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension16"
+            android:layout_marginEnd="@dimen/dimension16"
+            android:background="@drawable/ic_ph_layers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

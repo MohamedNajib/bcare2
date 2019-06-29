@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/services"
+            android:icon="@drawable/services"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/favorite"
+            android:icon="@drawable/favorite_"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/points"
+            android:icon="@drawable/points_"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/call_us"
+            android:icon="@drawable/call_us_"
+            android:title="@string/menu_tools" />
+
+        <item
+            android:id="@+id/about_bcare"
+            android:icon="@drawable/about_bcare_"
+            android:title="@string/menu_share" />
+        <item
+            android:id="@+id/change_language"
+            android:icon="@drawable/change_language"
+            android:title="@string/menu_send" />
+    </group>
+
+
+
+</menu>

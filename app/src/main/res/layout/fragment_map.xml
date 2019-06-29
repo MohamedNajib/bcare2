@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.BookingFragment">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/backGround_SelectSalon"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <fragment
+            android:id="@+id/frg"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/backGround_SelectSalon"
+        android:alpha="0.7">
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont20"
+            style="@style/sal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension24"
+            android:layout_marginTop="@dimen/dimension16"
+            android:text="@string/location"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintEnd_toStartOf="@+id/IV_SelectSalonPackIcon"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/IV_SelectSalonPackIcon"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/dimension24"
+            android:layout_marginEnd="@dimen/dimension24"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewCustomFont20"
+            app:layout_constraintTop_toTopOf="@+id/textViewCustomFont20"
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
+    </android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="40dp"
+        android:src="@drawable/pin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_first_popup"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_180sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/rectangle_top_corners"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:paddingTop="@dimen/_20sdp"
+        android:visibility="visible"
+        >
+
+        <ImageView
+            android:id="@+id/iv_confirm"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/right_arrow"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rl_address_map"
+            android:layout_marginTop="@dimen/_15sdp"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_address_map"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="@dimen/_10sdp">
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/et_address"
+                style="@style/EditTextStyle0"
+                android:inputType="textEmailAddress"
+                android:hint="أدخل عنوان"
+                app:font_name="@string/VIP_Rawy_Regular"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_address_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rl_address_map"
+            app:layout_constraintStart_toEndOf="@id/iv_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center">
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/tv_address_location"
+                android:inputType="textEmailAddress"
+                android:text="عنوان"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_toStartOf="@+id/iv_pin"
+                android:layout_marginEnd="@dimen/_10sdp"/>
+
+            <ImageView
+                android:id="@+id/iv_pin"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                app:srcCompat="@drawable/ic_address_icon"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_pin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            app:layout_constraintTop_toBottomOf="@+id/rl_address_location"
+            app:layout_constraintStart_toEndOf="@id/iv_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical|end">
+            <com.example.fontutil.ButtonCustomFont
+                android:id="@+id/bt_pin"
+                android:inputType="textEmailAddress"
+                android:text="Pin"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_toStartOf="@+id/bt_choose"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/itemGray"/>
+
+            <com.example.fontutil.ButtonCustomFont
+                android:id="@+id/bt_choose"
+                android:inputType="textEmailAddress"
+                android:text="أدخل عنوان"
+                android:layout_width="@dimen/_160sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_alignParentEnd="true"
+                android:background="@color/tap_blue"/>
+        </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_second_popup"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_300sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        android:paddingTop="@dimen/_10sdp"
+        android:background="@drawable/rectangle_top_corners">
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/tv_box_title"
+            android:text="قم بإضافة رقم الشقة و الغرفة لتسهيل الوصول اليك"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textSize="13sp"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_building"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_box_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical|end">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.example.fontutil.TextViewCustomFont
+                        android:inputType="textEmailAddress"
+                        android:text="رقم البناية"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:gravity="center_vertical|end"
+                        android:textDirection="locale"
+                        android:textSize="12sp"/>
+
+                    <com.example.fontutil.EditTextCustomFont
+                        android:id="@+id/ed_building"
+                        style="@style/EditTextStyle0"
+                        android:inputType="textEmailAddress"
+                        app:font_name="@string/VIP_Rawy_Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"/>
+
+                </LinearLayout>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_flat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rl_building"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical|end">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.example.fontutil.TextViewCustomFont
+                    android:inputType="textEmailAddress"
+                    android:text="رقم الشقة"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:gravity="center_vertical|end"
+                    android:textDirection="locale"
+                    android:textSize="12sp"/>
+
+                <com.example.fontutil.EditTextCustomFont
+                    android:id="@+id/ed_flat"
+                    style="@style/EditTextStyle0"
+                    android:inputType="textEmailAddress"
+                    app:font_name="@string/VIP_Rawy_Regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_landmark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rl_flat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical|end">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.example.fontutil.TextViewCustomFont
+                    android:inputType="textEmailAddress"
+                    android:text="علامة مميزة"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:gravity="center_vertical|end"
+                    android:textDirection="locale"
+                    android:textSize="12sp"/>
+
+                <com.example.fontutil.EditTextCustomFont
+                    android:id="@+id/ed_landmark"
+                    style="@style/EditTextStyle0"
+                    android:inputType="textEmailAddress"
+                    app:font_name="@string/VIP_Rawy_Regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <com.example.fontutil.ButtonCustomFont
+            android:id="@+id/bt_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@color/tap_blue"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/rl_landmark"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="تأكيد"
+            android:textSize="@dimen/_12ssp"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

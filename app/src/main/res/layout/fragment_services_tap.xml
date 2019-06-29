@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.salon_taps.ServicesTapFragment">
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_SalonText"
+        style="@style/ce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/Choose_the_state"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimension50"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/spenn_b"
+        app:layout_constraintEnd_toStartOf="@+id/editTetCustomFont"
+        app:layout_constraintStart_toStartOf="@+id/TV_SalonText"
+        app:layout_constraintTop_toBottomOf="@+id/TV_SalonText" />
+
+
+    <ImageView
+        android:id="@+id/editTextCustomFont"
+        style="@style/eedd_"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont28"
+        app:layout_constraintStart_toStartOf="@+id/editTetCustomFont"
+        app:layout_constraintTop_toTopOf="@+id/textViewCustomFont28"
+        app:srcCompat="@drawable/ic_group_m" />
+
+    <com.example.fontutil.EditTextCustomFont
+        android:id="@+id/editTetCustomFont"
+        style="@style/e_co"
+        android:layout_width="@dimen/dimension0"
+        android:layout_height="@dimen/dimension50"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/porder"
+        android:gravity="center"
+        android:hint="@string/Paste_or_type_the_code_here"
+        android:inputType="number"
+        android:paddingStart="@dimen/dimension16"
+        android:paddingEnd="@dimen/dimension16"
+        android:singleLine="true"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont28" />
+
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/textViewCustomFont28"
+        style="@style/cood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/Discount_code"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_SalonText"
+        app:layout_constraintStart_toEndOf="@+id/editTextCustomFont"
+        app:layout_constraintTop_toTopOf="@+id/TV_SalonText" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesHairClipper"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/hear"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ServicesHairdryerFacing"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner">
+
+        <ImageView
+            android:id="@+id/IV_HairClipper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/TV_HairClipper"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_hair_clipper_a" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_HairClipper"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="قص الشعر"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IV_HairClipper" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesHairdryerFacing"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:background="@drawable/hear"
+        app:layout_constraintBottom_toBottomOf="@+id/CL_ServicesHairClipper"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ServicesFlatIron"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/CL_ServicesHairClipper"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="@+id/CL_ServicesHairClipper">
+
+        <ImageView
+            android:id="@+id/IV_hairdryer_facing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/TV_hairdryer_facing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_hairdryer_facing_a" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_hairdryer_facing"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تصفيف الضعر"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IV_hairdryer_facing" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesFlatIron"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:background="@drawable/hear"
+        app:layout_constraintBottom_toBottomOf="@+id/CL_ServicesHairdryerFacing"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ServicesRazor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/CL_ServicesHairdryerFacing"
+        app:layout_constraintTop_toTopOf="@+id/CL_ServicesHairdryerFacing">
+
+        <ImageView
+            android:id="@+id/IV_FlatIron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/TV_FlatIron"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_flat_iron_a" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_FlatIron"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="كي الشعر"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IV_FlatIron" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesRazor"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:background="@drawable/hear"
+        app:layout_constraintBottom_toBottomOf="@+id/CL_ServicesFlatIron"
+        app:layout_constraintEnd_toEndOf="@+id/editTetCustomFont"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/CL_ServicesFlatIron"
+        app:layout_constraintTop_toTopOf="@+id/CL_ServicesFlatIron">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/textViewCustomFont3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_razor_a" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont3"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="شعر الوجه"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/textViewCustomFont30"
+        style="@style/fac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="@dimen/dimension16"
+        android:text="الجسم"
+        app:layout_constraintStart_toStartOf="@+id/CL_ServicesHairClipper"
+        app:layout_constraintTop_toBottomOf="@+id/CL_ServicesHairClipper" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#A0ACC0"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewCustomFont30"
+        app:layout_constraintTop_toTopOf="@+id/textViewCustomFont30" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesFoam"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/hear"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ServicesFingerWithNail"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont30">
+
+        <ImageView
+            android:id="@+id/IV_Foam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/TV_Foam"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_foam_a" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_Foam"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="العناية بالبشرة"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IV_Foam" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesFingerWithNail"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:background="@drawable/hear"
+        app:layout_constraintBottom_toBottomOf="@+id/CL_ServicesFoam"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ServicesFoldedTowel"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/CL_ServicesFoam"
+        app:layout_constraintTop_toTopOf="@+id/CL_ServicesFoam">
+
+        <ImageView
+            android:id="@+id/IV_FingerWithNail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/TV_FingerWithNail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_finger_with_nail_a" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_FingerWithNail"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="العناية بالأضافر"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IV_FingerWithNail" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesFoldedTowel"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:background="@drawable/hear"
+        app:layout_constraintBottom_toBottomOf="@+id/CL_ServicesFingerWithNail"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ServicesFoldedTowe"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/CL_ServicesFingerWithNail"
+        app:layout_constraintTop_toTopOf="@+id/CL_ServicesFingerWithNail">
+
+        <ImageView
+            android:id="@+id/IV_FoldedTowel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/TV_FoldedTowel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_folded_towel_a" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_FoldedTowel"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="العناية بالأضافر"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IV_FoldedTowel" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesFoldedTowe"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/hear"
+        app:layout_constraintBottom_toBottomOf="@+id/CL_ServicesFoldedTowel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/CL_ServicesFoldedTowel"
+        app:layout_constraintTop_toTopOf="@+id/CL_ServicesFoldedTowel">
+
+        <ImageView
+            android:id="@+id/IV_Foldedowel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/TV_Foldedowel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_folded_towel_a" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_Foldedowel"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="العناية بالأضافر"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IV_Foldedowel" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/textViewCustomFont37"
+        style="@style/fac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="@dimen/dimension16"
+        android:text="الوجه"
+        app:layout_constraintStart_toStartOf="@+id/CL_ServicesFoam"
+        app:layout_constraintTop_toBottomOf="@+id/CL_ServicesFoam" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#A0ACC0"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont37"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewCustomFont37"
+        app:layout_constraintTop_toTopOf="@+id/textViewCustomFont37" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesCucumberSlicesOnFace"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/hear"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ServicesHandMirror"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont37">
+
+        <ImageView
+            android:id="@+id/IV_CucumberSlicesOnFace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/TV_CucumberSlicesOnFace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_cucumber_slices_on_face" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_CucumberSlicesOnFace"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ماسك"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IV_CucumberSlicesOnFace" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/CL_ServicesHandMirror"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:background="@drawable/hear"
+        app:layout_constraintBottom_toBottomOf="@+id/CL_ServicesCucumberSlicesOnFace"
+        app:layout_constraintEnd_toStartOf="@+id/view7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/CL_ServicesCucumberSlicesOnFace"
+        app:layout_constraintTop_toTopOf="@+id/CL_ServicesCucumberSlicesOnFace">
+
+        <ImageView
+            android:id="@+id/IV_HandMirror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/TV_IV_HandMirror"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_hand_mirror_a" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_IV_HandMirror"
+            style="@style/her"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ماكياج"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IV_HandMirror" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        app:layout_constraintBottom_toBottomOf="@+id/CL_ServicesHandMirror"
+        app:layout_constraintEnd_toStartOf="@+id/view9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/CL_ServicesHandMirror"
+        app:layout_constraintTop_toTopOf="@+id/CL_ServicesHandMirror"/>
+
+    <View
+        android:id="@+id/view9"
+        android:layout_width="@dimen/dimension70"
+        android:layout_height="@dimen/dimension70"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view7"
+        app:layout_constraintTop_toTopOf="@+id/view7"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:srcCompat="@drawable/ic_chat_group" />
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">بى كير</string>
+    <!-- Error Messag -->
+    <string name="Email_Error">الرجاء إدخال البريد الإلكتروني الصحيح…</string>
+
+    <string name="current_lang">ar</string>
+    <string name="language">English</string>
+    <string name="lang">en</string>
+
+
+    <!-- Bottom Nav -->
+    <string name="title_home" translatable="true">الرئيسيه</string>
+    <string name="title_dashboard" translatable="true">مواعيدي</string>
+    <string name="title_notifications" translatable="true">حسابي</string>
+
+    <!-- Nav Drawer -->
+    <string name="menu_home" translatable="true">الخدمات</string>
+    <string name="menu_gallery" translatable="true">المفضلة</string>
+    <string name="menu_slideshow" translatable="true">النقاط</string>
+    <string name="menu_tools" translatable="true">اتصل بنا</string>
+    <string name="menu_share" translatable="true">حول بي كار</string>
+    <string name="menu_send" translatable="true">تغيير اللغة</string>
+
+    <!-- MyEventFragment -->
+    <string name="previous_Appointment" translatable="true">مواعيد سابقة</string>
+    <string name="next_Appointment" translatable="true">المواعيد القادمة</string>
+
+    <!-- ProfileFragment -->
+    <string name="Point" translatable="true">نقطة</string>
+    <string name="Edit_description" translatable="true">تعديل الوصف</string>
+    <string name="Enter_the_discount_code" translatable="true">ادخل كود الخصم</string>
+    <string name="user_name" translatable="true">أسم المستخدم</string>
+    <string name="Edit" translatable="true">تعديل</string>
+    <string name="Email" translatable="true">البريد الإلكتروني</string>
+    <string name="password" translatable="true">كلمت المرور</string>
+    <string name="location" translatable="true">الموقع</string>
+    <string name="Receive_notifications" translatable="true">تلقي الإشعارات</string>
+
+    <!-- RegisterActivity -->
+    <string name="Create_an_account" translatable="true">انشاء حساب</string>
+    <string name="Create_an_account_with_your_mobile_number" translatable="true">أنشأ حسابا عن طريق رقم جوالك</string>
+    <string name="Create_an_account_by_phone_number" translatable="true">انشاء حساب عن طريق رقم الهاتف</string>
+    <string name="Create_an_account_by_email" translatable="true">انشاء حساب عن طريق الايميل</string>
+    <string name="LogIn" translatable="true">تسجيل الدخول</string>
+    <string name="have_an_account" translatable="true">لديك حساب , </string>
+    <string name="or" translatable="true">أو</string>
+    <string name="via_social_media" translatable="true">عن طريق منصات التواصل الإجتماعي</string>
+
+    <!-- RegisterActivity1 -->
+    <string name="with_your_mobile_number" translatable="true">عن طريق رقم جوالك</string>
+    <string name="Continue" translatable="true">متابعة</string>
+    <string name="Enter_your_phone_number" translatable="true">ادخل رقم الهاتف</string>
+    <string name="phone_number" translatable="true">رقم الهاتف</string>
+
+    <!-- RegisterActivity2 -->
+    <string name="Confirm_phone_number" translatable="true">تأكيد رقم الهاتف</string>
+    <string name="Enter_the_code_that_you_received_in_a_text_message" translatable="true">أدخل الكود الذي وصلك في رسالة نصية</string>
+    <string name="confirm" translatable="true">تاكيد</string>
+    <string name="verify_your_email" translatable="true">تأكيد البريد الالكتروني</string>
+    <string name="Enter_the_code_sent_to_your_email_to_confirm" translatable="true">ادخل الكود المرسل الى ايمايلك للتأكيد</string>
+
+    <!-- RegisterActivity3 -->
+    <string name="Enter_personal_information" translatable="true">ادخال المعلومات الشخصية</string>
+    <string name="Full_name" translatable="true">الاسم الكامل</string>
+    <string name="Country" translatable="true">الدولة</string>
+    <string name="City" translatable="true">المدينة</string>
+    <string name="Address" translatable="true">العنوان</string>
+    <string name="Password" translatable="true">كلمة المرور</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="Birth_Date" translatable="true">تاريخ الميلاد</string>
+
+    <!-- RegisterByEmail1 -->
+    <string name="Enter_your_email_and_choose_a_password" translatable="true">ادخل بريدك الاكتروني ثم اختر كلمة مرور</string>
+
+    <!-- ForgotPasswordActivityStep1 -->
+    <string name="Description_retrieve_pass" translatable="true">لاستعادة كلمة مرورك ستتلقى رسالة بريد إلكتروني تحتوي على تعليمات حول كيفية إعادة تعيين كلمة المرور الخاصة بك.
+        إذا كنت تواجه مشكلة في إعادة تعيين كلمة المرور الخاصة بك، فاتصل بنا أو أرسل لنا رسالة بريد إلكتروني</string>
+    <string name="Forgot_password" translatable="true">نسيت كلمة المرور</string>
+    <string name="Restore_password" translatable="true">استعادة كلمة المرور</string>
+    <string name="do_not_have_an_account_yet_open_one" translatable="true">ليس لديك حساب بعد, افتح واحدا</string>
+
+    <!-- ForgotPasswordActivityStep2 -->
+    <string name="sent_succesfully" translatable="true">تم الارسال ينجاح</string>
+    <string name="Please_check_your_mailbox" translatable="true">نرجوا منك تفقد صندوق بريدك , ستجد رابط لإعادة تعيين كلمة المرور الخاصة بحسابك</string>
+    <string name="ending" translatable="true">انهاء</string>
+
+    <!-- LoginMainActivity -->
+    <string name="Choose_the_method_that_is_right_for_you" translatable="true">اختر الطريقة المناسبة لك</string>
+    <string name="By_telephone_number" translatable="true">عن طريق رقم الهاتف</string>
+    <string name="By_Email" translatable="true">عن طريق الايمايل</string>
+    <string name="do_Not_Have_an_Account_Yet" translatable="true">ليس لديك حساب بعد,</string>
+    <string name="Create_One" translatable="true">افتح واحدا</string>
+
+    <!-- LoginPyPhoneActivity -->
+    <string name="Login_via_mobile_number">دخول عن طريق رقم الجوال</string>
+
+    <!-- LoginPyEmailActivity -->
+    <string name="Email_Or_UserName" translatable="true">البريد الالكتروني أو اسم المستخدم</string>
+    <string name="Login_via_Emaile">دخول عن طريق الايمايل</string>
+
+    <!-- AtHomeBookingTap -->
+    <string name="Times_available" translatable="true">الاوقات المتاحة</string>
+    <string name="Select_Specialist" translatable="true">اختر الاخصائي</string>
+    <string name="Book_now" translatable="true">إحجز الان</string>
+
+    <!-- UserHomeFragment -->
+    <string name="see_more" translatable="true">مشاهدة المزيد</string>
+
+    <!-- AboutTapFragment -->
+    <string name="Our_pages_on_social_networking_sites" translatable="true">صفحاتنا على مواقع التواصل الاجتماعي</string>
+    <string name="Geographical_location" translatable="true">الموقع الجغرافي</string>
+    <string name="Our_specialists" translatable="true">أخصائيونا</string>
+
+    <!-- RatingsTapFragment -->
+    <string name="Specialist_values" translatable="true">قيم الأخصائي</string>
+    <string name="Write_your_review_in_the_app_here" translatable="true">اكتب رأيك في التطبيق هنا</string>
+    <string name="Customer_opinions" translatable="true">آراء العملاء</string>
+    <string name="Submit_your_rating" translatable="true">قدم تقييمك</string>
+    <string name="Mor" translatable="true">المزيد</string>
+
+    <!-- ServicesTapFragment -->
+    <string name="Discount_code" translatable="true">كود الخصم</string>
+    <string name="Paste_or_type_the_code_here" translatable="true">الصق أو اكتب الكود هنا</string>
+    <string name="Choose_the_state" translatable="true">Choose the Stateاختيار الدولة</string>
+
+    <!-- GenderActivity -->
+    <string name="Choose_Salon_Type" translatable="true">اختيار نوع الصالون</string>
+    <string name="Choose_by_age_or_gender" translatable="true">اختر حسب العمر أو الجنس</string>
+    <string name="women" translatable="true">نساء</string>
+    <string name="Men" translatable="true">رجال</string>
+    <string name="Children" translatable="true">أطفال</string>
+
+    <!-- SalonActivity -->
+    <string name="Saloon_Pictures" translatable="true">صور الصالون</string>
+
+    <!-- item_select_salon -->
+    <string name="Appointment_Booking" translatable="true">حجز موعد</string>
+    <string name="Fans" translatable="true">عدد المعجبين</string>
+    <string name="begain_from" translatable="true">ابتداء من</string>
+
+    <!-- item_upcoming_events -->
+    <string name="Reschedule" translatable="true">إعادة جدولة</string>
+
+    <!-- item_reviews_special -->
+    <string name="useful" translatable="true">مفيد</string>
+    <string name="Unuseful" translatable="true">غير مفيد</string>
+
+    <!-- item_new_order -->
+    <string name="ok" translatable="true">موافقة</string>
+    <string name="cancel" translatable="true">رفض</string>
+
+    <!-- item_last_events -->
+    <string name="Booking_again" translatable="true">إحجز مجددا</string>
+
+    <!-- item_discounts -->
+    <string name="discount" translatable="true" >تخفيض</string>
+    <string name="check_data" translatable="true">تأكد من بياناتك</string>
+
+    <string name="salon_about" translatable="true">حول الصالون</string>
+    <string name="salon_services" translatable="true">خدمات</string>
+    <string name="salon_reviews" translatable="true">تقييمات</string>
+
+    <string name="my_account">حسابى</string>
+
+    <!-- Toast -->
+    <string name="Choose_Gender_Type" translatable="true">اختر نوع الجنس</string>
+
+    <!-- UserHomeFragment -->
+    <string name="Specialists" translatable="true">أخصائيون</string>
+
+    <!-- BookingActivity -->
+    <string name="at_salon" translatable="true">في المحل</string>
+    <string name="at_home" translatable="true">في المنزل</string>
+
+    <!-- SalonActivity -->
+    <string name="About_the_salon" translatable="true">حول الصالون</string>
+    <string name="Services" translatable="true">خدمات</string>
+    <string name="Ratings" translatable="true">Ratings</string>
+
+    <!-- ReviewsSpecialFragment -->
+    <string name="The_description_must" translatable="true">يجب أن يكون الوصف 10 أحرف على الأقل.</string>
+
+    <!--  -->
+    <string name="Logout" translatable="true">تسجيل الخروج</string>
+
+    <!-- Dialog -->
+    <string name="Booking_successful" translatable="true">تم الحجز بنجاح</string>
+
+    <!-- ConfirmationFragment -->
+    <string name="Confirm_appointment" translatable="true">تأكيد الموعد</string>
+    <string name="service_type" translatable="true">نوع الخدمه</string>
+    <string name="Date_of_appointment" translatable="true">تاريخ الموعد</string>
+    <string name="To_confirm_the_request" translatable="true">لتأكيد الطلب ستصلك رساله SMS</string>
+
+
+    <!-- DiscountCodeFragment -->
+    <string name="congratulations" translatable="true">تهانينا</string>
+    <string name="Got_discount" translatable="true">حصلت على خصم</string>
+    <string name="Select_Service" translatable="true">اختر خدمة</string>
+
+    <!-- NotificationFragment -->
+    <string name="Notifications" translatable="true">الإشعارات</string>
+    <string name="New" translatable="true">جديد</string>
+    <string name="Today" translatable="true">اليوم</string>
+
+    <!--PointsActivity-->
+    <string name="Number_of_current_points" translatable="true">عدد نقاطي الحالي</string>
+    <string name="Switch_points_score" translatable="true">تبديل النقاط برصيد</string>
+    <string name="Switch_points_with_Presents" translatable="true">تبديل النقاط بهدايا</string>
+
+    <!-- ReviewsSpecialFragment -->
+    <string name="Ask_for_the_service" translatable="true">أطلب خدماته</string>
+    <string name="Specialist_Rating" translatable="true">قيم الأخصائي</string>
+    <string name="Choose_services" translatable="true">اختيار الخدمات</string>
+
+    <!-- SalonServicesFragment -->
+    <string name="Choose_the_country" translatable="true">اختيار الدولة</string>
+    <string name="You_can_choose_more" translatable="true">يمكنك اختيار أكثر من حدمة في آن واخد</string>
+
+    <!-- SelectSalonFragment -->
+    <string name="Salons_arranged_by_the_nearest" translatable="true">الصالونات مرتبة الأقرب فالأقرب</string>
+    <string name="Select_Salon" translatable="true">اختيار الصالونة</string>
+    <string name="Filtering" translatable="true">فلترة</string>
+
+    <!-- ServiceProviderHomeFragment -->
+    <string name="welcome" translatable="true">مرحبا بكم</string>
+    <string name="The_application_combines" translatable="true">تطبيق يجمع أفضل الصالونات في المنطقة</string>
+    <string name="Withdraw_profits" translatable="true">سحب الأرباح</string>
+    <string name="Completed_applications" translatable="true">الطلبات المنجزة</string>
+    <string name="in_Implementation" translatable="true">قيد التنفيذ</string>
+    <string name="Canceled_Requests" translatable="true">طلبات ملغية</string>
+    <string name="New_Requests" translatable="true">طلبات جديدة</string>
+    <string name="my_profits" translatable="true">أرباحي</string>
+    <string name="My_stats" translatable="true">احصائياتي</string>
+
+
+    <!-- Popup -->
+    <string name="nearest" translatable="true">الأقرب</string>
+    <string name="Top_rated" translatable="true">الأعلى تقييما</string>
+    <string name="best_price" translatable="true">أفضل سعر</string>
+    <string name="Favorites" translatable="true">المفضله</string>
+
+    <string name="reserve_appointment" translatable="true">احجز ميعاد</string>
+    <string name="my_appointments">مواعيدى</string>
+</resources>

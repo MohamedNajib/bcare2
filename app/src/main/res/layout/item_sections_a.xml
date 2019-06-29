@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/dimension8"
+    android:paddingTop="@dimen/dimension8"
+    android:paddingStart="@dimen/dimension16"
+    android:paddingEnd="@dimen/dimension16"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_ItemSectionsName"
+        style="@style/fac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="@dimen/dimension16"
+        app:font_name="@string/VIP_Rawy_Bold_Bold"
+        tools:text="الشعر"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view22"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#A0ACC0"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_ItemSectionsName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TV_ItemSectionsName"
+        app:layout_constraintTop_toTopOf="@+id/TV_ItemSectionsName" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/RV_ItemSections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_ItemSectionsName" />
+
+</android.support.constraint.ConstraintLayout>

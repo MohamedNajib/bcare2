@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.HomeActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/backGroundItem"
+                app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+                <ImageView
+                    android:id="@+id/IV_NotificationIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginEnd="8dp"
+                    app:srcCompat="@drawable/ic_notification_icon" />
+
+                <ImageView
+                    android:id="@+id/IV_MessageIcon"
+                    android:layout_width="@dimen/dimension20"
+                    android:layout_height="@dimen/dimension20"
+                    android:layout_marginEnd="@dimen/dimension16"
+                    app:srcCompat="@drawable/ic_mesag_icon"
+                    android:layout_gravity="start"/>
+
+                <com.example.fontutil.TextViewCustomFont
+                    android:id="@+id/textViewCustomFont2"
+                    style="@style/ProfileText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimension24"
+                    android:layout_gravity="end"
+                    android:text="حسابي"
+                    app:font_name="@string/VIP_Rawy_Bold_Bold"
+                    android:layout_marginEnd="@dimen/_10sdp"/>
+
+            </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_activity_navigation" />
+
+
+</android.support.design.widget.CoordinatorLayout>

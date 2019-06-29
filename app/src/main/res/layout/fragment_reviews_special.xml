@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.ReviewsSpecialFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/review_background_"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_ReviewsSpecialName"
+            style="@style/rev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension24"
+            android:layout_marginTop="@dimen/dimension16"
+            android:layout_marginBottom="@dimen/dimension16"
+            android:text="كامل علامة"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/IV_ReviewsSpecialPackIcon"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/IV_ReviewsSpecialPackIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension24"
+            android:layout_marginEnd="@dimen/dimension24"
+            app:layout_constraintBottom_toBottomOf="@+id/TV_ReviewsSpecialName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/TV_ReviewsSpecialName"
+            app:layout_constraintTop_toTopOf="@+id/TV_ReviewsSpecialName"
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
+        app:layout_constraintVertical_bias="1.0">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension0">
+
+
+            <com.emedia.bcare.ui.custom.RoundRectCornerImageView
+                android:id="@+id/IV_ReviewsSpecialImage"
+                android:layout_width="@dimen/dimension140"
+                android:layout_height="@dimen/dimension140"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginTop="@dimen/dimension16"
+                android:src="@drawable/rrr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/TV_ReviewsSpecialNameA"
+                style="@style/nam_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension8"
+                android:layout_marginEnd="@dimen/dimension16"
+                android:text="كامل علامة"
+                app:font_name="@string/VIP_Rawy_Bold_Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/IV_ReviewsSpecialImage"
+                app:layout_constraintTop_toTopOf="@+id/IV_ReviewsSpecialImage" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/TV_ReviewsSpecialSpecialty"
+                style="@style/revv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimension16"
+                android:text="خبير الشعر"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/TV_ReviewsSpecialNameA"
+                app:layout_constraintTop_toBottomOf="@+id/TV_ReviewsSpecialNameA" />
+
+            <RatingBar
+                android:id="@+id/RatingBar_ReviewsSpecial"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:theme="@style/RatingBar"
+                app:layout_constraintStart_toStartOf="@+id/TV_ReviewsSpecialSpecialty"
+                app:layout_constraintTop_toBottomOf="@+id/TV_ReviewsSpecialSpecialty" />
+
+            <com.example.fontutil.ButtonCustomFont
+                android:id="@+id/BTN_ServiceRequest"
+                style="@style/requst_"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimension32"
+                android:background="@drawable/y_y"
+                android:paddingStart="@dimen/dimension32"
+                android:paddingEnd="@dimen/dimension32"
+                android:text="أطلب خدماته"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintBottom_toBottomOf="@+id/IV_ReviewsSpecialImage"
+                app:layout_constraintStart_toStartOf="@+id/RatingBar_ReviewsSpecial"
+                app:layout_constraintTop_toBottomOf="@+id/RatingBar_ReviewsSpecial"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textViewCustomFont23"
+                style="@style/rat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension24"
+                android:text="قيم الأخصائي"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/IV_ReviewsSpecialImage"
+                app:layout_constraintTop_toBottomOf="@+id/IV_ReviewsSpecialImage" />
+
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/ET_ReviewText"
+                android:layout_width="@dimen/dimension0"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:background="@drawable/pttnn"
+                android:gravity="center"
+                android:hint="اكتب رأيك في التطبيق هنا"
+                android:padding="@dimen/dimension8"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/IV_ReviewsSpecialImage"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont23" />
+
+            <com.example.fontutil.ButtonCustomFont
+                android:id="@+id/BTN_SubmitYourRating"
+                style="@style/t_ppn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimension32"
+                android:layout_marginTop="@dimen/dimension8"
+                android:background="@drawable/pl"
+                android:paddingStart="@dimen/dimension32"
+                android:paddingEnd="@dimen/dimension32"
+                android:text="قدم تقييمك"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="@+id/ET_ReviewText"
+                app:layout_constraintTop_toBottomOf="@+id/ET_ReviewText" />
+
+            <RatingBar
+                style="?android:attr/ratingBarStyleIndicator"
+                android:id="@+id/RB_AddSpecialistRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimension8"
+                android:isIndicator="false"
+                android:numStars="5"
+                android:stepSize=".5"
+                android:scaleX=".8"
+                android:scaleY=".8"
+                android:theme="@style/MyRatingBar"
+                app:layout_constraintBottom_toBottomOf="@+id/BTN_SubmitYourRating"
+                app:layout_constraintEnd_toStartOf="@+id/BTN_SubmitYourRating"
+                app:layout_constraintStart_toStartOf="@+id/ET_ReviewText"
+                app:layout_constraintTop_toTopOf="@+id/BTN_SubmitYourRating" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension1"
+                android:layout_marginTop="@dimen/dimension16"
+                android:background="#ff3d5a6f"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/BTN_SubmitYourRating" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension1"
+                android:layout_marginTop="@dimen/dimension24"
+                android:background="#ff000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textViewCustomFont24"
+                style="@style/revu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:text="آراء العملاء"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/RV_SpecialistReview"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginBottom="@dimen/dimension8"
+                app:layout_constraintBottom_toTopOf="@+id/buttonCustomFont7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont24"
+                app:layout_constraintVertical_bias="1.0" />
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/buttonCustomFont7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:layout_marginBottom="@dimen/dimension24"
+                android:background="@drawable/ptnn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.example.fontutil.ButtonCustomFont
+                    android:id="@+id/buttonCustomFont4"
+                    style="@style/mor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="@dimen/dimension16"
+                    android:paddingEnd="@dimen/dimension16"
+                    android:text="المزيد"
+                    app:font_name="@string/VIP_Rawy_Regular"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/IV_ButtonMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/buttonCustomFont4"
+                    app:layout_constraintEnd_toEndOf="@+id/buttonCustomFont4"
+                    app:layout_constraintTop_toTopOf="@+id/buttonCustomFont4"
+                    app:srcCompat="@drawable/ic_chevron_right_lite" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

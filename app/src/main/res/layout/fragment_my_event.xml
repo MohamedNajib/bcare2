@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_event"
+    tools:context=".ui.fragment.bottom_nav.MyEventFragment">
+
+
+
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="@dimen/dimension24"-->
+        <!--android:layout_marginTop="@dimen/dimension24"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:srcCompat="@drawable/ic_path_" />-->
+
+    <!--<com.example.fontutil.TextViewCustomFont-->
+        <!--android:id="@+id/textViewCustomFont11"-->
+        <!--style="@style/eve"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="@dimen/dimension8"-->
+        <!--android:layout_marginBottom="@dimen/dimension8"-->
+        <!--android:text="مواعيدي"-->
+        <!--app:font_name="@string/VIP_Rawy_Bold_Bold"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
+        <!--app:layout_constraintStart_toEndOf="@+id/imageView"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/imageView" />-->
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension0"
+            android:orientation="vertical">
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/TV_NextEventText"
+                style="@style/ev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/next_Appointment"
+                android:layout_marginStart="@dimen/dimension24"
+                app:font_name="@string/VIP_Rawy_Bold_Bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/RV_MyNextEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_upcoming_events" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textViewCustomFont14"
+                style="@style/resyc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginTop="@dimen/dimension8"
+                android:text="@string/previous_Appointment"
+                app:font_name="@string/VIP_Rawy_Bold_Bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/RV_MyEventLastDates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_last_events"
+                tools:spanCount="2" />
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:visibility="gone"
+        android:id="@+id/CL_BTN_Container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimension24"
+        android:layout_marginEnd="@dimen/dimension24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont11">
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont18"
+            style="@style/no_events"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ليس لديك مواعيد قادما حاليا"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.fontutil.ButtonCustomFont
+            android:id="@+id/BTN_MyEventNewBooking"
+            style="yyy"
+            android:layout_width="@dimen/dimension0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimension8"
+            android:layout_marginEnd="@dimen/dimension8"
+            android:background="@drawable/yy_btn"
+            android:text="حجز موعد"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/BTN_MyEventNearbySalon"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont18" />
+
+        <com.example.fontutil.ButtonCustomFont
+            android:id="@+id/BTN_MyEventNearbySalon"
+            style="@style/ttt"
+            android:layout_width="@dimen/dimension0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension8"
+            android:layout_marginTop="@dimen/dimension8"
+            android:background="@drawable/trans_btn"
+            android:drawableStart="@drawable/ic_path_ttt"
+            android:gravity="center"
+            android:paddingStart="@dimen/dimension16"
+            android:paddingEnd="@dimen/dimension16"
+            android:text="الصالونات القريبة"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/BTN_MyEventNewBooking"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont18"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_view"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

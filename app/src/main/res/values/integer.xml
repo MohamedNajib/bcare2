@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="Image_Locale_RTL_Mood">180</integer>
+
+    <integer name="Image_locale_LTR_Mood">0</integer>
+</resources>

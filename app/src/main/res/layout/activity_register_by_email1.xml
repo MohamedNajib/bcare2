@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sign_up_background"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".ui.activity.RegisterByEmail1">
+
+    <ScrollView
+        android:id="@+id/ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/IV_BackToMainRegisterByEmail1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back_s" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/dimension156"
+                android:layout_height="@dimen/dimension115"
+                android:layout_marginStart="@dimen/dimension8"
+                android:layout_marginTop="@dimen/dimension90"
+                android:layout_marginEnd="@dimen/dimension8"
+                android:src="@drawable/logo_w"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textView"
+                style="@style/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:text="@string/Create_an_account"
+                app:font_name="@string/VIP_Rawy_Bold_Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textView2"
+                style="@style/login_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginTop="@dimen/dimension8"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:gravity="center"
+                android:text="@string/Enter_your_email_and_choose_a_password"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textViewCustomFont26"
+                style="@style/ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/Email"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/ET_RegisterByEmail1"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/ET_RegisterByEmail1"
+                style="@style/__"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension45"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_weight="1"
+                android:background="@drawable/et_"
+                android:freezesText="true"
+                android:gravity="center"
+                android:hint="@string/Enter_your_phone_number"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:textColorHint="@color/hintColor"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont26" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textViewCustomFont29"
+                style="@style/ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/user_name"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/ET_RegisterByEmail1Name"
+                app:layout_constraintTop_toBottomOf="@+id/ET_RegisterByEmail1" />
+
+
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/ET_RegisterByEmail1Name"
+                style="@style/__"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/et_"
+                android:freezesText="true"
+                android:gravity="center"
+                android:hint="@string/user_name"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:textColorHint="@color/hintColor"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="@+id/ET_RegisterByEmail1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/ET_RegisterByEmail1"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont29" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/CL_BTN_ContinueRegisterByEmail1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/login_btn"
+                app:layout_constraintEnd_toEndOf="@+id/ET_RegisterByEmail1Name"
+                app:layout_constraintStart_toStartOf="@+id/ET_RegisterByEmail1Name"
+                app:layout_constraintTop_toBottomOf="@+id/ET_RegisterByEmail1Name">
+
+                <com.example.fontutil.TextViewCustomFont
+                    android:id="@+id/textViewCustomFont36"
+                    style="@style/zzzz"
+                    android:layout_width="@dimen/dimension0"
+                    android:layout_height="@dimen/dimension50"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/dimension8"
+                    android:paddingEnd="@dimen/dimension24"
+                    android:text="@string/Continue"
+                    app:font_name="@string/VIP_Rawy_Bold_Bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/IV_ContinueIconSignPyEm"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/IV_ContinueIconSignPyEm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_conte" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/TV_SignUP1_HaveAccountLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimension4"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textViewCustomFont"
+                app:layout_constraintTop_toTopOf="@+id/textViewCustomFont">
+
+                <com.example.fontutil.TextViewCustomFont
+                    style="@style/no_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/LogIn"
+                    app:font_name="@string/VIP_Rawy_Regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white" />
+            </LinearLayout>
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textViewCustomFont"
+                style="@style/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="32dp"
+                android:padding="@dimen/dimension4"
+                android:text="@string/have_an_account"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/TV_SignUP1_HaveAccountLink"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CL_BTN_ContinueRegisterByEmail1" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

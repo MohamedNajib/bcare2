@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dimension8"
+    app:cardElevation="@dimen/dimension8"
+    app:cardUseCompatPadding="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="@dimen/dimension106"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/IV_yellow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/yellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textViewCustomFont13"
+                style="@style/mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension16"
+                android:layout_marginTop="@dimen/dimension16"
+                android:text="ماي"
+                app:font_name="@string/VIP_Rawy_Bold_Bold"
+                app:layout_constraintEnd_toStartOf="@+id/textViewCustomFont15"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textViewCustomFont15"
+                style="@style/mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension8"
+                android:layout_marginEnd="@dimen/dimension16"
+                android:text="16"
+                app:font_name="@string/Dubai_Bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textViewCustomFont13"
+                app:layout_constraintTop_toTopOf="@+id/textViewCustomFont13" />
+
+            <com.example.fontutil.TextViewCustomFont
+                style="@style/am"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension8"
+                android:layout_marginEnd="@dimen/dimension8"
+                android:layout_marginBottom="@dimen/dimension8"
+                android:text="10:30 AM"
+                app:font_name="@string/Dubai_Light"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont13"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="@dimen/dimension0"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout5"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/TV_SalonServiceDetails"
+                style="@style/it"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension16"
+                android:layout_marginTop="@dimen/dimension8"
+                android:layout_marginEnd="24dp"
+                android:gravity="start"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="تصفيف لاشعر"
+                app:font_name="@string/VIP_Rawy_Bold_Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/TV_SalonAddress"
+                style="@style/addd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimension8"
+                android:drawableStart="@drawable/ic_path_location"
+                android:drawablePadding="@dimen/dimension8"
+                android:gravity="start"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="دبي, حي التحرير المسكن الرابع"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toStartOf="@+id/IV_SalonMobileNumber"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/TV_SalonServiceDetails"
+                app:layout_constraintTop_toBottomOf="@+id/TV_SalonServiceDetails" />
+
+            <ImageView
+                android:id="@+id/IV_SalonMobileNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimension16"
+                android:layout_marginBottom="@dimen/dimension8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_phone_icon_ev" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension16"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonCustomFont2"
+                app:layout_constraintStart_toEndOf="@+id/buttonCustomFont2"
+                app:layout_constraintTop_toTopOf="@+id/buttonCustomFont2"
+                app:srcCompat="@drawable/ic_location_icon_ev" />
+
+
+            <com.example.fontutil.ButtonCustomFont
+                android:id="@+id/buttonCustomFont2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimension28"
+                android:layout_marginStart="@dimen/dimension16"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/re"
+                android:textAllCaps="false"
+                android:text="@string/Reschedule"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TV_SalonAddress" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
+

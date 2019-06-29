@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/CL_Services"
+    android:layout_width="@dimen/dimension70"
+    android:layout_height="@dimen/dimension70"
+    android:background="@drawable/hear"
+    android:layout_marginTop="@dimen/dimension4"
+    android:layout_marginBottom="@dimen/dimension4"
+    android:layout_marginStart="@dimen/dimension4"
+    android:layout_marginEnd="@dimen/dimension4"
+    android:paddingBottom="@dimen/dimension8"
+    android:paddingTop="@dimen/dimension8"
+    android:paddingStart="@dimen/dimension16"
+    android:paddingEnd="@dimen/dimension16">
+
+    <ImageView
+        android:id="@+id/IV_ItemSectionsB"
+        android:layout_width="@dimen/dimension30"
+        android:layout_height="@dimen/dimension30"
+        app:layout_constraintBottom_toTopOf="@+id/TV_ItemSectionsB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_hand_mirror_a" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_ItemSectionsB"
+        style="@style/her"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IV_ItemSectionsB"
+        tools:text="ماكياج" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    tools:context=".ui.activity.RegisterActivity3"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/IV_BackToMainRegister3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back_s" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textViewCustomFont27"
+                style="@style/ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/Birth_Date"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintBottom_toTopOf="@+id/DatePickerRegister3"
+                app:layout_constraintStart_toStartOf="@+id/DatePickerRegister3"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <DatePicker
+                android:id="@+id/DatePickerRegister3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="24dp"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:theme="@style/datepicker"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont27" />
+
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textView"
+                style="@style/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:text="@string/Create_an_account"
+                app:font_name="@string/VIP_Rawy_Bold_Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textView2"
+                style="@style/login_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginTop="@dimen/dimension8"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:text="@string/Enter_personal_information"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textName"
+                style="@style/ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/Full_name"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/ET_SignUpName"
+                app:layout_constraintTop_toBottomOf="@+id/DatePickerRegister3" />
+
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/ET_SignUpName"
+                style="@style/EditTextStyle"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:hint="@string/Full_name"
+                android:inputType="text"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textName" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textCountry"
+                style="@style/ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/Country"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/SpinnerCountryRegister"
+                app:layout_constraintTop_toBottomOf="@+id/ET_SignUpName" />
+
+            <Spinner
+                android:id="@+id/SpinnerCountryRegister"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/et_"
+                android:overlapAnchor="false"
+                android:popupBackground="@android:color/transparent"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="@+id/ET_SignUpName"
+                app:layout_constraintStart_toStartOf="@+id/ET_SignUpName"
+                app:layout_constraintTop_toBottomOf="@+id/textCountry" />
+
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textCity"
+                style="@style/ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/City"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/SpinnerCityRegister"
+                app:layout_constraintTop_toBottomOf="@+id/SpinnerCountryRegister" />
+
+            <Spinner
+                android:id="@+id/SpinnerCityRegister"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/et_"
+                android:overlapAnchor="false"
+                android:popupBackground="@android:color/transparent"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="@+id/SpinnerCountryRegister"
+                app:layout_constraintStart_toStartOf="@+id/SpinnerCountryRegister"
+                app:layout_constraintTop_toBottomOf="@+id/textCity" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textAddress"
+                style="@style/ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/Address"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/ET_SignUpAddress"
+                app:layout_constraintTop_toBottomOf="@+id/SpinnerCityRegister" />
+
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/ET_SignUpAddress"
+                style="@style/EditTextStyle0"
+                android:layout_marginTop="4dp"
+                android:hint="@string/Address"
+                android:inputType="text"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="@+id/SpinnerCityRegister"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/SpinnerCityRegister"
+                app:layout_constraintTop_toBottomOf="@+id/textAddress" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textPassword"
+                style="@style/ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/Password"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/ET_SignUpPassword"
+                app:layout_constraintTop_toBottomOf="@+id/ET_SignUpAddress" />
+
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/ET_SignUpPassword"
+                style="@style/EditTextStyle0"
+                android:layout_marginTop="4dp"
+                android:hint="@string/Password"
+                android:inputType="textPassword"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="@+id/ET_SignUpAddress"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/ET_SignUpAddress"
+                app:layout_constraintTop_toBottomOf="@+id/textPassword" />
+
+            <ImageView
+                android:id="@+id/IV_ShowPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ET_SignUpPassword"
+                app:layout_constraintEnd_toEndOf="@+id/ET_SignUpPassword"
+                app:layout_constraintTop_toTopOf="@+id/ET_SignUpPassword"
+                app:srcCompat="@drawable/ic_show_p" />
+
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textRePassword"
+                style="@style/ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/confirm_password"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/ET_SignUpRePassword"
+                app:layout_constraintTop_toBottomOf="@+id/ET_SignUpPassword" />
+
+
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/ET_SignUpRePassword"
+                style="@style/EditTextStyle0"
+                android:layout_marginTop="4dp"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="@+id/ET_SignUpAddress"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/ET_SignUpAddress"
+                app:layout_constraintTop_toBottomOf="@+id/textRePassword" />
+
+            <ImageView
+                android:id="@+id/IV_ReShowPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ET_SignUpRePassword"
+                app:layout_constraintEnd_toEndOf="@+id/ET_SignUpRePassword"
+                app:layout_constraintTop_toTopOf="@+id/ET_SignUpRePassword"
+                app:srcCompat="@drawable/ic_show_p" />
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/CL_BTN_ContinueRegister3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/login_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/ET_SignUpRePassword"
+                app:layout_constraintStart_toStartOf="@+id/ET_SignUpRePassword"
+                app:layout_constraintTop_toBottomOf="@+id/ET_SignUpRePassword">
+
+                <com.example.fontutil.TextViewCustomFont
+                    android:id="@+id/textViewCustomFont36"
+                    style="@style/zzzz"
+                    android:layout_width="@dimen/dimension0"
+                    android:layout_height="@dimen/dimension50"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/dimension8"
+                    android:paddingEnd="@dimen/dimension24"
+                    android:text="@string/Continue"
+                    app:font_name="@string/VIP_Rawy_Bold_Bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/IV_ContinueIconSignPyPh3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/IV_ContinueIconSignPyPh3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_conte" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+    <ProgressBar
+        android:id="@+id/progress_view"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+</android.support.constraint.ConstraintLayout>

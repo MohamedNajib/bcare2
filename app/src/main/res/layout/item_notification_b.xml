@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/tap_blue"
+    android:layout_marginStart="@dimen/dimension8"
+    android:layout_marginEnd="@dimen/dimension8"
+    android:layout_marginTop="@dimen/dimension8"
+    app:cardCornerRadius="@dimen/dimension2">
+
+   <android.support.constraint.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <com.example.fontutil.TextViewCustomFont
+           android:id="@+id/textViewCustomFont56"
+           style="@style/_am"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="8dp"
+           android:layout_marginEnd="8dp"
+           android:text="12:00 AM"
+           app:font_name="@string/Dubai_Light"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+
+       <com.example.fontutil.TextViewCustomFont
+           android:id="@+id/textViewCustomFont55"
+           style="@style/nmn"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="8dp"
+           android:layout_marginTop="8dp"
+           android:text="قام طريك باستلام الخدمة"
+           app:font_name="@string/VIP_Rawy_Bold_Bold"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+
+       <com.example.fontutil.TextViewCustomFont
+           style="@style/mvm"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="8dp"
+           android:layout_marginTop="8dp"
+           android:layout_marginEnd="24dp"
+           android:layout_marginBottom="8dp"
+           app:font_name="@string/VIP_Rawy_Regular"
+           android:text=" المساحة، لقد تم توليد هذا النص من مولد النص  \nالعربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من "
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toStartOf="@+id/imageView18"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont55" />
+
+       <ImageView
+           android:id="@+id/imageView18"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="8dp"
+           android:layout_marginEnd="16dp"
+           android:background="@drawable/ic_notification_"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont56" />
+
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginEnd="8dp"
+           android:background="@drawable/ic_path_tt"
+           app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont56"
+           app:layout_constraintEnd_toStartOf="@+id/textViewCustomFont56"
+           app:layout_constraintTop_toTopOf="@+id/textViewCustomFont56" />
+
+   </android.support.constraint.ConstraintLayout>
+
+
+</android.support.v7.widget.CardView>

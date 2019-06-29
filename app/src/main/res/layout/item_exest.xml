@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/dimension8"
+    android:layout_marginStart="@dimen/dimension8"
+    app:cardBackgroundColor="@color/backGroundItem"
+    app:cardCornerRadius="@dimen/dimension8"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/dimension16"
+        android:paddingEnd="@dimen/dimension16"
+        android:paddingTop="@dimen/dimension24"
+        android:paddingBottom="@dimen/dimension24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont13"
+            style="@style/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تصفيف لاشعر"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont113"
+            style="@style/tomo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ماي"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont15"
+            app:layout_constraintEnd_toStartOf="@+id/textViewCustomFont15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewCustomFont15" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/textViewCustomFont15"
+            style="@style/tomo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16"
+            app:font_name="@string/Dubai_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewCustomFont113"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont13" />
+
+        <com.example.fontutil.TextViewCustomFont
+            style="@style/ma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="10:30 AM"
+            app:font_name="@string/Dubai_Light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont15" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

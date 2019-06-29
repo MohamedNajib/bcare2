@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".ui.activity.LoginActivity">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/dimension156"
+                android:layout_height="@dimen/dimension115"
+                android:layout_marginStart="@dimen/dimension8"
+                android:layout_marginTop="@dimen/dimension90"
+                android:layout_marginEnd="@dimen/dimension8"
+                android:src="@drawable/logo_w"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textView"
+                style="@style/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:text="تسجيل الدخول"
+                app:font_name="@string/VIP_Rawy_Bold_Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textView2"
+                style="@style/login_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginTop="@dimen/dimension8"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:text="دخول عن طريق رقم الجوال"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <LinearLayout
+                android:id="@+id/layout_phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension50"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginTop="@dimen/dimension16"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:layoutDirection="ltr"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                <Spinner
+                    android:id="@+id/Spinner_LoginPhone"
+                    android:layout_width="@dimen/dimension62"
+                    android:layout_height="@dimen/dimension50"
+                    android:background="@drawable/spinner" />
+
+
+                <com.example.fontutil.EditTextCustomFont
+                    android:id="@+id/ET_LoginPhone"
+                    style="@style/__"
+                    android:layout_width="@dimen/dimension0"
+                    android:layout_height="@dimen/dimension50"
+                    android:layout_weight="1"
+                    android:background="@drawable/et_"
+                    android:freezesText="true"
+                    android:gravity="center"
+                    android:hint="ادخل رقم الهاتف"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:textColorHint="#ff808897"
+                    app:font_name="@string/VIP_Rawy_Regular" />
+
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="@dimen/dimension0"
+                android:layout_height="@dimen/dimension1"
+                android:layout_marginStart="@dimen/dimension8"
+                android:layout_marginTop="@dimen/dimension24"
+                android:background="@drawable/line"
+                app:layout_constraintEnd_toEndOf="@+id/layout_phoneNumber"
+                app:layout_constraintStart_toEndOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/layout_phoneNumber" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textView7"
+                style="@style/or"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension16"
+                android:paddingStart="@dimen/dimension24"
+                android:paddingEnd="@dimen/dimension24"
+                android:text="أو"
+                app:font_name="@string/VIP_Rawy_Bold_Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_phoneNumber" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="@dimen/dimension0"
+                android:layout_height="@dimen/dimension1"
+                android:layout_marginTop="@dimen/dimension24"
+                android:layout_marginEnd="@dimen/dimension8"
+                android:background="@drawable/line"
+                app:layout_constraintEnd_toStartOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="@+id/layout_phoneNumber"
+                app:layout_constraintTop_toBottomOf="@+id/layout_phoneNumber" />
+
+
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/ET_LoginEmail"
+                style="@style/EditTextStyle0"
+                android:hint="البريد الاكتروني"
+                android:inputType="textEmailAddress"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+
+            <com.example.fontutil.EditTextCustomFont
+                android:id="@+id/ET_LoginPassword"
+                style="@style/EditTextStyle0"
+                android:hint="كلمة المرور"
+                android:inputType="textPassword"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="@+id/ET_LoginEmail"
+                app:layout_constraintStart_toStartOf="@+id/ET_LoginEmail"
+                app:layout_constraintTop_toBottomOf="@+id/ET_LoginEmail" />
+
+            <com.example.fontutil.ButtonCustomFont
+                android:id="@+id/BTN_Login"
+                style="@style/login_btn"
+                android:layout_width="@dimen/dimension0"
+                android:layout_height="@dimen/dimension50"
+                android:layout_marginTop="@dimen/dimension16"
+                android:background="@drawable/login_btn"
+                android:text="تسجيل الدخول"
+                app:font_name="@string/VIP_Rawy_Bold_Bold"
+                app:layout_constraintEnd_toEndOf="@+id/ET_LoginPassword"
+                app:layout_constraintStart_toStartOf="@+id/ET_LoginPassword"
+                app:layout_constraintTop_toBottomOf="@+id/ET_LoginPassword" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/TV_Login_ForgotPasslink"
+                style="@style/no_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension8"
+                android:text="نسيت كلمة المرور"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintStart_toStartOf="@+id/BTN_Login"
+                app:layout_constraintTop_toBottomOf="@+id/BTN_Login" />
+
+            <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/TV_Login_CreateNewAccountLink"
+                style="@style/no_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension8"
+                android:layout_marginBottom="@dimen/dimension32"
+                android:text="ليس لديك حساب بعد, افتح واحدا"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/BTN_Login"
+                app:layout_constraintTop_toBottomOf="@+id/BTN_Login" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_view"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

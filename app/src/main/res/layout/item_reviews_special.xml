@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/CIV_SpecialistReviewImage"
+        android:layout_width="@dimen/dimension60"
+        android:layout_height="@dimen/dimension60"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/profile_i"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/RB_SpecialistReview"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:numStars="5"
+        android:rating="3"
+        android:stepSize="1"
+        android:theme="@style/RatingBar"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintEnd_toStartOf="@+id/textViewCustomFont25"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/CIV_SpecialistReviewImage"
+        app:layout_constraintTop_toTopOf="@+id/CIV_SpecialistReviewImage" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/textViewCustomFont25"
+        style="@style/oct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="10 Oct, 2018"
+        app:font_name="@string/Helvetica_Light"
+        app:layout_constraintBottom_toBottomOf="@+id/RB_SpecialistReview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/RB_SpecialistReview"
+        app:layout_constraintTop_toTopOf="@+id/RB_SpecialistReview" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_SpecialistReviewUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="كريم افندي"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/CIV_SpecialistReviewImage"
+        app:layout_constraintTop_toBottomOf="@+id/RB_SpecialistReview" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_SpecialistReviewDescription"
+        style="@style/nnn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق."
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintEnd_toEndOf="@+id/TV_SpecialistReviewUserName"
+        app:layout_constraintStart_toStartOf="@+id/TV_SpecialistReviewUserName"
+        app:layout_constraintTop_toBottomOf="@+id/TV_SpecialistReviewUserName" />
+
+    <com.example.fontutil.ButtonCustomFont
+        android:id="@+id/BTN_UnUseful"
+        style="@style/mmmm"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/vnn"
+        android:textAllCaps="false"
+        android:text="@string/Unuseful"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/TV_SpecialistReviewDescription"
+        app:layout_constraintTop_toBottomOf="@+id/TV_SpecialistReviewDescription" />
+
+    <com.example.fontutil.ButtonCustomFont
+        android:id="@+id/BTN_Useful"
+        style="@style/mmmm"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/ppo"
+        android:textAllCaps="false"
+        android:text="@string/useful"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintBottom_toBottomOf="@+id/BTN_UnUseful"
+        app:layout_constraintStart_toEndOf="@+id/BTN_UnUseful"
+        app:layout_constraintTop_toTopOf="@+id/BTN_UnUseful" />
+
+</android.support.constraint.ConstraintLayout>

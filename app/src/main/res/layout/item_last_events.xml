@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimension16"
+    android:layout_marginTop="@dimen/dimension8"
+    android:layout_marginEnd="@dimen/dimension16"
+    android:layout_marginBottom="@dimen/dimension8">
+
+    <ImageView
+        android:id="@+id/IV_SalonImage"
+        android:layout_width="@dimen/dimension106"
+        android:layout_height="0dp"
+        android:background="@drawable/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="@dimen/dimension0"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IV_SalonImage"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/IV_Background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/porderr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_ServiceDetails"
+            style="@style/it"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension16"
+            android:layout_marginEnd="24dp"
+            android:gravity="start"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="تصفيف لاشعر"
+            app:font_name="@string/VIP_Rawy_Bold_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_SalonAddress"
+            style="@style/addd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:drawableStart="@drawable/ic_path_location"
+            android:drawablePadding="@dimen/dimension8"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="دبي, حي التحرير المسكن الرابع"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/TV_ServiceDetails"
+            app:layout_constraintTop_toBottomOf="@+id/TV_ServiceDetails" />
+
+        <com.example.fontutil.ButtonCustomFont
+            android:id="@+id/buttonCustomFont2"
+            style="@style/ev_s"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimension28"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/dimension16"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/ev_pptn"
+            android:textAllCaps="false"
+            android:text="@string/Booking_again"
+            app:font_name="@string/VIP_Rawy_Regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TV_SalonAddress" />
+
+        <com.example.fontutil.TextViewCustomFont
+            android:id="@+id/TV_EventDate"
+            style="@style/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimension8"
+            android:text="افريل 2019, 8 "
+            app:layout_constraintBottom_toBottomOf="@+id/buttonCustomFont2"
+            app:layout_constraintEnd_toStartOf="@+id/buttonCustomFont2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/TV_SalonAddress"
+            app:layout_constraintTop_toTopOf="@+id/buttonCustomFont2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

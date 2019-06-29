@@ -1,0 +1,281 @@
+<resources>
+    <string name="app_name">BCare</string>
+
+    <string name="VIP_Rawy_Bold_Bold" translatable="false">VIP_Rawy_Bold_Bold.otf</string>
+    <string name="VIP_Rawy_Regular" translatable="false">VIP_Rawy_Regular.otf</string>
+    <string name="TypoGraphica" translatable="false">TypoGraphica.otf</string>
+    <string name="zahra_arabic" translatable="false">zahra_arabic.otf</string>
+    <string name="Dubai_Light" translatable="false">Dubai_Light.ttf</string>
+    <string name="Dubai_Bold" translatable="false">Dubai_Bold.ttf</string>
+    <string name="Dubai_Medium" translatable="false">Dubai_Medium.ttf</string>
+    <string name="Helvetica_Light" translatable="false">Helvetica_Light.ttf</string>
+    <string name="Trebuchet_MS" translatable="false">Trebuchet_MS.ttf</string>
+    <string name="VIPHakmRegular_VIPHakm" translatable="false">VIPHakmRegular_VIPHakm.ttf</string>
+
+    <string name="current_lang">en</string>
+    <string name="language">عربى</string>
+    <string name="lang">ar</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bottom_nav">BottomNavActivity</string>
+    <string name="title_activity_navigation">ActivityNavigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="twitter_consumer_key" translatable="false">sXYlasO1Jn3W8q3f8kWdFYBkW</string>
+    <string name="twitter_consumer_secret" translatable="false">COL9iTg6Hc5ARVea6XrrJBA9TJ4PFDOloJCHWzppXKqqZ0zbpw</string>
+
+    <string name="back4app_server_url" translatable="false">https://parseapi.back4app.com/</string>
+    <!-- Change the following strings as required -->
+    <string name="back4app_app_id" translatable="false">MJAYr4pxUsBBFKI86IuFLXxisSalFV680qfkP4NY</string>
+    <string name="back4app_client_key" translatable="false">7Xw0qEDQWdgevzRtpj7I5mEuEYeUF7fvAfta9fhP</string>
+    <string name="facebook_app_id" translatable="false">1901626319956973</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb1901626319956973</string>
+
+    <!-- Error Messag -->
+    <string name="Email_Error">Please Enter Correct Email…</string>
+
+
+    <!-- Bottom Nav -->
+    <string name="title_home" translatable="true">Home</string>
+    <string name="title_dashboard" translatable="true">My Appointment</string>
+    <string name="title_notifications" translatable="true">My Account</string>
+
+    <!-- Nav Drawer -->
+    <string name="menu_home" translatable="true">Services</string>
+    <string name="menu_gallery" translatable="true">Favorites</string>
+    <string name="menu_slideshow" translatable="true">Points</string>
+    <string name="menu_tools" translatable="true">Call Us</string>
+    <string name="menu_share" translatable="true">About Bcare</string>
+    <string name="menu_send" translatable="true">Change the Language</string>
+
+
+    <!-- MyEventFragment -->
+    <string name="previous_Appointment" translatable="true">Previous Appointment</string>
+    <string name="next_Appointment" translatable="true">Next Appointment</string>
+
+    <!-- ProfileFragment -->
+    <string name="Point" translatable="true">Point</string>
+    <string name="Edit_description" translatable="true">Edit Description</string>
+    <string name="Enter_the_discount_code" translatable="true">Enter The Discount Code</string>
+    <string name="user_name" translatable="true">User Name</string>
+    <string name="Edit" translatable="true">Edit</string>
+    <string name="Email" translatable="true">E-mail</string>
+    <string name="password" translatable="true">password</string>
+    <string name="location" translatable="true">Location</string>
+    <string name="Receive_notifications" translatable="true">Receive Notifications</string>
+
+
+    <!-- RegisterActivity -->
+    <string name="Create_an_account" translatable="true">Create an Account</string>
+    <string name="Create_an_account_with_your_mobile_number" translatable="true">Create an Account With your Mobile Number</string>
+    <string name="Create_an_account_by_phone_number" translatable="true">Create an Account by Phone Number</string>
+    <string name="Create_an_account_by_email" translatable="true">Create an Account by Email</string>
+    <string name="LogIn" translatable="true">Log in</string>
+    <string name="have_an_account" translatable="true">have an account ,</string>
+    <string name="or" translatable="true">OR</string>
+    <string name="via_social_media" translatable="true">Via Social Media</string>
+
+    <!-- RegisterActivity1 -->
+    <string name="with_your_mobile_number" translatable="true">With your Mobile Number</string>
+    <string name="Continue" translatable="true">Continue</string>
+    <string name="Enter_your_phone_number" translatable="true">Enter Your Phone Number</string>
+    <string name="phone_number" translatable="true">Phone Number</string>
+
+    <!-- RegisterActivity2 -->
+    <string name="Confirm_phone_number" translatable="true">Confirm Phone Number</string>
+    <string name="Enter_the_code_that_you_received_in_a_text_message" translatable="true">Enter the Code that you Received in a text Message</string>
+    <string name="confirm" translatable="true">Confirm</string>
+    <string name="verify_your_email" translatable="true">Verify Your Email</string>
+    <string name="Enter_the_code_sent_to_your_email_to_confirm" translatable="true">Enter the code sent to your email to confirm</string>
+
+    <!-- RegisterActivity3 -->
+    <string name="Enter_personal_information" translatable="true">Enter Personal Information</string>
+    <string name="Full_name" translatable="true">Full Name</string>
+    <string name="Country" translatable="true">Country</string>
+    <string name="City" translatable="true">City</string>
+    <string name="Address" translatable="true">Address</string>
+    <string name="Password" translatable="true">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="Birth_Date" translatable="true">Birth Date</string>
+
+
+    <!-- RegisterByEmail1 -->
+    <string name="Enter_your_email_and_choose_a_password" translatable="true">Enter Your E-mail and Choose a Password</string>
+
+
+    <!-- ForgotPasswordActivityStep1 -->
+    <string name="Description_retrieve_pass" translatable="true">To retrieve your password.
+        You will receive an email containing instructions on how to reset your password reset.
+        If you're having trouble resetting your password, contact us or send us an email</string>
+    <string name="Forgot_password" translatable="true">Forgot Password</string>
+    <string name="Restore_password" translatable="true">Restore password</string>
+    <string name="do_not_have_an_account_yet_open_one" translatable="true">do Not Have Account Yet, Create One</string>
+
+    <!-- ForgotPasswordActivityStep2 -->
+    <string name="sent_succesfully" translatable="true">Sent Successfully</string>
+    <string name="Please_check_your_mailbox" translatable="true">Please Check Your Mailbox, You'll Find a Link to Reset Your Account Password</string>
+    <string name="ending" translatable="true">Ending</string>
+
+    <!-- LoginMainActivity -->
+    <string name="Choose_the_method_that_is_right_for_you" translatable="true">Choose the Method That is Right For You</string>
+    <string name="By_telephone_number" translatable="true">By Phone Number</string>
+    <string name="By_Email" translatable="true">By Email</string>
+    <string name="do_Not_Have_an_Account_Yet" translatable="true">do Not Have Account</string>
+    <string name="Create_One" translatable="true">Create One</string>
+
+    <!-- LoginPyPhoneActivity -->
+    <string name="Login_via_mobile_number">Login Via Phone number</string>
+
+    <!-- LoginPyEmailActivity -->
+    <string name="Email_Or_UserName" translatable="true">Email Or User Name</string>
+    <string name="Login_via_Emaile">Login Via Email Address</string>
+
+    <!-- AtHomeBookingTap -->
+    <string name="Times_available" translatable="true">Times Available</string>
+    <string name="Select_Specialist" translatable="true">Select Specialist</string>
+    <string name="Book_now" translatable="true">Booking now</string>
+
+    <!-- UserHomeFragment -->
+    <string name="Specialists" translatable="true">Specialists</string>
+    <string name="see_more" translatable="true">see more</string>
+
+    <!-- AboutTapFragment -->
+    <string name="Our_pages_on_social_networking_sites" translatable="true">Our Pages on Social Networking Sites</string>
+    <string name="Geographical_location" translatable="true">Geographical Location</string>
+    <string name="Our_specialists" translatable="true">Our specialists</string>
+
+    <!-- RatingsTapFragment -->
+    <string name="Specialist_values" translatable="true">Specialist values</string>
+    <string name="Write_your_review_in_the_app_here" translatable="true">Write Your Review in the App Here</string>
+    <string name="Customer_opinions" translatable="true">Customer Opinions</string>
+    <string name="Submit_your_rating" translatable="true">Submit your rating</string>
+    <string name="Mor" translatable="true">Mor</string>
+
+
+    <!-- ServicesTapFragment -->
+    <string name="Discount_code" translatable="true">Discount Code</string>
+    <string name="Paste_or_type_the_code_here" translatable="true">Paste or type the code here</string>
+    <string name="Choose_the_state" translatable="true">Choose the State</string>
+
+    <!-- GenderActivity -->
+    <string name="Choose_Salon_Type" translatable="true">Choose Salon Type</string>
+    <string name="Choose_by_age_or_gender" translatable="true">Choose by age or gender</string>
+    <string name="women" translatable="true">Women</string>
+    <string name="Men" translatable="true">Men</string>
+    <string name="Children" translatable="true">Children</string>
+
+    <!-- SalonActivity -->
+    <string name="Saloon_Pictures" translatable="true">Saloon Pictures</string>
+
+    <!-- item_select_salon -->
+    <string name="Appointment_Booking" translatable="true">Appointment Booking</string>
+    <string name="Fans" translatable="true">Fans</string>
+    <string name="begain_from" translatable="true">Begin From</string>
+
+    <!-- item_upcoming_events -->
+    <string name="Reschedule" translatable="true">Reschedule</string>
+
+    <!-- item_reviews_special -->
+    <string name="useful" translatable="true">Useful</string>
+    <string name="Unuseful" translatable="true">Un Useful</string>
+
+    <!-- item_new_order -->
+    <string name="ok" translatable="true">Ok</string>
+    <string name="cancel" translatable="true">Cancel</string>
+    
+    <!-- item_last_events -->
+    <string name="Booking_again" translatable="true">Booking Again</string>
+
+    <!-- item_discounts -->
+    <string name="discount" translatable="true">Discount</string>
+    <string name="check_data" translatable="true">Check your data</string>
+    <string name="salon_about" translatable="true">About salon</string>
+    <string name="salon_services" translatable="true">Salon services</string>
+    <string name="salon_reviews" translatable="true">Salon reviews</string>
+
+    <string name="my_account">My Account</string>
+    <string name="my_appointments">My Appointments</string>
+
+
+    <!-- Toast -->
+    <string name="Choose_Gender_Type" translatable="true">Choose Gender Type</string>
+
+    <!-- BookingActivity -->
+    <string name="at_salon" translatable="true">At Salon</string>
+    <string name="at_home" translatable="true">At Home</string>
+
+    <!-- SalonActivity -->
+    <string name="About_the_salon" translatable="true">About the Salon</string>
+    <string name="Services" translatable="true">Services</string>
+    <string name="Ratings" translatable="true">Ratings</string>
+
+    <!-- ReviewsSpecialFragment -->
+    <string name="The_description_must" translatable="true">The description must be at least 10 characters.</string>
+
+    <!--  -->
+    <string name="Logout" translatable="true">Sign Out</string>
+
+    <!-- Dialog -->
+    <string name="Booking_successful" translatable="true">Booking Successful</string>
+
+    <!-- ConfirmationFragment -->
+    <string name="Confirm_appointment" translatable="true">Confirm Appointment</string>
+    <string name="service_type" translatable="true">Service Type</string>
+    <string name="Date_of_appointment" translatable="true">Date of appointment</string>
+    <string name="To_confirm_the_request" translatable="true">To confirm the request you will receive an SMS message</string>
+
+    <!-- DiscountCodeFragment -->
+    <string name="congratulations" translatable="true">Congratulations</string>
+    <string name="Got_discount" translatable="true">Got a Discount</string>
+    <string name="Select_Service" translatable="true">Select Service</string>
+
+    <!-- NotificationFragment -->
+    <string name="Notifications" translatable="true">Notifications</string>
+    <string name="New" translatable="true">New</string>
+    <string name="Today" translatable="true">Today</string>
+
+    <!--PointsActivity-->
+    <string name="Number_of_current_points" translatable="true">Number of Current Points</string>
+    <string name="Switch_points_score" translatable="true">Switch points score</string>
+    <string name="Switch_points_with_Presents" translatable="true">Switch points with Presents</string>
+
+    <!-- ReviewsSpecialFragment -->
+    <string name="Ask_for_the_service" translatable="true">Ask for the service</string>
+    <string name="Specialist_Rating" translatable="true">Specialist Rating</string>
+    <string name="Choose_services" translatable="true">Choose Services</string>
+
+    <!-- SalonServicesFragment -->
+    <string name="Choose_the_country" translatable="true">Choose the Country</string>
+    <string name="You_can_choose_more" translatable="true">You Can Choose More than One Services at Once</string>
+
+    <!-- SelectSalonFragment -->
+    <string name="Salons_arranged_by_the_nearest" translatable="true">Salons Arranged by the Nearest</string>
+    <string name="Select_Salon" translatable="true">Select Salon</string>
+    <string name="Filtering" translatable="true">Filtering</string>
+
+    <!-- ServiceProviderHomeFragment -->
+    <string name="welcome" translatable="true">Welcome</string>
+    <string name="The_application_combines" translatable="true">The Application Combines the Best Salons in the Area</string>
+    <string name="Withdraw_profits" translatable="true">Withdraw Profits</string>
+    <string name="Completed_applications" translatable="true">Completed Requests</string>
+    <string name="in_Implementation" translatable="true">In Implementation</string>
+    <string name="Canceled_Requests" translatable="true">Canceled Requests</string>
+    <string name="New_Requests" translatable="true">New Requests</string>
+    <string name="my_profits" translatable="true">My Profits</string>
+    <string name="My_stats" translatable="true">My Stats</string>
+
+    <!-- Popup -->
+    <string name="nearest" translatable="true">Nearest</string>
+    <string name="Top_rated" translatable="true">Top Rated</string>
+    <string name="best_price" translatable="true">best price</string>
+    <string name="Favorites" translatable="true">Favorites</string>
+    <string name="reserve_appointment" translatable="true">Reserve Appointment</string>
+
+</resources>

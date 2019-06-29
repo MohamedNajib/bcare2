@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/forgot_background"
+    tools:context=".ui.activity.RegisterActivity2">
+
+    <ImageView
+        android:id="@+id/IV_BackToMainRegisterRegister2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back_s" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/dimension200"
+        android:layout_height="@dimen/dimension115"
+        android:layout_marginStart="@dimen/dimension8"
+        android:layout_marginTop="@dimen/dimension90"
+        android:layout_marginEnd="@dimen/dimension8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_forgot" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TXT_Confirm_Code"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimension24"
+        android:layout_marginEnd="@dimen/dimension24"
+        android:text="@string/Confirm_phone_number"
+        app:font_name="@string/VIP_Rawy_Bold_Bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TXT_Description"
+        style="@style/login_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimension24"
+        android:layout_marginTop="@dimen/dimension8"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:gravity="center"
+        android:layout_marginEnd="24dp"
+        android:text="@string/Enter_the_code_that_you_received_in_a_text_message"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_Confirm_Code" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_Description">
+
+        <EditText
+            android:id="@+id/num1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/num2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/num3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/num4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/num5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <com.example.fontutil.ButtonCustomFont
+        android:id="@+id/BTN_ConfirmCodeRegister2"
+        style="@style/zzzz"
+        android:layout_width="@dimen/dimension0"
+        android:layout_height="@dimen/dimension50"
+        android:layout_marginStart="@dimen/dimension24"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="@dimen/dimension24"
+        android:background="@drawable/login_btn"
+        android:text="@string/confirm"
+        android:textAllCaps="false"
+        app:font_name="@string/VIP_Rawy_Bold_Bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+</android.support.constraint.ConstraintLayout>

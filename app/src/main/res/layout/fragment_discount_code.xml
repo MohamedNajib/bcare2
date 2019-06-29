@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backGround_SelectSalon"
+    tools:context=".ui.fragment.DiscountCodeFragment">
+
+    <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:id="@+id/constraintLayout6"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/review_background_"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent">-->
+
+        <!--<com.example.fontutil.TextViewCustomFont-->
+            <!--android:id="@+id/textViewCustomFont20"-->
+            <!--style="@style/rev"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="@dimen/dimension24"-->
+            <!--android:layout_marginTop="@dimen/dimension16"-->
+            <!--android:layout_marginBottom="@dimen/dimension16"-->
+            <!--android:text="كود الخصم"-->
+            <!--app:font_name="@string/VIP_Rawy_Bold_Bold"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toStartOf="@+id/IV_ReviewsPackIcon"-->
+            <!--app:layout_constraintHorizontal_bias="0.5"-->
+            <!--app:layout_constraintHorizontal_chainStyle="spread_inside"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/IV_ReviewsPackIcon"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="@dimen/dimension24"-->
+            <!--android:layout_marginEnd="@dimen/dimension24"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont20"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="0.5"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/textViewCustomFont20"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/textViewCustomFont20"-->
+            <!--app:srcCompat="@drawable/ic_chevron_right_black_24dp" />-->
+
+    <!--</android.support.constraint.ConstraintLayout>-->
+
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/textViewCustomFont42"
+        style="@style/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="الف مبروك "
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/textViewCustomFont43"
+        style="@style/hav_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="حصلت على خصم"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont42" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/textViewCustomFont44"
+        style="@style/per"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="30%"
+        app:font_name="@string/VIPHakmRegular_VIPHakm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont43" />
+
+    <com.example.fontutil.ButtonCustomFont
+        android:id="@+id/BTN_SelectService"
+        style="@style/sttt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/ptn_des"
+        android:text="اختر خدمة "
+        app:font_name="@string/VIP_Rawy_Bold_Bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont44" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

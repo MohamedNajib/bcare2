@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CLPOP"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="@dimen/dimension24"
+    android:layout_marginEnd="@dimen/dimension24"
+    android:background="@drawable/pop">
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_POPNear"
+        style="@style/pop_n"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="الأقرب"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintEnd_toStartOf="@+id/IV_POPNear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_POPTopRated"
+        style="@style/pop_n"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="الأعلى تقييما"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintEnd_toStartOf="@+id/IV_POPTopRated"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_POPNear" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_POPBestPrice"
+        style="@style/pop_n"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="أفضل سعر"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintEnd_toStartOf="@+id/IV_POPBestPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_POPTopRated" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_POPFavorites"
+        style="@style/pop_n"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:text="المفضلة"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/IV_POPFavorites"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_POPBestPrice" />
+
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/IV_POPNear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_POPNear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TV_POPNear"
+        app:srcCompat="@drawable/ic_lllo_pop" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/IV_POPTopRated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_POPTopRated"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TV_POPTopRated"
+        app:srcCompat="@drawable/ic_lllo_pop" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/IV_POPBestPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_POPBestPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TV_POPBestPrice"
+        app:srcCompat="@drawable/ic_lllo_pop" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/IV_POPFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_POPFavorites"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TV_POPFavorites"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_lllo_pop" />
+
+</android.support.constraint.ConstraintLayout>

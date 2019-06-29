@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Add this snippet to layer-list xml in drawable. -->
+    <item android:width="99dp" android:height="28dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="300dp"/>
+            <gradient android:type="linear" android:useLevel="false" android:startColor="#fffdcb33" android:endColor="#ffffb343" android:angle="-45" />
+            <item android:name="android:shadowColor">#29000000</item>
+            <!-- TextView shadow offsets do not respect scale. -->
+            <item android:name="android:shadowDx">0</item>
+            <item android:name="android:shadowDy">4</item>
+        </shape>
+    </item>
+</selector>

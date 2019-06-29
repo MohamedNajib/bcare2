@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/transparent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimension8"
+    android:layout_marginEnd="@dimen/dimension8">
+
+    <com.emedia.bcare.ui.custom.RoundRectCornerImageView
+        android:id="@+id/IV_SpecialistImage"
+        android:layout_width="@dimen/dimension100"
+        android:layout_height="@dimen/dimension100"
+        android:src="@drawable/rrr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_SpecialistName"
+        style="@style/ProfileText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="كامل علامة"
+        app:font_name="@string/VIP_Rawy_Bold_Bold"
+        app:layout_constraintStart_toStartOf="@+id/IV_SpecialistImage"
+        app:layout_constraintTop_toBottomOf="@+id/IV_SpecialistImage" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/TV_SpecialistSpecialty"
+        style="@style/__"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="خبير الشعر"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintStart_toStartOf="@+id/TV_SpecialistName"
+        app:layout_constraintTop_toBottomOf="@+id/TV_SpecialistName" />
+
+    <RatingBar
+        android:id="@+id/RB_SpecialistRat"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:numStars="5"
+        android:theme="@style/RatingBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/TV_SpecialistSpecialty"
+        app:layout_constraintTop_toBottomOf="@+id/TV_SpecialistSpecialty" />
+
+</android.support.constraint.ConstraintLayout>
