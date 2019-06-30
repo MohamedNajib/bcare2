@@ -127,20 +127,20 @@ public interface ApiServices {
                                    @Field("lang") String lang,
                                    @Field("salon_id") int salon_id,
                                    @Field("total_price") float total_price,
-                                   @Field("discount_percentage") int discount_percentage,
-                                   @Field("price_after_discount") float price_after_discount,
+                                   //@Field("discount_percentage") int discount_percentage,
+                                   //@Field("price_after_discount") float price_after_discount,
+                                   @Field("reservation_time") String reservation_time,
                                    @Field("reservation_date") String reservation_date,
                                    @Field("client_name") String client_name,
                                    @Field("client_mobile") String client_mobile,
                                    @Field("place") String place,
-                                   @Field("services_id[0]") List<String> services_id0,
-                                   @Field("services_id[1]") List<String> services_id1,
+                                   @Field("specialist_id") int specialist_id,
+                                   @Field("services_id") String services_id0,
                                    @Field("home_latitude") String home_latitude,
                                    @Field("home_longitude") String home_longitude,
-                                   @Field("building_number") int building_number,
-                                   @Field("flat_number") int flat_number,
-                                   @Field("landmark") String landmark,
-                                   @Field("specialist_id") int specialist_id);
+                                   @Field("building_number") String building_number,
+                                   @Field("flat_number") String flat_number,
+                                   @Field("landmark") String landmark);
 
     @POST("reserve")
     @FormUrlEncoded

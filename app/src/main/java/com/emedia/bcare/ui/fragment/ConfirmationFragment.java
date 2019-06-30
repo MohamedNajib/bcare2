@@ -206,25 +206,22 @@ public class ConfirmationFragment extends Fragment {
         showLoading();
         Call<SalonReserve> salonReserveCall = RequestSingletone.getInstance().getClient()
                 .create(ApiServices.class).
-                        salonReserve(SharedUser.getSharedUser().getToken(),
+                        homeReserve(SharedUser.getSharedUser().getToken(),
                                 ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
                                 ((HomeActivity) getActivity()).getSalon().getId(),
                                 Float.parseFloat(((HomeActivity) getActivity()).getSalon().getMinPrice()),
-                                0,
-                                Float.parseFloat(((HomeActivity) getActivity()).getSalon().getMinPrice()),
-                                ((HomeActivity) getActivity()).getReserve.getReservation_date(),
-                                "",
-                                TVPhoneNumber.getText().toString().trim(),
+                                ((HomeActivity) getActivity()).getReserveTime(),
+                                ((HomeActivity) getActivity()).getReserveDate(),
+                                SharedUser.getSharedUser().getName(),
+                                SharedUser.getSharedUser().getPhone(),
                                 ((HomeActivity) getActivity()).getReserve.getPlace(),
-                                //getmServicesIdList(),
-                                ((HomeActivity) getActivity()).getListOfCats(),
+                                Integer.parseInt( ((HomeActivity) getActivity()).getReserve.getSpecialist_id()),
+                                "1,2",
                                 ((HomeActivity) getActivity()).getMapModel().getLat(),
                                 ((HomeActivity) getActivity()).getMapModel().getLng(),
                                 ((HomeActivity) getActivity()).getMapModel().getBuilding(),
                                 ((HomeActivity) getActivity()).getMapModel().getFlat(),
-                                ((HomeActivity) getActivity()).getMapModel().getLandmark(),
-                                Integer.parseInt( ((HomeActivity) getActivity()).getReserve.getSpecialist_id() )
-                        );
+                                ((HomeActivity) getActivity()).getMapModel().getLandmark());
         salonReserveCall.
                 enqueue(new Callback<SalonReserve>() {
                     @Override
@@ -246,6 +243,46 @@ public class ConfirmationFragment extends Fragment {
                         hideLoading();
                     }
                 });
+
+
+        //Call<SalonReserve> salonReserveCall = RequestSingletone.getInstance().getClient()
+        //        .create(ApiServices.class).
+        //                salonReserve(SharedUser.getSharedUser().getToken(),
+        //                        ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
+        //                        ((HomeActivity) getActivity()).getSalon().getId(),
+        //                        Float.parseFloat(((HomeActivity) getActivity()).getSalon().getMinPrice()),
+        //                        0,
+        //                        Float.parseFloat(((HomeActivity) getActivity()).getSalon().getMinPrice()),
+        //                        ((HomeActivity) getActivity()).getReserve.getReservation_date(),
+        //                        "",
+        //                        TVPhoneNumber.getText().toString().trim(),
+        //                        ((HomeActivity) getActivity()).getReserve.getPlace(),
+        //                        //getmServicesIdList(),
+        //                        ((HomeActivity) getActivity()).getListOfCats(),
+        //                        ((HomeActivity) getActivity()).getMapModel().getLat(),
+        //                        ((HomeActivity) getActivity()).getMapModel().getLng(),
+        //                        ((HomeActivity) getActivity()).getMapModel().getBuilding(),
+        //                        ((HomeActivity) getActivity()).getMapModel().getFlat(),
+        //                        ((HomeActivity) getActivity()).getMapModel().getLandmark(),
+        //                        Integer.parseInt( ((HomeActivity) getActivity()).getReserve.getSpecialist_id() )
+        //                );
+        //salonReserveCall.
+        //        enqueue(new Callback<SalonReserve>() {
+        //            @Override
+        //            public void onResponse(Call<SalonReserve> call, Response<SalonReserve> response) {
+        //                hideLoading();
+        //                if (response.isSuccessful()) {
+        //                    showToast(getContext(), "Congratulation");
+        //                    showDialog();
+        //                } else {
+        //                    showToast(getContext(), "NO");
+        //                }
+        //            }
+        //            @Override
+        //            public void onFailure(Call<SalonReserve> call, Throwable t) {
+        //                hideLoading();
+        //            }
+        //        });
     }
 
 
