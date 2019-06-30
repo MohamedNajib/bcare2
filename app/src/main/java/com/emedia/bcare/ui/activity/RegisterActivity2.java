@@ -13,6 +13,7 @@ import com.emedia.bcare.data.model.api_model.checkcode.CheckCode;
 import com.emedia.bcare.data.model.api_model.checkcode.CheckCodeDatum;
 import com.emedia.bcare.data.rest.RetrofitClient;
 import com.example.fontutil.TextViewCustomFont;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -43,7 +44,7 @@ public class RegisterActivity2 extends AppCompatActivity {
     public static final String R2_USER_NAME = "UserName";
     public static final String R2_EMAIL = "email";
 
-
+    private String registerBy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,8 @@ public class RegisterActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_register2);
         ButterKnife.bind(this);
         pinView = findViewById(R.id.pinView);
+
+        registerBy = getIntent().getStringExtra(TO_REG_ACTIVITY2);
 
         switch (getIntent().getStringExtra(TO_REG_ACTIVITY2)) {
             case "ByEmail":
@@ -71,7 +74,7 @@ public class RegisterActivity2 extends AppCompatActivity {
         }
     }
 
-    private void checkCode(final String email, final String code, final String userName){
+    private void checkCode(final String email, final String code, final String userName) {
         Call<CheckCode> checkCodeCall = RetrofitClient.getInstance().getApiServices().checkCode(email, code);
         checkCodeCall.enqueue(new Callback<CheckCode>() {
             @Override

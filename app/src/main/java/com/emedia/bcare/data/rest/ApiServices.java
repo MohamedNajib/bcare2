@@ -150,6 +150,20 @@ public interface ApiServices {
                                     @Field("landmark") String landmark,
                                     @Field("specialist_id") int specialist_id);
 
+//    @POST("reserve")
+//    @FormUrlEncoded
+//    Call<SalonReserve> salonReserve(@Field("token") String token,
+//                                    @Field("lang") String lang,
+//                                    @Field("salon_id") int salon_id,
+//                                    @Field("total_price") float total_price,
+//                                    @Field("reservation_time") String reservation_time,
+//                                    @Field("reservation_date") String reservation_date,
+//                                    @Field("client_name") String client_name,
+//                                    @Field("client_mobile") String client_mobile,
+//                                    @Field("place") String place,
+//                                    @Field("services_id") String services_id0,
+//                                    @Field("specialist_id") int specialist_id);
+
     @POST("salonTimeSpecialist")
     @FormUrlEncoded
     Call<Booking> salonTimeSpecialist(@Field("token") String token,

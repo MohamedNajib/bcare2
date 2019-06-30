@@ -114,7 +114,7 @@ public class RegisterActivity3 extends AppCompatActivity {
     }
 
     private void signUpUser(String email, String password, String name, String address, String age,
-                            int city_id, int country_id, String code, String username){
+                            int city_id, int country_id, String code, final String username){
 
         Call<Register> registerCall = RetrofitClient.getInstance()
                 .getApiServices().userRegister(email, password, name, address, age, city_id, country_id, code, username);
@@ -127,6 +127,7 @@ public class RegisterActivity3 extends AppCompatActivity {
 
                         for (UserData userData : response.body().getData()) {
                             SharedUser.getSharedUser().saveClientRegisterData(userData);
+                            SharedUser.getSharedUser().setToken(userData.getUsersSocail().getAccessToken());
                         }
                         intentTo(RegisterActivity3.this, GenderActivity.class);
 
