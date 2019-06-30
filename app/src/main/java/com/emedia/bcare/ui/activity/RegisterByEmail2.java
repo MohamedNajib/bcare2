@@ -142,7 +142,7 @@ public class RegisterByEmail2 extends AppCompatActivity {
                                 }
                                 //intentTo(RegisterByEmail2.this, GenderActivity.class);
                                 Intent i = new Intent(RegisterByEmail2.this, RegisterVerifyActivity.class);
-                                i.putExtra(USER_Email, email);
+                                i.putExtra("email", email);
                                 i.putExtra(TO_REG_ACTIVITY2, "ByEmail");
                                 startActivity(i);
 

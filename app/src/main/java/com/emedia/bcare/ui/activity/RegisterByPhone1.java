@@ -83,6 +83,7 @@ public class RegisterByPhone1 extends AppCompatActivity {
 
                 break;
             case R.id.TV_SignUP1_HaveAccountLink:
+                startActivity(new Intent(RegisterByPhone1.this, LoginMainActivity.class));
                 break;
         }
     }

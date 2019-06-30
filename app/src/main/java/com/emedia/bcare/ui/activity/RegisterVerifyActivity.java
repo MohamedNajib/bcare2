@@ -125,7 +125,7 @@ public class RegisterVerifyActivity extends AppCompatActivity {
                         break;
 
                     case "ByPhone":
-                        checkCodePhone(getIntent().getStringExtra("mobile"), pinView.getText().toString(), getIntent().getStringExtra(USER_NAME));
+                        checkCodePhone(getIntent().getStringExtra("phone"), pinView.getText().toString(), getIntent().getStringExtra(USER_NAME));
                         break;
                 }
                 break;
