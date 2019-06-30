@@ -10,6 +10,10 @@
 
     </style>
 
+    <style name="PinV" parent="Theme.AppCompat.Light">
+        <item name="pinViewStyle">@style/PinWidget.PinView</item>
+    </style>
+
     <style name="datepicker" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:datePickerStyle">@android:style/Widget.DatePicker</item>
         <item name="colorPrimary">@color/white</item>
@@ -94,7 +98,7 @@
 
     <style name="pers">
         <item name="android:textColor">#ff10cbc4</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">10sp</item>
     </style>
 
     <style name="AppTabLayoutA" parent="Widget.Design.TabLayout">
@@ -181,7 +185,7 @@
 
     <style name="desc">
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:textSize">43sp</item>
+        <item name="android:textSize">36sp</item>
     </style>
 
     <style name="bu">
@@ -345,7 +349,7 @@
 
     <style name="__">
         <item name="android:textColor">#00413F</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 
@@ -432,22 +436,22 @@
 
     <style name="amn">
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="sdf">
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="con_n">
         <item name="android:textColor">#ff0ed6cf</item>
-        <item name="android:textSize">29sp</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
     <style name="mon">
         <item name="android:textColor">#ffe5e5e5</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="dmj">
@@ -457,7 +461,7 @@
 
     <style name="and">
         <item name="android:textColor">#ffe5e5e5</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">10sp</item>
     </style>
 
     <style name="ed">
@@ -538,7 +542,7 @@
 
     <style name="conf">
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">26sp</item>
     </style>
 
     <style name="ev">
@@ -559,12 +563,12 @@
 
     <style name="it">
         <item name="android:textColor">#ff2c2e3d</item>
-        <item name="android:textSize">21sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="addd">
         <item name="android:textColor">#ff808897</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="resyc">
@@ -574,7 +578,7 @@
 
     <style name="ev_s">
         <item name="android:textColor">#ff006cff</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="date">
@@ -599,7 +603,7 @@
 
     <style name="eedd_">
         <item name="android:textColor">#ff9eaabe</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="maneF">
@@ -615,12 +619,12 @@
 
     <style name="yy_pp">
         <item name="android:textColor">#ff433706</item>
-        <item name="android:textSize">27sp</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
     <style name="dialog">
         <item name="android:textColor">#ff3b3f52</item>
-        <item name="android:textSize">27sp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="requst_">
@@ -665,7 +669,7 @@
 
     <style name="newr">
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="_am">
@@ -686,7 +690,7 @@
 
     <style name="mvcb">
         <item name="android:textColor">#ff3b3f52</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="ttiimm">
@@ -786,7 +790,7 @@
 
     <style name="poi">
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:textSize">19sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="nnnum">
@@ -838,6 +842,5 @@
         <item name="android:textColor">#ff808897</item>
         <item name="android:textSize">12sp</item>
     </style>
-
 
 </resources>

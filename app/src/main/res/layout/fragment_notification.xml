@@ -23,7 +23,7 @@
             android:layout_marginStart="@dimen/dimension8"
             android:layout_marginTop="@dimen/dimension8"
             android:layout_marginBottom="@dimen/dimension8"
-            android:text="الإشعارات"
+            android:text="@string/Notifications"
             app:font_name="@string/VIP_Rawy_Bold_Bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/IV_ReviewsPackIcon"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimension24"
             android:layout_marginTop="@dimen/dimension16"
-            android:text="جديد"
+            android:text="@string/New"
             app:font_name="@string/VIP_Rawy_Regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimension24"
             android:layout_marginTop="@dimen/dimension16"
-            android:text="اليوم"
+            android:text="@string/Today"
             app:font_name="@string/VIP_Rawy_Regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerView4" />
@@ -119,6 +119,7 @@
             tools:itemCount="5"
             tools:listitem="@layout/item_notification_w" />
     </android.support.constraint.ConstraintLayout>
+
 
 
 

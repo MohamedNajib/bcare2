@@ -201,6 +201,7 @@
                 android:layout_marginStart="@dimen/dimension24"
                 android:layout_marginTop="@dimen/dimension16"
                 android:layout_marginEnd="@dimen/dimension24"
+                android:textAllCaps="false"
                 android:background="@drawable/ic_descound_btn"
                 android:text="@string/Enter_the_discount_code"
                 app:font_name="@string/VIP_Rawy_Regular"

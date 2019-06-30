@@ -27,6 +27,7 @@
         app:menu="@menu/activity_navigation_drawer" >
 
         <LinearLayout
+            android:id="@+id/LL_LogoutNav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -40,17 +41,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
-                android:text="تسجيل الخروج"
+                android:text="@string/Logout"
                 android:paddingStart="@dimen/_8sdp"
                 android:paddingEnd="@dimen/_8sdp"/>
 
             <ImageView
+                android:id="@+id/IV_Logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/logout_"/>
+                app:srcCompat="@drawable/logout_"/>
         </LinearLayout>
 
     </android.support.design.widget.NavigationView>
+
 
 </android.support.v4.widget.DrawerLayout>

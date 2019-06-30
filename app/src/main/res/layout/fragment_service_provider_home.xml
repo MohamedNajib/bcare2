@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimension24"
-                android:text="مرحبا بكم"
+                android:text="@string/welcome"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/IV_ProfileMessageIcon" />
@@ -70,7 +70,7 @@
                 style="@style/cont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="تطبيق يجمع أفضل الصالونات في المنطقة"
+                android:text="@string/The_application_combines"
                 app:font_name="@string/VIP_Rawy_Regular"
                 app:layout_constraintStart_toStartOf="@+id/textViewCustomFont2"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont2" />
@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimension24"
-                android:text="أرباحي"
+                android:text="@string/my_profits"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintStart_toStartOf="@+id/cont"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
@@ -130,7 +130,8 @@
                 android:background="@drawable/servi"
                 android:paddingStart="@dimen/dimension16"
                 android:paddingEnd="@dimen/dimension16"
-                android:text="سحب الأرباح"
+                android:text="@string/Withdraw_profits"
+                android:textAllCaps="false"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintBottom_toBottomOf="@+id/conmt"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -155,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimension24"
                 android:layout_marginTop="@dimen/dimension16"
-                android:text="قيد التنفيذ"
+                android:text="@string/in_Implementation"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -211,7 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimension24"
                 android:layout_marginTop="@dimen/dimension8"
-                android:text="احصائياتي"
+                android:text="@string/My_stats"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view3" />
@@ -240,13 +241,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/dimension8">
+                    >
 
                     <com.example.fontutil.TextViewCustomFont
                         style="@style/and"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="الطلبات المنجزة"
+                        android:text="@string/Completed_applications"
                         app:font_name="@string/VIP_Rawy_Regular" />
 
                     <com.example.fontutil.TextViewCustomFont
@@ -269,7 +270,7 @@
                         style="@style/and"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="قيد التنفيذ"
+                        android:text="@string/in_Implementation"
                         app:font_name="@string/VIP_Rawy_Regular" />
 
                     <com.example.fontutil.TextViewCustomFont
@@ -293,7 +294,7 @@
                         style="@style/and"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="طلبات ملغية"
+                        android:text="@string/Canceled_Requests"
                         app:font_name="@string/VIP_Rawy_Regular" />
 
                     <com.example.fontutil.TextViewCustomFont
@@ -309,37 +310,35 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout16"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimension8"
+                android:layout_marginEnd="8dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="@+id/linearLayout14"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
                 app:layout_constraintStart_toEndOf="@+id/linearLayout14"
                 app:layout_constraintTop_toTopOf="@+id/linearLayout14">
 
                 <ProgressBar
                     style="@style/MyProgressBarTwo"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimension8"
-                    android:layout_marginTop="@dimen/dimension8"
                     android:progress="70"
                     android:theme="@style/MyProgressBarTwo" />
 
                 <ProgressBar
                     style="@style/MyProgressBarTwo"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimension8"
                     android:layout_marginTop="@dimen/dimension8"
                     android:progress="50"
                     android:theme="@style/MyProgressBarTwo" />
 
                 <ProgressBar
                     style="@style/MyProgressBarTwo"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimension8"
                     android:layout_marginTop="@dimen/dimension8"
                     android:progress="30"
                     android:theme="@style/MyProgressBarTwo" />
@@ -347,21 +346,20 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dimension24"
+                android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="@+id/linearLayout16"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout16"
                 app:layout_constraintTop_toTopOf="@+id/linearLayout16">
 
                 <com.example.fontutil.TextViewCustomFont
                     style="@style/pers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimension8"
                     android:text="70%"
                     app:font_name="@string/Dubai_Light" />
 
@@ -388,7 +386,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimension16"
-                android:text="طلبات جديدة"
+                android:text="@string/New_Requests"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintStart_toStartOf="@+id/linearLayout14"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout14" />

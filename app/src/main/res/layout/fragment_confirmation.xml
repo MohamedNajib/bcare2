@@ -15,7 +15,7 @@
         android:layout_marginStart="@dimen/dimension24"
         android:layout_marginTop="@dimen/dimension8"
         android:layout_marginEnd="@dimen/dimension8"
-        android:text="تأكيد الموعد"
+        android:text="@string/Confirm_appointment"
         app:font_name="@string/VIP_Rawy_Bold_Bold"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintHorizontal_bias="0.5"
@@ -58,8 +58,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_30sdp">
+            android:layout_height="wrap_content">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView"
@@ -226,7 +225,7 @@
                     android:layout_gravity="center_vertical"
                     android:paddingStart="@dimen/dimension4"
                     android:paddingEnd="@dimen/dimension4"
-                    android:text=""
+                    android:text="250"
                     app:font_name="@string/Dubai_Bold" />
 
                 <com.example.fontutil.TextViewCustomFont
@@ -254,7 +253,7 @@
                 android:drawableStart="@drawable/ic_group_m"
                 android:gravity="center"
                 android:inputType="number"
-                android:hint="ادخل كود الخصم "
+                android:hint="@string/Enter_the_discount_code"
                 android:singleLine="true"
                 android:paddingStart="@dimen/dimension16"
                 android:paddingEnd="@dimen/dimension16"
@@ -269,7 +268,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="نوع الخدمه"
+                android:text="@string/service_type"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintStart_toStartOf="@+id/TV_ServiceType"
                 app:layout_constraintTop_toBottomOf="@+id/ET_DiscountCode" />
@@ -297,7 +296,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="تاريخ الموعد"
+                android:text="@string/Date_of_appointment"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintStart_toStartOf="@+id/TV_EventDate"
                 app:layout_constraintTop_toBottomOf="@+id/TV_ServiceType" />
@@ -343,7 +342,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="رقم الهاتف"
+                android:text="@string/phone_number"
                 app:font_name="@string/VIP_Rawy_Regular"
                 app:layout_constraintStart_toStartOf="@+id/TV_PhoneNumber"
                 app:layout_constraintTop_toBottomOf="@+id/TV_EventDate" />
@@ -355,7 +354,7 @@
                 android:layout_height="@dimen/dimension50"
                 android:background="@drawable/pttnn"
                 android:gravity="start|center_vertical"
-                android:hint="رقم الهاتف"
+                android:hint="@string/phone_number"
                 android:inputType="phone"
                 android:paddingStart="@dimen/dimension16"
                 android:paddingEnd="@dimen/dimension16"
@@ -388,10 +387,14 @@
             <com.example.fontutil.TextViewCustomFont
                 android:id="@+id/textView11"
                 style="@style/sms"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="@dimen/dimension24"
-                android:text="لتأكيد الطلب ستصلك رساله SMS"
+                android:layout_marginEnd="24dp"
+                android:gravity="center"
+                android:text="@string/To_confirm_the_request"
+                android:textAllCaps="false"
                 app:font_name="@string/VIP_Rawy_Regular"
                 app:layout_constraintEnd_toEndOf="@+id/TV_PhoneNumber"
                 app:layout_constraintStart_toStartOf="@+id/TV_PhoneNumber"
@@ -405,18 +408,14 @@
                 android:layout_marginTop="@dimen/dimension32"
                 android:background="@drawable/yyyy_pack"
                 android:layoutDirection="locale"
-                android:text="تأكيد"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/TV_PhoneNumber"
                 app:layout_constraintStart_toStartOf="@+id/TV_PhoneNumber"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-            <android.support.v4.widget.Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_30sdp"
-                app:layout_constraintTop_toBottomOf="@+id/BTN_ConfirmationRequest"
-                />
         </android.support.constraint.ConstraintLayout>
 
     </ScrollView>

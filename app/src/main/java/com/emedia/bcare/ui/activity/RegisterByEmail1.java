@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.emedia.bcare.R;
+import com.emedia.bcare.util.UserInputValidation;
 import com.example.fontutil.EditTextCustomFont;
 
 import java.util.Locale;
@@ -31,6 +32,11 @@ public class RegisterByEmail1 extends AppCompatActivity {
     @BindView(R.id.ET_RegisterByEmail1Name)
     EditTextCustomFont ETRegisterByEmail1Name;
 
+    // var
+    public static final String USER_Email = "USER_Email";
+    public static final String USER_NAME = "USER_NAME";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +59,19 @@ public class RegisterByEmail1 extends AppCompatActivity {
             case R.id.IV_BackToMainRegisterByEmail1:
                 intentTo(this, RegisterActivity.class);
                 break;
-            case R.id.CL_BTN_ContinueRegisterByEmail1:
-                Intent toRegisterActivity2 = new Intent(this, RegisterActivity2.class);
-                toRegisterActivity2.putExtra(TO_REG_ACTIVITY2, "ByEmail");
-                startActivity(toRegisterActivity2);
 
+            case R.id.CL_BTN_ContinueRegisterByEmail1:
+                if (!UserInputValidation.isValidMail(ETRegisterByEmail1.getText().toString().trim())) {
+                    ETRegisterByEmail1.setError(getResources().getString(R.string.Email_Error));
+                }else if (ETRegisterByEmail1Name.getText().toString().trim().equals("")){
+                    ETRegisterByEmail1Name.setError("Please Enter your Name");
+                }else {
+                    Intent toRegisterActivity2 = new Intent(this, RegisterActivity2.class);
+                    toRegisterActivity2.putExtra(TO_REG_ACTIVITY2, "ByEmail");
+                    toRegisterActivity2.putExtra(USER_Email, ETRegisterByEmail1.getText().toString().trim());
+                    toRegisterActivity2.putExtra(USER_NAME, ETRegisterByEmail1Name.getText().toString().trim());
+                    startActivity(toRegisterActivity2);
+                }
                 break;
         }
     }

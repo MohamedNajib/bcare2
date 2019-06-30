@@ -48,14 +48,13 @@
 
     <!--</android.support.constraint.ConstraintLayout>-->
 
-
     <com.example.fontutil.TextViewCustomFont
         android:id="@+id/textViewCustomFont42"
         style="@style/desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="الف مبروك "
+        android:text="@string/congratulations"
         app:font_name="@string/VIP_Rawy_Regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +65,7 @@
         style="@style/hav_des"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="حصلت على خصم"
+        android:text="@string/Got_discount"
         app:font_name="@string/VIP_Rawy_Regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -91,15 +90,17 @@
         style="@style/sttt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/ptn_des"
-        android:text="اختر خدمة "
+        android:text="@string/Select_Service"
         app:font_name="@string/VIP_Rawy_Bold_Bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont44" />
+
 
 
 

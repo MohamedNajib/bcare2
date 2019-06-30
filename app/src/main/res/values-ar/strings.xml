@@ -14,6 +14,7 @@
     <string name="title_home" translatable="true">الرئيسيه</string>
     <string name="title_dashboard" translatable="true">مواعيدي</string>
     <string name="title_notifications" translatable="true">حسابي</string>
+    <string name="control_Board" translatable="true">لوحة التحكم</string>
 
     <!-- Nav Drawer -->
     <string name="menu_home" translatable="true">الخدمات</string>

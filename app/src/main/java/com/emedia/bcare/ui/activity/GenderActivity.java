@@ -24,28 +24,27 @@ import static com.emedia.bcare.util.HelperMethod.showToast;
 
 public class GenderActivity extends AppCompatActivity {
 
-    @BindView(R.id.imageView)
-    ImageView imageView;
-    @BindView(R.id.textView)
-    TextViewCustomFont textView;
-    @BindView(R.id.textView2)
-    TextViewCustomFont textView2;
-    @BindView(R.id.BTN_Women)
-    ButtonCustomFont BTNWomen;
-    @BindView(R.id.BTN_Men)
-    ButtonCustomFont BTNMen;
-    @BindView(R.id.BTN_Children)
-    ButtonCustomFont BTNChildren;
-    @BindView(R.id.textViewCustomFont36)
-    TextViewCustomFont textViewCustomFont36;
-    @BindView(R.id.IV_ContinueIcon)
-    ImageView IVContinueIcon;
-    @BindView(R.id.CL_GenderContinue)
-    ConstraintLayout CLGenderContinue;
-
     //var
     public static int mGender = 0;
 
+    @BindView(R.id.TV_BTN_WomenText)
+    TextViewCustomFont TVBTNWomenText;
+    @BindView(R.id.TV_BTN_MenText)
+    TextViewCustomFont TVBTNMenText;
+
+    @BindView(R.id.IV_BTN_Women)
+    ImageView IVBTNWomen;
+    @BindView(R.id.IV_BTN_Men)
+    ImageView IVBTNMen;
+
+    @BindView(R.id.BTN_Children)
+    ButtonCustomFont BTNChildren;
+    @BindView(R.id.BTN_Women)
+    ConstraintLayout BTNWomen;
+    @BindView(R.id.BTN_Men)
+    ConstraintLayout BTNMen;
+    @BindView(R.id.IV_GenderBackIcon)
+    ImageView IVGenderBackIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +53,10 @@ public class GenderActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         if (Locale.getDefault().getLanguage().equals("ar")) {
-            IVContinueIcon.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+            IVGenderBackIcon.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
-            IVContinueIcon.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
+            IVGenderBackIcon.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+
         }
     }
 
@@ -66,51 +66,64 @@ public class GenderActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.BTN_Women, R.id.BTN_Men, R.id.BTN_Children, R.id.CL_GenderContinue})
+    @OnClick({R.id.BTN_Women, R.id.BTN_Men, R.id.BTN_Children, R.id.BTN_ContinueButton, R.id.IV_GenderBackIcon})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.BTN_Women:
                 mGender = 1;
-                setButtonStates(BTNWomen, R.drawable.ic_woman_g, R.drawable.et_w, R.color.Green);
-                setButtonStates(BTNMen, R.drawable.ic_man, R.drawable.et_f, R.color.white);
-                BTNChildren.setBackground(this.getResources().getDrawable(R.drawable.et_f));
-                BTNChildren.setTextColor(this.getResources().getColor(R.color.white));
+                BTNWomen.setBackground(getResources().getDrawable(R.drawable.gender_butt_g));
+                BTNMen.setBackground(getResources().getDrawable(R.drawable.gender_butt));
+                BTNChildren.setBackground(getResources().getDrawable(R.drawable.gender_butt));
+
+                IVBTNWomen.setImageDrawable(getResources().getDrawable(R.drawable.ic_woman_g));
+                IVBTNMen.setImageDrawable(getResources().getDrawable(R.drawable.ic_man));
+
+                TVBTNWomenText.setTextColor(getResources().getColor(R.color.gre));
+                TVBTNMenText.setTextColor(getResources().getColor(R.color.itemGray));
+                BTNChildren.setTextColor(getResources().getColor(R.color.itemGray));
                 break;
 
             case R.id.BTN_Men:
                 mGender = 2;
-                setButtonStates(BTNMen, R.drawable.ic_man_g, R.drawable.et_w, R.color.Green);
-                setButtonStates(BTNWomen, R.drawable.ic_woman, R.drawable.et_f, R.color.white);
-                BTNChildren.setBackground(this.getResources().getDrawable(R.drawable.et_f));
-                BTNChildren.setTextColor(this.getResources().getColor(R.color.white));
+                BTNMen.setBackground(getResources().getDrawable(R.drawable.gender_butt_g));
+                BTNWomen.setBackground(getResources().getDrawable(R.drawable.gender_butt));
+                BTNChildren.setBackground(getResources().getDrawable(R.drawable.gender_butt));
+
+                IVBTNWomen.setImageDrawable(getResources().getDrawable(R.drawable.ic_woman));
+                IVBTNMen.setImageDrawable(getResources().getDrawable(R.drawable.ic_man_g));
+
+                TVBTNMenText.setTextColor(getResources().getColor(R.color.gre));
+                TVBTNWomenText.setTextColor(getResources().getColor(R.color.itemGray));
+                BTNChildren.setTextColor(getResources().getColor(R.color.itemGray));
                 break;
 
             case R.id.BTN_Children:
                 mGender = 3;
-                setButtonStates(BTNWomen, R.drawable.ic_woman, R.drawable.et_f, R.color.white);
-                BTNChildren.setBackground(this.getResources().getDrawable(R.drawable.et_w));
-                BTNChildren.setTextColor(this.getResources().getColor(R.color.Green));
-                setButtonStates(BTNMen, R.drawable.ic_man, R.drawable.et_f, R.color.white);
+                BTNChildren.setBackground(getResources().getDrawable(R.drawable.gender_butt_g));
+                BTNWomen.setBackground(getResources().getDrawable(R.drawable.gender_butt));
+                BTNMen.setBackground(getResources().getDrawable(R.drawable.gender_butt));
+
+                IVBTNWomen.setImageDrawable(getResources().getDrawable(R.drawable.ic_woman));
+                IVBTNMen.setImageDrawable(getResources().getDrawable(R.drawable.ic_man));
+
+                BTNChildren.setTextColor(getResources().getColor(R.color.gre));
+                TVBTNMenText.setTextColor(getResources().getColor(R.color.itemGray));
+                TVBTNWomenText.setTextColor(getResources().getColor(R.color.itemGray));
                 break;
 
-            case R.id.CL_GenderContinue:
+            case R.id.BTN_ContinueButton:
                 if (mGender != 0) {
                     startActivity(new Intent(this, HomeActivity.class));
-                    //((HomeActivity) getActivity()).changeFragment(1);
                 } else {
-                    showToast(this, "Choose Gender Type");
+                    showToast(this, getResources().getString(R.string.Choose_Gender_Type));
                 }
+                break;
+
+            case R.id.IV_GenderBackIcon:
+                //TODO: Gender Back Icon Clicked
                 break;
         }
     }
-
-    private void setButtonStates(ButtonCustomFont btn, int drawableEnd, int background, int textColor) {
-        Drawable img = this.getResources().getDrawable(drawableEnd);
-        btn.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
-        btn.setBackground(this.getResources().getDrawable(background));
-        btn.setTextColor(this.getResources().getColor(textColor));
-    }
-
     public static int getGenderType() {
         return mGender;
     }

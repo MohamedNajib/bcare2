@@ -20,6 +20,16 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/IV_GenderBackIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back_s" />
+
+            <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="@dimen/dimension140"
                 android:layout_height="@dimen/dimension100"
@@ -45,6 +55,63 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <com.example.fontutil.TextViewCustomFont
+                android:id="@+id/textView21"
+                style="@style/login_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/dimension24"
+                android:text="@string/Choose_by_age_or_gender"
+                app:font_name="@string/VIP_Rawy_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/BTN_Women"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimension50"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/gender_butt"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/BTN_Men"
+                app:layout_constraintEnd_toStartOf="@+id/BTN_Men"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/BTN_Men">
+
+                <com.example.fontutil.TextViewCustomFont
+                    android:id="@+id/TV_BTN_WomenText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="@string/women"
+                    android:textColor="@color/itemGray"
+                    app:font_name="@string/VIP_Rawy_Regular"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/IV_BTN_Women"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/IV_BTN_Women"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/TV_BTN_WomenText"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_woman" />
+            </android.support.constraint.ConstraintLayout>
+
+            <com.example.fontutil.TextViewCustomFont
                 android:id="@+id/textView2"
                 style="@style/login_description"
                 android:layout_width="wrap_content"
@@ -58,108 +125,87 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-            <com.example.fontutil.ButtonCustomFont
-                android:id="@+id/BTN_Women"
-                style="@style/women"
-                android:layout_width="@dimen/dimension0"
-                android:layout_height="@dimen/dimension50"
-                android:layout_marginStart="@dimen/dimension8"
-                android:layout_marginTop="@dimen/dimension32"
-                android:layout_marginEnd="@dimen/dimension24"
-                android:background="@drawable/et_f"
-                android:drawableEnd="@drawable/ic_woman"
-                android:gravity="center"
-                android:textAllCaps="false"
-                android:paddingStart="@dimen/dimension4"
-                android:paddingEnd="@dimen/dimension16"
-                android:text="@string/women"
-                android:textColor="@color/white"
-                app:font_name="@string/VIP_Rawy_Regular"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/BTN_Men"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-            <com.example.fontutil.ButtonCustomFont
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/BTN_Men"
-                style="@style/women"
-                android:layout_width="@dimen/dimension0"
+                android:layout_width="0dp"
                 android:layout_height="@dimen/dimension50"
-                android:layout_marginStart="@dimen/dimension24"
-                android:layout_marginTop="@dimen/dimension32"
-                android:layout_marginEnd="@dimen/dimension8"
-                android:background="@drawable/et_f"
-                android:drawableEnd="@drawable/ic_man"
-                android:gravity="center"
-                android:textAllCaps="false"
-                android:paddingStart="@dimen/dimension4"
-                android:paddingEnd="@dimen/dimension16"
-                android:text="@string/Men"
-                android:textColor="@color/white"
-                app:font_name="@string/VIP_Rawy_Regular"
-                app:layout_constraintEnd_toStartOf="@+id/BTN_Women"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/gender_butt"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/BTN_Children"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintStart_toEndOf="@+id/BTN_Women"
+                app:layout_constraintTop_toBottomOf="@+id/textView21">
+
+                <com.example.fontutil.TextViewCustomFont
+                    android:id="@+id/TV_BTN_MenText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="@string/Men"
+                    android:textColor="@color/itemGray"
+                    app:font_name="@string/VIP_Rawy_Regular"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/IV_BTN_Men"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/IV_BTN_Men"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/TV_BTN_MenText"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_man" />
+            </android.support.constraint.ConstraintLayout>
+
 
             <com.example.fontutil.ButtonCustomFont
                 android:id="@+id/BTN_Children"
                 style="@style/women"
                 android:layout_width="@dimen/dimension0"
                 android:layout_height="@dimen/dimension50"
-                android:layout_marginTop="@dimen/dimension8"
-                android:background="@drawable/et_f"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/gender_butt"
                 android:gravity="center"
-                android:textAllCaps="false"
                 android:text="@string/Children"
-                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textColor="@color/itemGray"
                 app:font_name="@string/VIP_Rawy_Regular"
-                app:layout_constraintEnd_toEndOf="@+id/BTN_Women"
-                app:layout_constraintStart_toStartOf="@+id/BTN_Men"
-                app:layout_constraintTop_toBottomOf="@+id/BTN_Women" />
+                app:layout_constraintBottom_toBottomOf="@+id/BTN_Men"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/BTN_Men"
+                app:layout_constraintTop_toTopOf="@+id/BTN_Men" />
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/CL_GenderContinue"
+
+            <com.example.fontutil.ButtonCustomFont
+                android:id="@+id/BTN_ContinueButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimension16"
-                android:layout_marginBottom="@dimen/dimension32"
-                android:background="@drawable/login_btn"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/gender_butt_g"
+                android:text="@string/ending"
+                android:textAllCaps="false"
+                app:font_name="@string/VIP_Rawy_Bold_Bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/BTN_Children"
-                app:layout_constraintStart_toStartOf="@+id/BTN_Children"
-                app:layout_constraintTop_toBottomOf="@+id/BTN_Children">
-
-                <com.example.fontutil.TextViewCustomFont
-                    android:id="@+id/textViewCustomFont36"
-                    style="@style/login_btn"
-                    android:layout_width="@dimen/dimension0"
-                    android:layout_height="@dimen/dimension50"
-                    android:layout_marginStart="16dp"
-                    android:gravity="start|center_vertical"
-                    android:paddingStart="@dimen/dimension24"
-                    android:paddingEnd="@dimen/dimension24"
-                    android:text="@string/Continue"
-                    app:font_name="@string/VIP_Rawy_Bold_Bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/IV_ContinueIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_pack" />
-
-
-            </android.support.constraint.ConstraintLayout>
-
+                app:layout_constraintStart_toStartOf="@+id/BTN_Women"
+                app:layout_constraintTop_toBottomOf="@+id/BTN_Men" />
 
         </android.support.constraint.ConstraintLayout>
+
     </ScrollView>
 
 

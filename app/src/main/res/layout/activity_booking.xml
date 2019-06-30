@@ -22,7 +22,7 @@
             android:id="@+id/iv_cal"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_16sdp"
-            android:src="@drawable/ic_calendar_com"
+            app:srcCompat="@drawable/ic_calendar_com"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

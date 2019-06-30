@@ -1,10 +1,13 @@
 package com.emedia.bcare.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.chaos.view.PinView;
 import com.emedia.bcare.R;
 import com.emedia.bcare.data.model.api_model.checkcode.CheckCode;
 import com.emedia.bcare.data.model.api_model.checkcode.CheckCodeDatum;
@@ -22,6 +25,8 @@ import retrofit2.Response;
 
 import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
 import static com.emedia.bcare.Constants.FragmentsKeys.TO_REG_ACTIVITY2;
+import static com.emedia.bcare.ui.activity.RegisterByEmail1.USER_Email;
+import static com.emedia.bcare.ui.activity.RegisterByEmail1.USER_NAME;
 import static com.emedia.bcare.util.HelperMethod.intentTo;
 import static com.emedia.bcare.util.HelperMethod.showToast;
 
@@ -34,11 +39,16 @@ public class RegisterActivity2 extends AppCompatActivity {
     @BindView(R.id.TXT_Description)
     TextViewCustomFont TXTDescription;
 
+    PinView pinView;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2);
         ButterKnife.bind(this);
+        pinView = findViewById(R.id.pinView);
 
         switch (getIntent().getStringExtra(TO_REG_ACTIVITY2)) {
             case "ByEmail":
@@ -59,7 +69,11 @@ public class RegisterActivity2 extends AppCompatActivity {
         }
     }
 
-    private void checkCode(String email, int code){
+    public static final String R2_USER_NAME = "UserName";
+    public static final String R2_EMAIL = "email";
+    public static final String R2_CODE = "code";
+
+    private void checkCode(final String email, final String code, final String userName){
         Call<CheckCode> checkCodeCall = RetrofitClient.getInstance().getApiServices().checkCode(email, code);
         checkCodeCall.enqueue(new Callback<CheckCode>() {
             @Override
@@ -69,11 +83,17 @@ public class RegisterActivity2 extends AppCompatActivity {
                         List<CheckCodeDatum> checkCodeData = response.body().getData();
                         for (CheckCodeDatum checkCodeDatum : checkCodeData) {
                             showToast(RegisterActivity2.this, checkCodeDatum.getEmail());
-                            intentTo(RegisterActivity2.this, RegisterActivity3.class);
+
+                            Intent toRegisterActivity3 = new Intent(RegisterActivity2.this, RegisterActivity3.class);
+                            toRegisterActivity3.putExtra(R2_USER_NAME, userName);
+                            toRegisterActivity3.putExtra(R2_EMAIL, email);
+                            toRegisterActivity3.putExtra(R2_CODE, code);
+                            startActivity(toRegisterActivity3);
                         }
 
                         intentTo(RegisterActivity2.this, RegisterActivity3.class);
                     } else {
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -94,7 +114,7 @@ public class RegisterActivity2 extends AppCompatActivity {
                 intentTo(this, RegisterActivity1.class);
                 break;
             case R.id.BTN_ConfirmCodeRegister2:
-                intentTo(this, RegisterActivity3.class);
+                checkCode(getIntent().getStringExtra(USER_Email), pinView.getText().toString(),getIntent().getStringExtra(USER_NAME));
                 break;
         }
     }

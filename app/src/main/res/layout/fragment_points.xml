@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="عدد نقاطي الحالي"
+                    android:text="@string/Number_of_current_points"
                     app:font_name="@string/VIP_Rawy_Bold_Bold" />
             </FrameLayout>
 
@@ -109,7 +109,7 @@
                     style="@style/point"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="نقطة"
+                    android:text="@string/Point"
                     app:font_name="@string/VIP_Rawy_Regular" />
 
             </LinearLayout>
@@ -133,7 +133,8 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/point_btn"
-                android:text="تبديل النقاط برصيد"
+                android:textAllCaps="false"
+                android:text="@string/Switch_points_score"
                 app:font_name="@string/VIP_Rawy_Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +147,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/point_btn"
-                android:text="تبديل النقاط بهدايا"
+                android:textAllCaps="false"
+                android:text="@string/Switch_points_with_Presents"
                 app:font_name="@string/VIP_Rawy_Regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/buttonCustomFont5"

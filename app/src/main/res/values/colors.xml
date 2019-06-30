@@ -36,7 +36,8 @@
 
     <color name="white">#FFFFFF</color>
 
-    <color name="itemGray">#ff9eaabe</color>
+    <color name="itemGray">#9FABBE</color>
+    <color name="gre">#25272E</color>
 
     <color name="item_notification_w">#E8EBFE</color>
 

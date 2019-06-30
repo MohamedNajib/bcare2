@@ -86,13 +86,14 @@ public class HomeActivity extends AppCompatActivity
                 case R.id.navigation_home:
                     fragment = new UserHomeFragment();
                     break;
-
                 case R.id.navigation_time:
                     fragment = new MyEventFragment();
                     break;
-
                 case R.id.navigation_account:
                     fragment = new ProfileFragment();
+                    break;
+                case R.id.control_Board:
+                    fragment = new ServiceProviderHomeFragment();
                     break;
             }
             replaceFragments(fragment, getSupportFragmentManager(), R.id.fragmentContainerA);

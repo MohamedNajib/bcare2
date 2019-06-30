@@ -11,4 +11,25 @@ public class UserInputValidation {
         return true;
     }
 
+    public static boolean isValidName (String name){
+        if (name.isEmpty() || name.length() < 3 || name.length() > 50){
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isValidPassword(String passwordInput) {
+        if (passwordInput.isEmpty() || passwordInput.length() < 7){
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isValidRePassword (String rePassword, String password){
+        if (rePassword.isEmpty() || !rePassword.contentEquals(password)){
+            return false;
+        }
+        return true;
+    }
+
 }

@@ -3,6 +3,7 @@ package com.emedia.bcare.cash;
 import android.content.SharedPreferences;
 
 import com.emedia.bcare.Config.BCareApp;
+import com.emedia.bcare.data.model.register.UserData;
 
 import static android.content.Context.MODE_PRIVATE;
 public class SharedUser {
@@ -19,6 +20,17 @@ public class SharedUser {
     private static final String COUNTRYID = "countryId";
     private static final String PHOTO = "photo";
 
+
+    private static final String U_TOKEN = "U_TOKEN";
+    private static final String U_NAME = "U_NAME";
+    private static final String U_USERNAME = "U_USERNAME";
+    private static final String U_EMAILE = "U_EMAILE";
+    private static final String U_AGE = "U_AGE";
+    private static final String U_ADDRESS = "U_ADDRESS";
+    private static final String U_CITY_ID = "U_CITY_ID";
+    private static final String U_COUNTRY_ID = "U_COUNTRY_ID";
+
+
     private SharedPreferences sharedPreferences;
 
     private SharedUser() {
@@ -29,6 +41,31 @@ public class SharedUser {
         return new SharedUser();
     }
 
+
+    public void saveClientRegisterData(UserData userData) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(U_NAME, userData.getName());
+        editor.putString(U_USERNAME, userData.getUsername());
+        editor.putString(U_EMAILE, userData.getEmail());
+        editor.putString(U_AGE, userData.getAge());
+        editor.putString(U_ADDRESS, userData.getAddress());
+        editor.putString(U_CITY_ID, userData.getCityId());
+        editor.putString(U_COUNTRY_ID, userData.getCityId());
+        editor.apply();
+    }
+
+    public UserData getClientRegisterData(){
+        return new UserData(
+                sharedPreferences.getString(U_NAME, null),
+                sharedPreferences.getString(U_USERNAME, null),
+                sharedPreferences.getString(U_EMAILE, null),
+                sharedPreferences.getString(U_AGE, null),
+                sharedPreferences.getString(U_ADDRESS, null),
+                sharedPreferences.getString(U_CITY_ID, null),
+                sharedPreferences.getString(U_COUNTRY_ID, null)
+        );
+    }
 
     public String getPhone() {
         return sharedPreferences.getString(PHONE, "");

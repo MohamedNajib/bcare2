@@ -1,5 +1,6 @@
 package com.emedia.bcare.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -11,15 +12,22 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.emedia.bcare.Config.BCareApp;
 import com.emedia.bcare.R;
 import com.emedia.bcare.adapter.CitesSpinnerAdapter;
 import com.emedia.bcare.adapter.CountrySpinnerAdapter;
+import com.emedia.bcare.cash.SharedUser;
 import com.emedia.bcare.data.model.api_model.cities.Cities;
 import com.emedia.bcare.data.model.api_model.cities.CitiesDatum;
 import com.emedia.bcare.data.model.api_model.countries.CountriesData;
 import com.emedia.bcare.data.model.api_model.countries.RegisterCountries;
+import com.emedia.bcare.data.model.register.Register;
+import com.emedia.bcare.data.model.register.UserData;
 import com.emedia.bcare.data.rest.RetrofitClient;
+import com.emedia.bcare.util.HelperMethod;
+import com.emedia.bcare.util.UserInputValidation;
 import com.example.fontutil.EditTextCustomFont;
 
 import java.util.Locale;
@@ -32,6 +40,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
+import static com.emedia.bcare.ui.activity.RegisterActivity2.R2_CODE;
+import static com.emedia.bcare.ui.activity.RegisterActivity2.R2_EMAIL;
+import static com.emedia.bcare.ui.activity.RegisterActivity2.R2_USER_NAME;
+import static com.emedia.bcare.ui.activity.RegisterByEmail1.USER_Email;
+import static com.emedia.bcare.util.HelperMethod.intentTo;
 import static com.emedia.bcare.util.HelperMethod.showToast;
 
 public class RegisterActivity3 extends AppCompatActivity {
@@ -62,7 +75,7 @@ public class RegisterActivity3 extends AppCompatActivity {
     private boolean isPasswordVisible;
     private int mCountryId;
     private int mCityId;
-    private String mDate;
+    //private String mDate;
 
 
 //    @BindView(R.id.ET_SignUpEmail)
@@ -99,6 +112,40 @@ public class RegisterActivity3 extends AppCompatActivity {
 //        initUI();
 //        handleUI();
 //        startTest();
+
+
+    }
+
+    private void signUpUser(String email, String password, String name, String address, String age,
+                            int city_id, int country_id, String code, String username){
+
+        Call<Register> registerCall = RetrofitClient.getInstance()
+                .getApiServices().userRegister(email, password, name, address, age, city_id, country_id, code, username);
+        registerCall.enqueue(new Callback<Register>() {
+            @Override
+            public void onResponse(Call<Register> call, Response<Register> response) {
+                try {
+                    if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
+                        Toast.makeText(BCareApp.getInstance().getContext(), "Success", Toast.LENGTH_SHORT).show();
+
+                        for (UserData userData : response.body().getData()) {
+                            SharedUser.getSharedUser().saveClientRegisterData(userData);
+                        }
+                        intentTo(RegisterActivity3.this, GenderActivity.class);
+
+                    } else {
+                        Toast.makeText(BCareApp.getInstance().getContext(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Register> call, Throwable t) {
+
+            }
+        });
     }
 
     /**
@@ -188,12 +235,26 @@ public class RegisterActivity3 extends AppCompatActivity {
             case R.id.IV_BackToMainRegister3:
                 break;
             case R.id.CL_BTN_ContinueRegister3:
-                int day = DatePickerRegister3.getDayOfMonth();
-                int month = DatePickerRegister3.getMonth() + 1;
-                int year = DatePickerRegister3.getYear();
 
-                mDate = day + "-" + month + "-" + year;
-                showToast(this, mDate);
+                if (!UserInputValidation.isValidPassword(ETSignUpPassword.getText().toString().trim())) {
+                    ETSignUpPassword.setError("Please Enter Strong Password..");
+
+                } else if (!UserInputValidation.isValidRePassword(ETSignUpRePassword.getText().toString().trim(),
+                        ETSignUpPassword.getText().toString().trim())) {
+                    ETSignUpRePassword.setError("Re Password Is not equal Password..");
+
+                }else {
+                    signUpUser(getIntent().getStringExtra(R2_EMAIL),
+                            ETSignUpPassword.getText().toString().trim(),
+                            ETSignUpName.getText().toString(),
+                            ETSignUpAddress.getText().toString(),
+                            getDate(),
+                            mCityId,
+                            mCountryId,
+                            getIntent().getStringExtra(R2_CODE),
+                            getIntent().getStringExtra(R2_USER_NAME));
+                }
+
                 break;
             case R.id.IV_ShowPassword:
                 togglePassVisibility(ETSignUpPassword);
@@ -202,6 +263,16 @@ public class RegisterActivity3 extends AppCompatActivity {
                 togglePassVisibility(ETSignUpRePassword);
                 break;
         }
+    }
+
+    private String getDate(){
+        int day = DatePickerRegister3.getDayOfMonth();
+        int month = DatePickerRegister3.getMonth() + 1;
+        int year = DatePickerRegister3.getYear();
+        String s_day = String.valueOf(day);
+        String s_month = String.valueOf(month);
+        String s_year = String.valueOf(year);
+        return s_day + s_month + s_year;
     }
 
     /**

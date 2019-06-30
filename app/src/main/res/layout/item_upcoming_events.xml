@@ -97,7 +97,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimension16"
-                android:layout_marginTop="@dimen/dimension8"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:gravity="start"
                 android:maxLines="1"
@@ -155,10 +155,11 @@
                 android:layout_height="@dimen/dimension28"
                 android:layout_marginStart="@dimen/dimension16"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/re"
-                android:textAllCaps="false"
                 android:text="@string/Reschedule"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text12"
                 app:font_name="@string/VIP_Rawy_Regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -169,4 +170,3 @@
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
-

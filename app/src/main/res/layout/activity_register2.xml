@@ -7,6 +7,8 @@
     android:background="@drawable/forgot_background"
     tools:context=".ui.activity.RegisterActivity2">
 
+
+
     <ImageView
         android:id="@+id/IV_BackToMainRegisterRegister2"
         android:layout_width="wrap_content"
@@ -60,49 +62,21 @@
         app:layout_constraintTop_toBottomOf="@+id/TXT_Confirm_Code" />
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="24dp"
+    <com.chaos.view.PinView
+        android:id="@+id/pinView"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        android:weightSum="5"
+        android:layout_marginEnd="8dp"
+        android:theme="@style/PinV"
+        app:itemCount="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TXT_Description">
+        app:layout_constraintTop_toBottomOf="@+id/TXT_Description" />
 
-        <EditText
-            android:id="@+id/num1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
 
-        <EditText
-            android:id="@+id/num2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <EditText
-            android:id="@+id/num3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <EditText
-            android:id="@+id/num4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <EditText
-            android:id="@+id/num5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
 
     <com.example.fontutil.ButtonCustomFont
         android:id="@+id/BTN_ConfirmCodeRegister2"
@@ -118,5 +92,5 @@
         app:font_name="@string/VIP_Rawy_Bold_Bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/pinView" />
 </android.support.constraint.ConstraintLayout>

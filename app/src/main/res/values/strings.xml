@@ -42,10 +42,12 @@
     <string name="Email_Error">Please Enter Correct Email…</string>
 
 
+
     <!-- Bottom Nav -->
     <string name="title_home" translatable="true">Home</string>
     <string name="title_dashboard" translatable="true">My Appointment</string>
     <string name="title_notifications" translatable="true">My Account</string>
+    <string name="control_Board" translatable="true">Control Board</string>
 
     <!-- Nav Drawer -->
     <string name="menu_home" translatable="true">Services</string>
@@ -113,14 +115,14 @@
     <!-- ForgotPasswordActivityStep1 -->
     <string name="Description_retrieve_pass" translatable="true">To retrieve your password.
         You will receive an email containing instructions on how to reset your password reset.
-        If you're having trouble resetting your password, contact us or send us an email</string>
+        If you are having trouble resetting your password, contact us or send us an email</string>
     <string name="Forgot_password" translatable="true">Forgot Password</string>
     <string name="Restore_password" translatable="true">Restore password</string>
     <string name="do_not_have_an_account_yet_open_one" translatable="true">do Not Have Account Yet, Create One</string>
 
     <!-- ForgotPasswordActivityStep2 -->
     <string name="sent_succesfully" translatable="true">Sent Successfully</string>
-    <string name="Please_check_your_mailbox" translatable="true">Please Check Your Mailbox, You'll Find a Link to Reset Your Account Password</string>
+    <string name="Please_check_your_mailbox" translatable="true">Please Check Your Mailbox, You Will Find a Link to Reset Your Account Password</string>
     <string name="ending" translatable="true">Ending</string>
 
     <!-- LoginMainActivity -->

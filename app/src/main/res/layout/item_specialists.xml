@@ -30,7 +30,7 @@
 
     <com.example.fontutil.TextViewCustomFont
         android:id="@+id/TV_SpecialistSpecialty"
-        style="@style/__"
+        style="@style/eedd_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="خبير الشعر"

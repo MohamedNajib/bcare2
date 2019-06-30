@@ -18,6 +18,7 @@ import com.emedia.bcare.data.model.api_model.specialists.Specialists;
 import com.emedia.bcare.data.model.api_model.user_details.UserDetails;
 import com.emedia.bcare.data.model.checkCopoun.CheckCopoun;
 import com.emedia.bcare.data.model.checkCopoun.WithoutCopoun;
+import com.emedia.bcare.data.model.register.Register;
 import com.emedia.bcare.data.model.salon_reserve.SalonReserve;
 import com.emedia.bcare.data.model.salon_services.SalonServices;
 
@@ -42,7 +43,19 @@ public interface ApiServices {
     @POST("checkcode")
     @FormUrlEncoded
     Call<CheckCode> checkCode(@Field("email") String email,
-                              @Field("code") int code);
+                              @Field("code") String code);
+
+    @POST("register")
+    @FormUrlEncoded
+    Call<Register> userRegister(@Field("email") String email,
+                                @Field("password") String password,
+                                @Field("name") String name,
+                                @Field("address") String address,
+                                @Field("age") String age,
+                                @Field("city_id") int city_id,
+                                @Field("country_id") int country_id,
+                                @Field("code") String code,
+                                @Field("username") String username);
 
     @POST("getSalons")
     @FormUrlEncoded

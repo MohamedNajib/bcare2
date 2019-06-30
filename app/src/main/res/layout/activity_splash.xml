@@ -5,17 +5,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
-    tools:context=".ui.activity.SplashActivity"
-    android:background="@drawable/splash_background">
+    tools:context=".ui.activity.SplashActivity">
 
     <ImageView
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_80sdp"
+        android:id="@+id/bcare_intro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:src="@drawable/logo_w"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
 
 </android.support.constraint.ConstraintLayout>
