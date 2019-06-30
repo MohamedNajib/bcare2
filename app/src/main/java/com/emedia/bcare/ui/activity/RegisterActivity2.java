@@ -40,6 +40,8 @@ public class RegisterActivity2 extends AppCompatActivity {
     TextViewCustomFont TXTDescription;
 
     PinView pinView;
+    public static final String R2_USER_NAME = "UserName";
+    public static final String R2_EMAIL = "email";
 
 
 
@@ -69,10 +71,6 @@ public class RegisterActivity2 extends AppCompatActivity {
         }
     }
 
-    public static final String R2_USER_NAME = "UserName";
-    public static final String R2_EMAIL = "email";
-    public static final String R2_CODE = "code";
-
     private void checkCode(final String email, final String code, final String userName){
         Call<CheckCode> checkCodeCall = RetrofitClient.getInstance().getApiServices().checkCode(email, code);
         checkCodeCall.enqueue(new Callback<CheckCode>() {
@@ -87,7 +85,6 @@ public class RegisterActivity2 extends AppCompatActivity {
                             Intent toRegisterActivity3 = new Intent(RegisterActivity2.this, RegisterActivity3.class);
                             toRegisterActivity3.putExtra(R2_USER_NAME, userName);
                             toRegisterActivity3.putExtra(R2_EMAIL, email);
-                            toRegisterActivity3.putExtra(R2_CODE, code);
                             startActivity(toRegisterActivity3);
                         }
 
@@ -114,7 +111,7 @@ public class RegisterActivity2 extends AppCompatActivity {
                 intentTo(this, RegisterActivity1.class);
                 break;
             case R.id.BTN_ConfirmCodeRegister2:
-                checkCode(getIntent().getStringExtra(USER_Email), pinView.getText().toString(),getIntent().getStringExtra(USER_NAME));
+                checkCode(getIntent().getStringExtra(USER_Email), pinView.getText().toString(), getIntent().getStringExtra(USER_NAME));
                 break;
         }
     }

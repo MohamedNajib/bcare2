@@ -69,9 +69,9 @@ public class SalonActivity extends AppCompatActivity {
     /* Add Fragments to Tabs */
     private void setupClientViewPager(ViewPager viewPager) {
         ViewPagerTapsAdapter adapter = new ViewPagerTapsAdapter(getSupportFragmentManager());
-        adapter.addFragment(new AboutTapFragment(), "حول الصالون");
-        adapter.addFragment(new RatingsTapFragment(), "خدمات");
-        adapter.addFragment(new ServicesTapFragment(), "تقييمات");
+        adapter.addFragment(new AboutTapFragment(), getResources().getString(R.string.About_the_salon));
+        adapter.addFragment(new RatingsTapFragment(), getResources().getString(R.string.Services));
+        adapter.addFragment(new ServicesTapFragment(), getResources().getString(R.string.Ratings));
 
         viewPager.setAdapter(adapter);
     }

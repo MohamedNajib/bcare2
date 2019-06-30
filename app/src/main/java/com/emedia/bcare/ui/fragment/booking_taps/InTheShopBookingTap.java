@@ -87,7 +87,7 @@ public class InTheShopBookingTap extends Fragment {
 
         getSalonBookingTimes(
                 "Dcfilf27URGHSoLjMScVtJVgcNd6J1aSRoDjpGrorCGeKSBMYLyc6Z9H0RWp",
-                "ar",
+                ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
                 1);
                 //((HomeActivity) getActivity()).getSalon().getId());
 

@@ -40,12 +40,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
-import static com.emedia.bcare.ui.activity.RegisterActivity2.R2_CODE;
 import static com.emedia.bcare.ui.activity.RegisterActivity2.R2_EMAIL;
 import static com.emedia.bcare.ui.activity.RegisterActivity2.R2_USER_NAME;
-import static com.emedia.bcare.ui.activity.RegisterByEmail1.USER_Email;
 import static com.emedia.bcare.util.HelperMethod.intentTo;
-import static com.emedia.bcare.util.HelperMethod.showToast;
 
 public class RegisterActivity3 extends AppCompatActivity {
     @BindView(R.id.SpinnerCountryRegister)
@@ -251,7 +248,7 @@ public class RegisterActivity3 extends AppCompatActivity {
                             getDate(),
                             mCityId,
                             mCountryId,
-                            getIntent().getStringExtra(R2_CODE),
+                            "+20",
                             getIntent().getStringExtra(R2_USER_NAME));
                 }
 
