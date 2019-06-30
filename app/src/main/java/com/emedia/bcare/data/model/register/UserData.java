@@ -4,7 +4,7 @@ package com.emedia.bcare.data.model.register;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserData {
+public class    UserData {
 
     @SerializedName("id")
     @Expose
@@ -58,7 +58,6 @@ public class UserData {
     @Expose
     private UsersSocail usersSocail;
 
-
     public UserData(String name, String username, String email, String age, String address, String cityId, String countryId) {
         this.name = name;
         this.username = username;
@@ -68,6 +67,7 @@ public class UserData {
         this.cityId = cityId;
         this.countryId = countryId;
     }
+
 
     public Integer getId() {
         return id;
@@ -204,5 +204,4 @@ public class UserData {
     public void setUsersSocail(UsersSocail usersSocail) {
         this.usersSocail = usersSocail;
     }
-
 }

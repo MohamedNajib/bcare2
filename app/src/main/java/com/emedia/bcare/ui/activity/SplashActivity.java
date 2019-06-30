@@ -31,7 +31,8 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //startActivity(new Intent(SplashActivity.this, GenderActivity.class));
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                //startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                startActivity(new Intent(SplashActivity.this, LoginMainActivity.class));
                 finish();
             }
         },3000);

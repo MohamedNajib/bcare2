@@ -4,6 +4,7 @@
     <string name="app_name">بى كير</string>
     <!-- Error Messag -->
     <string name="Email_Error">الرجاء إدخال البريد الإلكتروني الصحيح…</string>
+    <string name="Mobile_Error">الرجاء ادخال رقم صحيح…</string>
 
     <string name="current_lang">ar</string>
     <string name="language">English</string>
@@ -49,20 +50,21 @@
     <string name="or" translatable="true">أو</string>
     <string name="via_social_media" translatable="true">عن طريق منصات التواصل الإجتماعي</string>
 
-    <!-- RegisterActivity1 -->
+    <!-- RegisterByPhone1 -->
     <string name="with_your_mobile_number" translatable="true">عن طريق رقم جوالك</string>
     <string name="Continue" translatable="true">متابعة</string>
     <string name="Enter_your_phone_number" translatable="true">ادخل رقم الهاتف</string>
+    <string name="Enter_your_email" translatable="true">ادخل بريدك الالكترونى</string>
     <string name="phone_number" translatable="true">رقم الهاتف</string>
 
-    <!-- RegisterActivity2 -->
+    <!-- RegisterVerifyActivity -->
     <string name="Confirm_phone_number" translatable="true">تأكيد رقم الهاتف</string>
     <string name="Enter_the_code_that_you_received_in_a_text_message" translatable="true">أدخل الكود الذي وصلك في رسالة نصية</string>
     <string name="confirm" translatable="true">تاكيد</string>
     <string name="verify_your_email" translatable="true">تأكيد البريد الالكتروني</string>
     <string name="Enter_the_code_sent_to_your_email_to_confirm" translatable="true">ادخل الكود المرسل الى ايمايلك للتأكيد</string>
 
-    <!-- RegisterActivity3 -->
+    <!-- RegisterByEmail2 -->
     <string name="Enter_personal_information" translatable="true">ادخال المعلومات الشخصية</string>
     <string name="Full_name" translatable="true">الاسم الكامل</string>
     <string name="Country" translatable="true">الدولة</string>

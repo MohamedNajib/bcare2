@@ -15,10 +15,7 @@ import android.widget.Toast;
 
 import com.emedia.bcare.Config.ContextWrapper;
 import com.facebook.HttpMethod;
-import com.emedia.bcare.Config.BCareApp;
 import com.emedia.bcare.R;
-import com.emedia.bcare.util.HelperMethod;
-import com.example.fontutil.ButtonCustomFont;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -26,7 +23,6 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
@@ -84,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
 //            @Override
 //            public void onClick(View v) {
 //                if (!ET_SignUpPhone_.getText().toString().trim().equals("")) {
-//                    Intent i = new Intent(act, RegisterActivity3.class);
+//                    Intent i = new Intent(act, RegisterByEmail2.class);
 //                    i.putExtra("phone", ET_SignUpPhone_.getText().toString().trim());
 //                    startActivity(i);
 //                } else {
@@ -157,7 +153,7 @@ public class RegisterActivity extends AppCompatActivity {
             case R.id.IV_GoogleSignUp:
                 break;
             case R.id.BTN_SignUpPyPhoneNumber:
-                intentTo(this,RegisterActivity1.class);
+                intentTo(this, RegisterByPhone1.class);
                 break;
             case R.id.BTN_SignUpPyEmile:
                 intentTo(this, RegisterByEmail1.class);

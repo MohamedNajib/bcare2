@@ -66,13 +66,24 @@ public class RegisterByEmail1 extends AppCompatActivity {
                 }else if (ETRegisterByEmail1Name.getText().toString().trim().equals("")){
                     ETRegisterByEmail1Name.setError("Please Enter your Name");
                 }else {
-                    Intent toRegisterActivity2 = new Intent(this, RegisterActivity2.class);
-                    toRegisterActivity2.putExtra(TO_REG_ACTIVITY2, "ByEmail");
-                    toRegisterActivity2.putExtra(USER_Email, ETRegisterByEmail1.getText().toString().trim());
-                    toRegisterActivity2.putExtra(USER_NAME, ETRegisterByEmail1Name.getText().toString().trim());
-                    startActivity(toRegisterActivity2);
+                   sendEmail();
                 }
                 break;
         }
+    }
+
+    @OnClick(R.id.TV_SignUP1_HaveAccountLink)
+    void toLogin()
+    {
+        startActivity(new Intent(this, LoginMainActivity.class));
+    }
+
+    protected void sendEmail()
+    {
+       Intent toRegisterActivity2 = new Intent(this, RegisterByEmail2.class);
+       toRegisterActivity2.putExtra(TO_REG_ACTIVITY2, "ByEmail");
+       toRegisterActivity2.putExtra(USER_Email, ETRegisterByEmail1.getText().toString().trim());
+       toRegisterActivity2.putExtra(USER_NAME, ETRegisterByEmail1Name.getText().toString().trim());
+       startActivity(toRegisterActivity2);
     }
 }

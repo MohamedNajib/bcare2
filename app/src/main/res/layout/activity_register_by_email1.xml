@@ -95,14 +95,15 @@
                 android:background="@drawable/et_"
                 android:freezesText="true"
                 android:gravity="center"
-                android:hint="@string/Enter_your_phone_number"
+                android:hint="@string/Enter_your_email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:textColorHint="@color/hintColor"
                 app:font_name="@string/VIP_Rawy_Regular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont26" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont26"
+                android:textColor="@color/white"/>
 
             <com.example.fontutil.TextViewCustomFont
                 android:id="@+id/textViewCustomFont29"
@@ -134,7 +135,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/ET_RegisterByEmail1"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/ET_RegisterByEmail1"
-                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont29" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont29"
+                android:textColor="@color/white"/>
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/CL_BTN_ContinueRegisterByEmail1"

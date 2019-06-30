@@ -11,6 +11,20 @@ public class UserInputValidation {
         return true;
     }
 
+    public static boolean isValidPhone(String phoneInput) {
+        //if (phoneInput.isEmpty() || !Patterns.PHONE.matcher(phoneInput).matches()){
+        //    return false;
+        //}
+
+        System.out.println("ret validation : " + phoneInput);
+        if (phoneInput.isEmpty() || phoneInput.length() != 11){
+            return false;
+        }
+
+        return true;
+    }
+
+
     public static boolean isValidName (String name){
         if (name.isEmpty() || name.length() < 3 || name.length() > 50){
             return false;

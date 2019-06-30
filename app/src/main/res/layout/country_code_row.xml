@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/tvDropDownLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimension2"
+        android:layout_marginEnd="@dimen/dimension2"
+        android:layout_marginStart="@dimen/dimension2"
+        android:layout_marginTop="@dimen/dimension4"
+        android:paddingEnd="@dimen/dimension8"
+        android:paddingStart="@dimen/dimension8"
+        android:paddingTop="@dimen/dimension12"
+        android:paddingBottom="@dimen/dimension12"
+        android:gravity="center"
+        tools:text="svgsdfg"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/dimension12"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/tap_blue"/>
+
+</android.support.constraint.ConstraintLayout>

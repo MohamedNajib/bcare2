@@ -57,6 +57,18 @@ public interface ApiServices {
                                 @Field("code") String code,
                                 @Field("username") String username);
 
+    @POST("register")
+    @FormUrlEncoded
+    Call<Register> userRegisterPhone(@Field("mobile") String email,
+                                @Field("password") String password,
+                                @Field("name") String name,
+                                @Field("address") String address,
+                                @Field("age") String age,
+                                @Field("city_id") int city_id,
+                                @Field("country_id") int country_id,
+                                @Field("code") String code,
+                                @Field("username") String username);
+
     @POST("getSalons")
     @FormUrlEncoded
     Call<Salons> getSalons(@Field("token") String token,

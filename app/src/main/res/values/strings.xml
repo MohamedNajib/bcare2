@@ -40,6 +40,7 @@
 
     <!-- Error Messag -->
     <string name="Email_Error">Please Enter Correct Email…</string>
+    <string name="Mobile_Error">Please Enter Correct Phone…</string>
 
 
 
@@ -84,20 +85,21 @@
     <string name="or" translatable="true">OR</string>
     <string name="via_social_media" translatable="true">Via Social Media</string>
 
-    <!-- RegisterActivity1 -->
+    <!-- RegisterByPhone1 -->
     <string name="with_your_mobile_number" translatable="true">With your Mobile Number</string>
     <string name="Continue" translatable="true">Continue</string>
     <string name="Enter_your_phone_number" translatable="true">Enter Your Phone Number</string>
+    <string name="Enter_your_email" translatable="true">Enter Your Email</string>
     <string name="phone_number" translatable="true">Phone Number</string>
 
-    <!-- RegisterActivity2 -->
+    <!-- RegisterVerifyActivity -->
     <string name="Confirm_phone_number" translatable="true">Confirm Phone Number</string>
     <string name="Enter_the_code_that_you_received_in_a_text_message" translatable="true">Enter the Code that you Received in a text Message</string>
     <string name="confirm" translatable="true">Confirm</string>
     <string name="verify_your_email" translatable="true">Verify Your Email</string>
     <string name="Enter_the_code_sent_to_your_email_to_confirm" translatable="true">Enter the code sent to your email to confirm</string>
 
-    <!-- RegisterActivity3 -->
+    <!-- RegisterByEmail2 -->
     <string name="Enter_personal_information" translatable="true">Enter Personal Information</string>
     <string name="Full_name" translatable="true">Full Name</string>
     <string name="Country" translatable="true">Country</string>

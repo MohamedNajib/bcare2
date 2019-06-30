@@ -25,12 +25,11 @@ import com.emedia.bcare.data.model.api_model.countries.CountriesData;
 import com.emedia.bcare.data.model.api_model.countries.RegisterCountries;
 import com.emedia.bcare.data.model.register.Register;
 import com.emedia.bcare.data.model.register.UserData;
+import com.emedia.bcare.data.rest.ApiServices;
 import com.emedia.bcare.data.rest.RetrofitClient;
-import com.emedia.bcare.util.HelperMethod;
+import com.emedia.bcare.network.RequestSingletone;
 import com.emedia.bcare.util.UserInputValidation;
 import com.example.fontutil.EditTextCustomFont;
-
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,11 +39,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
-import static com.emedia.bcare.ui.activity.RegisterActivity2.R2_EMAIL;
-import static com.emedia.bcare.ui.activity.RegisterActivity2.R2_USER_NAME;
-import static com.emedia.bcare.util.HelperMethod.intentTo;
+import static com.emedia.bcare.Constants.FragmentsKeys.TO_REG_ACTIVITY2;
+import static com.emedia.bcare.ui.activity.RegisterByEmail1.USER_Email;
 
-public class RegisterActivity3 extends AppCompatActivity {
+public class RegisterByEmail2 extends AppCompatActivity {
     @BindView(R.id.SpinnerCountryRegister)
     Spinner SpinnerCountryRegister;
     @BindView(R.id.SpinnerCityRegister)
@@ -64,7 +62,7 @@ public class RegisterActivity3 extends AppCompatActivity {
     @BindView(R.id.IV_ContinueIconSignPyPh3)
     ImageView IVContinueIconSignPyPh3;
     @BindView(R.id.progress_view)
-    ProgressBar progressView;
+    ProgressBar progress_view;
     @BindView(R.id.DatePickerRegister3)
     DatePicker DatePickerRegister3;
 
@@ -89,6 +87,9 @@ public class RegisterActivity3 extends AppCompatActivity {
 //    @BindView(R.id.progress_view)
 //    ProgressBar progress_view;
 
+    String email;
+    String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,7 +97,7 @@ public class RegisterActivity3 extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        if (Locale.getDefault().getLanguage().equals("ar")) {
+        if (getResources().getString(R.string.current_lang).equals("ar")) {
             IVContinueIconSignPyPh3.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
             IVBackToMainRegister3.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
@@ -104,46 +105,66 @@ public class RegisterActivity3 extends AppCompatActivity {
             IVBackToMainRegister3.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
 
-        getCountrySpinnerData(Locale.getDefault().getLanguage());
 
-//        initUI();
-//        handleUI();
-//        startTest();
+        email = getIntent().getStringExtra("USER_Email");
+        username = getIntent().getStringExtra("USER_NAME");
 
+        getCountrySpinnerData(getResources().getString(R.string.current_lang));
 
     }
 
-    private void signUpUser(String email, String password, String name, String address, String age,
+    private void signUpUser(final String email, String password, String name, String address, String age,
                             int city_id, int country_id, String code, final String username){
 
-        Call<Register> registerCall = RetrofitClient.getInstance()
-                .getApiServices().userRegister(email, password, name, address, age, city_id, country_id, code, username);
-        registerCall.enqueue(new Callback<Register>() {
-            @Override
-            public void onResponse(Call<Register> call, Response<Register> response) {
-                try {
-                    if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
-                        Toast.makeText(BCareApp.getInstance().getContext(), "Success", Toast.LENGTH_SHORT).show();
+        showLoading();
+        RequestSingletone.getInstance().getClient().create(ApiServices.class)
+                .userRegister(email, password, name, address, age, city_id, country_id, code, username)
+                .enqueue(new Callback<Register>() {
+                    @Override
+                    public void onResponse(Call<Register> call, Response<Register> response) {
+                        hideLoading();
+                        try {
+                            if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
+                                Toast.makeText(BCareApp.getInstance().getContext(), "Success", Toast.LENGTH_SHORT).show();
 
-                        for (UserData userData : response.body().getData()) {
-                            SharedUser.getSharedUser().saveClientRegisterData(userData);
-                            SharedUser.getSharedUser().setToken(userData.getUsersSocail().getAccessToken());
+                                for (UserData userData : response.body().getData()) {
+                                    SharedUser.getSharedUser().saveClientRegisterData(userData);
+                                    SharedUser.getSharedUser().setToken(userData.getUsersSocail().getAccessToken());
+                                    SharedUser.getSharedUser().setName(userData.getName());
+                                    SharedUser.getSharedUser().setEmail(userData.getEmail());
+                                    SharedUser.getSharedUser().setAddress(userData.getAddress());
+                                    SharedUser.getSharedUser().setCityid(userData.getCityId());
+                                    SharedUser.getSharedUser().setCountryid(userData.getCountryId());
+                                    SharedUser.getSharedUser().setPhoto(userData.getProfilePicture());
+                                    if(userData.getMobile() != null)
+                                        SharedUser.getSharedUser().setPhone(userData.getMobile().toString());
+                                    SharedUser.getSharedUser().setUserName(userData.getUsername());
+                                }
+                                //intentTo(RegisterByEmail2.this, GenderActivity.class);
+                                Intent i = new Intent(RegisterByEmail2.this, RegisterVerifyActivity.class);
+                                i.putExtra(USER_Email, email);
+                                i.putExtra(TO_REG_ACTIVITY2, "ByEmail");
+                                startActivity(i);
+
+                            } else {
+                                Toast.makeText(BCareApp.getInstance().getContext(), "Error", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                        intentTo(RegisterActivity3.this, GenderActivity.class);
-
-                    } else {
-                        Toast.makeText(BCareApp.getInstance().getContext(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<Register> call, Throwable t) {
-
-            }
-        });
+                    @Override
+                    public void onFailure(Call<Register> call, Throwable t) {
+                        hideLoading();
+                        System.out.println("ret error : " + t.getSuppressed());
+                        System.out.println("ret error : " + t.getStackTrace());
+                        System.out.println("ret error : " + t.getCause());
+                        System.out.println("ret error : " + t.getLocalizedMessage());
+                        System.out.println("ret error : " + t.getMessage());
+                        Toast.makeText(BCareApp.getInstance().getContext(), "Failure", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     /**
@@ -157,7 +178,7 @@ public class RegisterActivity3 extends AppCompatActivity {
                 try {
                     if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
                         CountrySpinnerAdapter countrySpinnerAdapter =
-                                new CountrySpinnerAdapter(RegisterActivity3.this, response.body().getData(), "RegisterActivity3");
+                                new CountrySpinnerAdapter(RegisterByEmail2.this, response.body().getData(), "RegisterByEmail2");
                         SpinnerCountryRegister.setAdapter(countrySpinnerAdapter);
                         SpinnerCountryRegister.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
@@ -191,13 +212,15 @@ public class RegisterActivity3 extends AppCompatActivity {
      * Get Spinner List Cities Use API Call
      */
     private void getCitesSpinnerData(String lang, int country_id) {
+        showLoading();
         Call<Cities> citiesCall = RetrofitClient.getInstance().getApiServices().getCitesList(lang, country_id);
         citiesCall.enqueue(new Callback<Cities>() {
             @Override
             public void onResponse(Call<Cities> call, Response<Cities> response) {
+                hideLoading();
                 try {
                     if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
-                        CitesSpinnerAdapter citesSpinnerAdapter = new CitesSpinnerAdapter(RegisterActivity3.this, response.body().getData());
+                        CitesSpinnerAdapter citesSpinnerAdapter = new CitesSpinnerAdapter(RegisterByEmail2.this, response.body().getData());
                         SpinnerCityRegister.setAdapter(citesSpinnerAdapter);
                         SpinnerCityRegister.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
@@ -220,7 +243,7 @@ public class RegisterActivity3 extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Cities> call, Throwable t) {
-
+                hideLoading();
             }
         });
 
@@ -242,7 +265,7 @@ public class RegisterActivity3 extends AppCompatActivity {
                     ETSignUpRePassword.setError("Re Password Is not equal Password..");
 
                 }else {
-                    signUpUser(getIntent().getStringExtra(R2_EMAIL),
+                    signUpUser(email,
                             ETSignUpPassword.getText().toString().trim(),
                             ETSignUpName.getText().toString(),
                             ETSignUpAddress.getText().toString(),
@@ -250,7 +273,7 @@ public class RegisterActivity3 extends AppCompatActivity {
                             mCityId,
                             mCountryId,
                             "+20",
-                            getIntent().getStringExtra(R2_USER_NAME));
+                            username);
                 }
 
                 break;
@@ -293,6 +316,15 @@ public class RegisterActivity3 extends AppCompatActivity {
         }
         isPasswordVisible = !isPasswordVisible;
     }
+
+    public void showLoading() {
+        progress_view.setVisibility(View.VISIBLE);
+    }
+
+    public void hideLoading() {
+        progress_view.setVisibility(View.GONE);
+    }
+
 
 
 //    public void initUI()
@@ -342,7 +374,7 @@ public class RegisterActivity3 extends AppCompatActivity {
 //                                SharedUser.getSharedUser().setCityid("1");
 //                                SharedUser.getSharedUser().setCountryid("1");
 //
-//                                startActivity(new Intent(RegisterActivity3.this, VerficationActivity.class));
+//                                startActivity(new Intent(RegisterByEmail2.this, VerficationActivity.class));
 //                            }
 //                            else
 //                            {
@@ -360,7 +392,7 @@ public class RegisterActivity3 extends AppCompatActivity {
 //                            //System.out.println("ret Failure" + t.getSuppressed());
 //                            hideLoading();
 //
-//                            startActivity(new Intent(RegisterActivity3.this, LoginActivity.class));
+//                            startActivity(new Intent(RegisterByEmail2.this, LoginActivity.class));
 //
 //                        }
 //                    });

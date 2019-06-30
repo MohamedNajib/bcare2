@@ -19,6 +19,7 @@ public class SharedUser {
     private static final String CITYID = "cityId";
     private static final String COUNTRYID = "countryId";
     private static final String PHOTO = "photo";
+    private static final String USERNAME = "username";
 
 
     private static final String U_TOKEN = "U_TOKEN";
@@ -129,6 +130,18 @@ public class SharedUser {
     }
 
 
+    public boolean setUserName(String username) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(USERNAME, username);
+        return editor.commit();
+    }
+
+    public String getUsername() {
+        return sharedPreferences.getString(USERNAME, "");
+    }
+
+
+
     public boolean setPhoto(String photo) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(PHOTO, photo);
@@ -168,6 +181,7 @@ public class SharedUser {
     public boolean isUser() {
         return getUserType().equals("user");
     }
+
 
     public boolean clear() {
         SharedPreferences.Editor editor = sharedPreferences.edit();

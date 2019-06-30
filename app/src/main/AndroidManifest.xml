@@ -22,12 +22,17 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.LoginPyPhoneActivity"></activity>
         <activity android:name=".ui.activity.LoginPyEmailActivity" />
-        <activity android:name=".ui.activity.LoginMainActivity" />
+
+        <activity android:name=".ui.activity.LoginMainActivity" >
+        </activity>
+        <activity android:name=".ui.activity.RegisterByPhone2" >
+        </activity>
+
         <activity android:name=".ui.activity.ForgotPasswordActivityStep2" />
         <activity android:name=".ui.activity.ForgotPasswordActivityStep1" />
         <activity android:name=".ui.activity.RegisterByEmail1" />
-        <activity android:name=".ui.activity.RegisterActivity2" />
-        <activity android:name=".ui.activity.RegisterActivity1" />
+        <activity android:name=".ui.activity.RegisterVerifyActivity" />
+        <activity android:name=".ui.activity.RegisterByPhone1" />
         <activity
             android:name=".ui.activity.GenderActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -64,7 +69,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.RegisterActivity3"
+            android:name=".ui.activity.RegisterByEmail2"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
