@@ -23,8 +23,6 @@ import com.emedia.bcare.data.model.api_model.home.Home;
 import com.emedia.bcare.data.model.api_model.home.Specialist;
 import com.emedia.bcare.data.rest.RetrofitClient;
 import com.emedia.bcare.ui.activity.HomeActivity;
-import com.emedia.bcare.ui.fragment.SectionsFragment;
-import com.emedia.bcare.util.HelperMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +30,7 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -117,8 +116,7 @@ public class UserHomeFragment extends Fragment {
     }
 
 
-    public void initialize()
-    {
+    public void initialize() {
         ((HomeActivity) getActivity()).showBottomToolbar();
         ((HomeActivity) getActivity()).setToolbar(((HomeActivity) getActivity()).getResources().getString(R.string.title_home));
     }
@@ -207,5 +205,11 @@ public class UserHomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @OnClick(R.id.L_ShowMor)
+    public void onViewClicked() {
+        ((HomeActivity) getActivity()).changeFragment(13);
+        ((HomeActivity) getActivity()).heden();
     }
 }

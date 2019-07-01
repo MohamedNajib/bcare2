@@ -3,7 +3,7 @@ package com.emedia.bcare.cash;
 import android.content.SharedPreferences;
 
 import com.emedia.bcare.Config.BCareApp;
-import com.emedia.bcare.data.model.register.UserData;
+import com.emedia.bcare.data.model.login_email.UserData;
 
 import static android.content.Context.MODE_PRIVATE;
 public class SharedUser {
@@ -31,6 +31,16 @@ public class SharedUser {
     private static final String U_CITY_ID = "U_CITY_ID";
     private static final String U_COUNTRY_ID = "U_COUNTRY_ID";
 
+    private static final String LOGINE_TOKEN = "LE_TOKEN";
+    private static final String LOGINE_NAME= "LE_NAME";
+    private static final String LOGINE_USERNAME = "LE_USERNAME";
+    private static final String LOGINE_EMAIL = "LE_EMAIL";
+    private static final String LOGINE_AGE = "LE_AGE";
+    private static final String LOGINE_ADDRESS = "LE_ADDRESS";
+    private static final String LOGINE_CITYID = "LE_CITYID";
+    private static final String LOGINE_COUNTRYID = "LE_TOKEN";
+
+
 
     private SharedPreferences sharedPreferences;
 
@@ -42,8 +52,32 @@ public class SharedUser {
         return new SharedUser();
     }
 
+    public void saveClientLoginData(UserData loginData) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(LOGINE_NAME, loginData.getName());
+        editor.putString(LOGINE_USERNAME, loginData.getUsername());
+        editor.putString(LOGINE_EMAIL, loginData.getEmail());
+        editor.putString(LOGINE_AGE, loginData.getAge());
+        editor.putString(LOGINE_ADDRESS, loginData.getAddress());
+        editor.putString(LOGINE_CITYID, loginData.getCityId());
+        editor.putString(LOGINE_COUNTRYID, loginData.getCountryId());
+        editor.apply();
+    }
 
-    public void saveClientRegisterData(UserData userData) {
+    public UserData getClientLoginData(){
+        return new UserData(
+                sharedPreferences.getString(LOGINE_NAME, null),
+                sharedPreferences.getString(LOGINE_USERNAME, null),
+                sharedPreferences.getString(LOGINE_EMAIL, null),
+                sharedPreferences.getString(LOGINE_AGE, null),
+                sharedPreferences.getString(LOGINE_ADDRESS, null),
+                sharedPreferences.getString(LOGINE_CITYID, null),
+                sharedPreferences.getString(LOGINE_COUNTRYID, null)
+        );
+    }
+
+
+    public void saveClientRegisterData(com.emedia.bcare.data.model.register.UserData userData) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.putString(U_NAME, userData.getName());
@@ -56,8 +90,8 @@ public class SharedUser {
         editor.apply();
     }
 
-    public UserData getClientRegisterData(){
-        return new UserData(
+    public com.emedia.bcare.data.model.register.UserData getClientRegisterData(){
+        return new com.emedia.bcare.data.model.register.UserData(
                 sharedPreferences.getString(U_NAME, null),
                 sharedPreferences.getString(U_USERNAME, null),
                 sharedPreferences.getString(U_EMAILE, null),

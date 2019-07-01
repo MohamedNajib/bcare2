@@ -247,4 +247,10 @@
 
     <string name="reserve_appointment" translatable="true">احجز ميعاد</string>
     <string name="my_appointments">مواعيدى</string>
+
+    <!-- ForgotPasswordActivity3 -->
+    <string name="Password_Reset" translatable="true">اعادة تعيين كلمة المرور</string>
+    <string name="Current_Password" translatable="true">كلمة المرور الحالية</string>
+    <string name="new_password" translatable="true">كلمة المرور الجديدة</string>
+    <string name="Save" translatable="true">حفظ</string>
 </resources>

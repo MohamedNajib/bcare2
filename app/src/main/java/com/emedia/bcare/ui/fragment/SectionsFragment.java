@@ -24,6 +24,7 @@ import com.emedia.bcare.data.model.api_model.service.Service_;
 import com.emedia.bcare.data.rest.ApiServices;
 import com.emedia.bcare.data.rest.RetrofitClient;
 import com.emedia.bcare.network.RequestSingletone;
+import com.emedia.bcare.ui.activity.GenderActivity;
 import com.emedia.bcare.ui.activity.HomeActivity;
 
 import java.util.ArrayList;
@@ -87,7 +88,7 @@ public class SectionsFragment extends Fragment {
         getCountrySpinnerData(((HomeActivity) getActivity()).getResources().getString(R.string.current_lang));
         getService(SharedUser.getSharedUser().getToken(),
                 ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
-                GenderFragment.getGenderType());
+                GenderActivity.getGenderType());
         return view;
     }
 

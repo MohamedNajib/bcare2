@@ -42,7 +42,6 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.progress_view)
     ProgressBar progress_view;
 
-
     @BindView(R.id.CIV_ProfileImage)
     CircleImageView CIVProfileImage;
     @BindView(R.id.TV_ProfileName)

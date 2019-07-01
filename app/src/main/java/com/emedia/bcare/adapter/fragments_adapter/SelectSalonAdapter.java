@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,9 @@ import com.emedia.bcare.adapter.SalonItemSliderAdapter;
 import com.emedia.bcare.data.model.api_model.favorite.Favorite;
 import com.emedia.bcare.data.model.api_model.salons.SalonData;
 import com.emedia.bcare.data.model.api_model.salons.SalonImage;
+import com.emedia.bcare.ui.activity.HomeActivity;
+import com.emedia.bcare.ui.custom.ClickableViewPager;
+import com.emedia.bcare.util.HelperMethod;
 import com.example.fontutil.ButtonCustomFont;
 import com.example.fontutil.TextViewCustomFont;
 
@@ -114,10 +118,10 @@ public class SelectSalonAdapter extends RecyclerView.Adapter<SelectSalonAdapter.
         return mSalonDataList.size();
     }
 
-    public class SelectSalonHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class SelectSalonHolder extends RecyclerView.ViewHolder implements View.OnClickListener, ClickableViewPager.OnItemClickListener {
 
         @BindView(R.id.Slider_ViewPager)
-        ViewPager SliderViewPager;
+        ClickableViewPager SliderViewPager;
         @BindView(R.id.TV_SalonServiceName)
         TextViewCustomFont TVSalonServiceName;
         @BindView(R.id.TV_SalonName)
@@ -159,7 +163,10 @@ public class SelectSalonAdapter extends RecyclerView.Adapter<SelectSalonAdapter.
             IVShareSalon.setOnClickListener(this);
             IVLikeSalon.setOnClickListener(this);
             view.setOnClickListener(this);
+            SliderViewPager.setOnItemClickListener(this);
+
         }
+
 
         @Override
         public void onClick(View v) {
@@ -187,6 +194,14 @@ public class SelectSalonAdapter extends RecyclerView.Adapter<SelectSalonAdapter.
                 if (mOnClickItem != null && position != RecyclerView.NO_POSITION) {
                     mOnClickItem.onViewPagerClicked(position);
                 }
+            }
+        }
+
+        @Override
+        public void onItemClick(int position) {
+            int itemPosition = getAdapterPosition();
+            if (mOnClickItem != null && position != RecyclerView.NO_POSITION) {
+                mOnClickItem.onViewPagerClicked(itemPosition);
             }
         }
     }

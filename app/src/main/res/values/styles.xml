@@ -843,4 +843,13 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="forgotP">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textSize">27sp</item>
+    </style>
+    <style name="forgott">
+        <item name="android:textColor">#ff9a9daf</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

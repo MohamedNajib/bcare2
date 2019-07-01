@@ -73,7 +73,10 @@ public class ForgotPasswordActivityStep1 extends AppCompatActivity {
                         List<EmailDatum> emailData = response.body().getData();
                         for (EmailDatum emailDatum : emailData) {
                             showToast(ForgotPasswordActivityStep1.this, emailDatum.getEmail());
-                            intentTo(ForgotPasswordActivityStep1.this, ForgotPasswordActivityStep2.class);
+                            Intent toForgotPasswordActivityStep2 = new Intent(ForgotPasswordActivityStep1.this, ForgotPasswordActivityStep2.class);
+                            toForgotPasswordActivityStep2.putExtra("FORGOT_PASSWORD_EMAIL", emailDatum.getEmail());
+                            startActivity(toForgotPasswordActivityStep2);
+
                         }
 
                     } else {
@@ -101,7 +104,6 @@ public class ForgotPasswordActivityStep1 extends AppCompatActivity {
                 }else {
                     sendEmail(ETForgotPassEmail.getText().toString().trim());
                 }
-                intentTo(this, ForgotPasswordActivityStep2.class);
                 break;
             case R.id.TV_ForgotPass_LoginLink_Login:
                 intentTo(this, LoginMainActivity.class);
@@ -112,133 +114,133 @@ public class ForgotPasswordActivityStep1 extends AppCompatActivity {
         }
     }
 
-    public static class LoginActivity extends AppCompatActivity {
-
-
-        @BindView(R.id.ET_LoginPhone)
-        EditText ETLoginPhone;
-        @BindView(R.id.ET_LoginEmail)
-        EditText ETLoginEmail;
-        @BindView(R.id.ET_LoginPassword)
-        EditText ETLoginPassword;
-        @BindView(R.id.progress_view)
-        ProgressBar progress_view;
-
-        ButtonCustomFont BTN_Login;
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.fragment_login1);
-            ButterKnife.bind(this);
-
-            initUI();
-            handleUI();
-
-            startTest();
-
-
-        }
-
-
-        public void initUI()
-        {
-            BTN_Login = (ButtonCustomFont) findViewById(R.id.BTN_Login);
-        }
-
-        public void handleUI()
-        {
-            BTN_Login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    doLogin();
-                }
-            });
-        }
-
-        @OnClick(R.id.BTN_Login)
-        public void doLogin()
-        {
-            if(! ETLoginEmail.getText().toString().trim().equals(""))
-            {
-                //startActivity(new Intent(LoginActivity.this, SalonActivity.class));
-
-                showLoading();
-                RequestSingletone.getInstance().getClient()
-                        .create(ILogin.class)
-                        .doLogginByEmail(ETLoginEmail.getText().toString().trim(),
-                                ETLoginPassword.getText().toString().trim())
-                        .enqueue(new Callback<Registeration>() {
-                            @Override
-                            public void onResponse(Call<Registeration> call, Response<Registeration> response) {
-                                hideLoading();
-                                //HelperMethod.replaceFragments(new GenderFragment(), getSupportFragmentManager(), R.id.container);
-                                //((HomeActivity) Activity).changeFragment(16);
-                                startActivity(new Intent(LoginActivity.this, GenderActivity.class));
-                                //startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-
-                                if(response.isSuccessful())
-                                {
-                                    Toast.makeText(BCareApp.getInstance().getContext(), "Success", Toast.LENGTH_SHORT).show();
-                                }
-                                else
-                                {
-                                    Toast.makeText(BCareApp.getInstance().getContext(), "Error", Toast.LENGTH_SHORT).show();
-                                    LoginErrorMain2 error = ErrorUtils.parseError(response);
-                                    if(error.getData() != null)
-                                    {
-                                       Toast.makeText(getApplicationContext(), error.getData(), Toast.LENGTH_SHORT).show();
-
-                                       if( error.getData().equals("Email is not verified"))
-                                       {
-                                           startActivity(new Intent(LoginActivity.this, VerficationActivity.class));
-                                       }
-
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<Registeration> call, Throwable t) {
-                                Toast.makeText(BCareApp.getInstance().getContext(), "Failure", Toast.LENGTH_SHORT).show();
-                                hideLoading();
-
-                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                            }
-                        });
-            }
-        }
-
-        @OnClick(R.id.TV_Login_CreateNewAccountLink)
-        public void navigateToSignUp() {
-            HelperMethod.intentTo(this, RegisterActivity.class);
-
-        }
-
-        public void showLoading() {
-            progress_view.setVisibility(View.VISIBLE);
-        }
-
-        public void hideLoading() {
-            progress_view.setVisibility(View.GONE);
-        }
-
-        public void startTest() {
-            ETLoginEmail.setText("mohamed0110@yahoo.com");
-            ETLoginPhone.setText("01013041337");
-            ETLoginPassword.setText("12345678");
-        }
-
-        @OnClick({R.id.TV_Login_CreateNewAccountLink, R.id.TV_Login_ForgotPasslink})
-        public void onViewClicked(View view) {
-            switch (view.getId()) {
-                case R.id.TV_Login_CreateNewAccountLink:
-                    intentTo(this, RegisterActivity.class);
-                    break;
-                case R.id.TV_Login_ForgotPasslink:
-                    intentTo(this, LoginMainActivity.class);
-                    break;
-            }
-        }
-    }
+//    public static class LoginActivity extends AppCompatActivity {
+//
+//
+//        @BindView(R.id.ET_LoginPhone)
+//        EditText ETLoginPhone;
+//        @BindView(R.id.ET_LoginEmail)
+//        EditText ETLoginEmail;
+//        @BindView(R.id.ET_LoginPassword)
+//        EditText ETLoginPassword;
+//        @BindView(R.id.progress_view)
+//        ProgressBar progress_view;
+//
+//        ButtonCustomFont BTN_Login;
+//
+//        @Override
+//        protected void onCreate(Bundle savedInstanceState) {
+//            super.onCreate(savedInstanceState);
+//            setContentView(R.layout.fragment_login1);
+//            ButterKnife.bind(this);
+//
+//            initUI();
+//            handleUI();
+//
+//            startTest();
+//
+//
+//        }
+//
+//
+//        public void initUI()
+//        {
+//            BTN_Login = (ButtonCustomFont) findViewById(R.id.BTN_Login);
+//        }
+//
+//        public void handleUI()
+//        {
+//            BTN_Login.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    doLogin();
+//                }
+//            });
+//        }
+//
+//        @OnClick(R.id.BTN_Login)
+//        public void doLogin()
+//        {
+//            if(! ETLoginEmail.getText().toString().trim().equals(""))
+//            {
+//                //startActivity(new Intent(LoginActivity.this, SalonActivity.class));
+//
+//                showLoading();
+//                RequestSingletone.getInstance().getClient()
+//                        .create(ILogin.class)
+//                        .doLogginByEmail(ETLoginEmail.getText().toString().trim(),
+//                                ETLoginPassword.getText().toString().trim())
+//                        .enqueue(new Callback<Registeration>() {
+//                            @Override
+//                            public void onResponse(Call<Registeration> call, Response<Registeration> response) {
+//                                hideLoading();
+//                                //HelperMethod.replaceFragments(new GenderFragment(), getSupportFragmentManager(), R.id.container);
+//                                //((HomeActivity) Activity).changeFragment(16);
+//                                startActivity(new Intent(LoginActivity.this, GenderActivity.class));
+//                                //startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+//
+//                                if(response.isSuccessful())
+//                                {
+//                                    Toast.makeText(BCareApp.getInstance().getContext(), "Success", Toast.LENGTH_SHORT).show();
+//                                }
+//                                else
+//                                {
+//                                    Toast.makeText(BCareApp.getInstance().getContext(), "Error", Toast.LENGTH_SHORT).show();
+//                                    LoginErrorMain2 error = ErrorUtils.parseError(response);
+//                                    if(error.getData() != null)
+//                                    {
+//                                       Toast.makeText(getApplicationContext(), error.getData(), Toast.LENGTH_SHORT).show();
+//
+//                                       if( error.getData().equals("Email is not verified"))
+//                                       {
+//                                           startActivity(new Intent(LoginActivity.this, VerficationActivity.class));
+//                                       }
+//
+//                                    }
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onFailure(Call<Registeration> call, Throwable t) {
+//                                Toast.makeText(BCareApp.getInstance().getContext(), "Failure", Toast.LENGTH_SHORT).show();
+//                                hideLoading();
+//
+//                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+//                            }
+//                        });
+//            }
+//        }
+//
+//        @OnClick(R.id.TV_Login_CreateNewAccountLink)
+//        public void navigateToSignUp() {
+//            HelperMethod.intentTo(this, RegisterActivity.class);
+//
+//        }
+//
+//        public void showLoading() {
+//            progress_view.setVisibility(View.VISIBLE);
+//        }
+//
+//        public void hideLoading() {
+//            progress_view.setVisibility(View.GONE);
+//        }
+//
+//        public void startTest() {
+//            ETLoginEmail.setText("mohamed0110@yahoo.com");
+//            ETLoginPhone.setText("01013041337");
+//            ETLoginPassword.setText("12345678");
+//        }
+//
+//        @OnClick({R.id.TV_Login_CreateNewAccountLink, R.id.TV_Login_ForgotPasslink})
+//        public void onViewClicked(View view) {
+//            switch (view.getId()) {
+//                case R.id.TV_Login_CreateNewAccountLink:
+//                    intentTo(this, RegisterActivity.class);
+//                    break;
+//                case R.id.TV_Login_ForgotPasslink:
+//                    intentTo(this, LoginMainActivity.class);
+//                    break;
+//            }
+//        }
+//    }
 }

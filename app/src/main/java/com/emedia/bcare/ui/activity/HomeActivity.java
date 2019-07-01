@@ -53,11 +53,13 @@ import com.emedia.bcare.ui.fragment.bottom_nav.MyEventFragment;
 import com.emedia.bcare.ui.fragment.bottom_nav.ProfileFragment;
 import com.emedia.bcare.ui.fragment.bottom_nav.UserHomeFragment;
 import com.emedia.bcare.ui.fragment.SalonFragment;
+import com.emedia.bcare.util.HelperMethod;
 
 import java.util.List;
 
 import butterknife.OnClick;
 
+import static com.emedia.bcare.util.HelperMethod.intentTo;
 import static com.emedia.bcare.util.HelperMethod.replaceFragments;
 
 public class HomeActivity extends AppCompatActivity
@@ -221,7 +223,8 @@ public class HomeActivity extends AppCompatActivity
             changeFragment(16);
         } else if (currentFragment instanceof SelectSalonFragment) {
             //Back To Salon Services
-            changeFragment(0);
+            intentTo(this, GenderActivity.class);
+            //changeFragment(0);
         }
         else if (currentFragment instanceof BookingFragment) {
             //Back To Salon Services
@@ -286,10 +289,10 @@ public class HomeActivity extends AppCompatActivity
         Fragment fragment = null;
         //initializing the fragment object which is selected
         switch (fraId) {
-            case 0:
-                fragment = new GenderFragment();
-                //fragment = new SalonServicesFragment();
-                break;
+//            case 0:
+//                fragment = new GenderFragment();
+//                //fragment = new SalonServicesFragment();
+//                break;
             case 1:
                 fragment = new SectionsFragment();
                 //fragment = new SelectSalonFragment();

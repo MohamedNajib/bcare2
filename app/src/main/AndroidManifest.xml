@@ -20,14 +20,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.LoginPyPhoneActivity"></activity>
+        <activity android:name=".ui.activity.ForgotPasswordVerification"></activity>
+        <activity android:name=".ui.activity.ForgotPasswordActivity3" />
+        <activity android:name=".ui.activity.LoginPyPhoneActivity" />
         <activity android:name=".ui.activity.LoginPyEmailActivity" />
-
-        <activity android:name=".ui.activity.LoginMainActivity" >
-        </activity>
-        <activity android:name=".ui.activity.RegisterByPhone2" >
-        </activity>
-
+        <activity android:name=".ui.activity.LoginMainActivity" />
+        <activity android:name=".ui.activity.RegisterByPhone2" />
         <activity android:name=".ui.activity.ForgotPasswordActivityStep2" />
         <activity android:name=".ui.activity.ForgotPasswordActivityStep1" />
         <activity android:name=".ui.activity.RegisterByEmail1" />
@@ -86,14 +84,14 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
-        <!--<meta-data
+        <!--
+<meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyB_wFmdtRx-M0XdqAEpHF2vCfV2oWT9VC8" />-->
-
+            android:value="AIzaSyB_wFmdtRx-M0XdqAEpHF2vCfV2oWT9VC8" />
+        -->
         <meta-data
-                    android:name="com.google.android.maps.v2.API_KEY"
-                    android:value="AIzaSyA8nHriBYswwb4ZsVnCWxws890YXl0w-Kc" />
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyA8nHriBYswwb4ZsVnCWxws890YXl0w-Kc" />
 
         <activity
             android:name=".ui.activity.HomeActivity"

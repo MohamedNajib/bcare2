@@ -43,7 +43,6 @@
     <string name="Mobile_Error">Please Enter Correct Phone…</string>
 
 
-
     <!-- Bottom Nav -->
     <string name="title_home" translatable="true">Home</string>
     <string name="title_dashboard" translatable="true">My Appointment</string>
@@ -193,7 +192,7 @@
     <!-- item_new_order -->
     <string name="ok" translatable="true">Ok</string>
     <string name="cancel" translatable="true">Cancel</string>
-    
+
     <!-- item_last_events -->
     <string name="Booking_again" translatable="true">Booking Again</string>
 
@@ -281,5 +280,12 @@
     <string name="best_price" translatable="true">best price</string>
     <string name="Favorites" translatable="true">Favorites</string>
     <string name="reserve_appointment" translatable="true">Reserve Appointment</string>
+
+
+    <!-- ForgotPasswordActivity3 -->
+    <string name="Password_Reset" translatable="true">Password Reset</string>
+    <string name="Current_Password" translatable="true">Current Password</string>
+    <string name="new_password" translatable="true">New Password</string>
+    <string name="Save" translatable="true">Save</string>
 
 </resources>

@@ -13,7 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v4.view.ViewPager
+
+
+        <com.emedia.bcare.ui.custom.ClickableViewPager
             android:id="@+id/Slider_ViewPager"
             android:layout_width="match_parent"
             android:layout_height="200dp"

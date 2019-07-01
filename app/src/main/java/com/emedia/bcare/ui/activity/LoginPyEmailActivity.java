@@ -16,11 +16,11 @@ import com.emedia.bcare.Config.BCareApp;
 import com.emedia.bcare.Config.ContextWrapper;
 import com.emedia.bcare.R;
 import com.emedia.bcare.cash.SharedUser;
-import com.emedia.bcare.data.model.ErrorUtils;
-import com.emedia.bcare.data.model.api_model.login.LoginErrorMain2;
-import com.emedia.bcare.data.model.api_model.register.Registeration;
-import com.emedia.bcare.interfaces.nework.ILogin;
-import com.emedia.bcare.network.RequestSingletone;
+import com.emedia.bcare.data.model.login_email.UserData;
+import com.emedia.bcare.data.model.login_email.LoginEmail;
+import com.emedia.bcare.data.rest.RetrofitClient;
+import com.emedia.bcare.util.HelperMethod;
+import com.emedia.bcare.util.UserInputValidation;
 import com.example.fontutil.EditTextCustomFont;
 import com.google.gson.Gson;
 
@@ -33,7 +33,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
 import static com.emedia.bcare.util.HelperMethod.intentTo;
+import static com.emedia.bcare.util.HelperMethod.showToast;
 
 public class LoginPyEmailActivity extends AppCompatActivity {
 
@@ -62,9 +64,8 @@ public class LoginPyEmailActivity extends AppCompatActivity {
             IVPyEmailBackToMainLogin.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
 
-        startTest();
+       // startTest();
     }
-
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -84,69 +85,63 @@ public class LoginPyEmailActivity extends AppCompatActivity {
                 intentTo(this, RegisterActivity.class);
                 break;
             case R.id.BTN_LoginPyEmail:
-                //TODO when the Login Button Clicked
-                doLogin();
+                if (!UserInputValidation.isValidMail(ETLoginPyEmail.getText().toString().trim())) {
+                    ETLoginPyEmail.setError(getResources().getString(R.string.Email_Error));
+                } else if (!UserInputValidation.isValidPassword(ETLoginPyEmailPassword.getText().toString().trim())) {
+                    ETLoginPyEmailPassword.setError("Please Enter Strong Password..");
+                } else {
+                    doLoginByEmail(ETLoginPyEmail.getText().toString().trim(), ETLoginPyEmailPassword.getText().toString().trim());
+                }
                 break;
         }
     }
 
+    protected void doLoginByEmail(String email, String password) {
+        showLoading();
 
-    protected void doLogin() {
-        if (! ETLoginPyEmail.getText().toString().trim().equals("")
-                && ! ETLoginPyEmailPassword.getText().toString().trim().equals("")) {
-            //startActivity(new Intent(Login2Activity.this, SalonActivity.class));
-            showLoading();
-            RequestSingletone.getInstance().getClient()
-                    .create(ILogin.class)
-                    .doLogginByEmail(ETLoginPyEmail.getText().toString().trim(),
-                            ETLoginPyEmailPassword.getText().toString().trim())
-                    .enqueue(new Callback<Registeration>() {
-                        @Override
-                        public void onResponse(Call<Registeration> call, Response<Registeration> response) {
-                            hideLoading();
+        Call<LoginEmail> loginEmailCall = RetrofitClient.getInstance().getApiServices().doLoginByEmail(email, password);
+        loginEmailCall.enqueue(new Callback<LoginEmail>() {
+            @Override
+            public void onResponse(Call<LoginEmail> call, Response<LoginEmail> response) {
+                try {
+                    if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
+                        hideLoading();
+//                        System.out.println("ret rsponse : " + String.valueOf(response.body()));
+//                        System.out.println("ret rsponse : " + String.valueOf(new Gson().toJson(response.body())));
 
-                            if (response.isSuccessful()) {
-                                System.out.println("ret rsponse : " + String.valueOf(response.body()));
-                                System.out.println("ret rsponse : " + String.valueOf(new Gson().toJson(response.body())));
-                                Toast.makeText(BCareApp.getInstance().getContext(),
-                                        "Welcome " + response.body().getData().get(0).getName(), Toast.LENGTH_SHORT).show();
-                                SharedUser.getSharedUser().setEmail(response.body().getData().get(0).getEmail());
-                                SharedUser.getSharedUser().setName(response.body().getData().get(0).getName());
-                                SharedUser.getSharedUser().setToken(response.body().getData().get(0).getUsersSocail().getAccessToken());
-                                SharedUser.getSharedUser().setAddress("");
-                                SharedUser.getSharedUser().setCityid(response.body().getData().get(0).getCityId());
-                                SharedUser.getSharedUser().setCountryid(response.body().getData().get(0).getCountryId());
-                                SharedUser.getSharedUser().setPhone(response.body().getData().get(0).getMobile());
-                                SharedUser.getSharedUser().setPhoto(response.body().getData().get(0).getProfilePicture());
-
-                                startActivity(new Intent(LoginPyEmailActivity.this, HomeActivity.class));
-                            } else {
-                                Toast.makeText(BCareApp.getInstance().getContext(), "Error", Toast.LENGTH_SHORT).show();
-                                LoginErrorMain2 error = ErrorUtils.parseError(response);
-                                if (error.getData() != null) {
-                                    Toast.makeText(getApplicationContext(), error.getData(), Toast.LENGTH_SHORT).show();
-
-                                    if (error.getData().equals("Email is not verified")) {
-                                        startActivity(new Intent(LoginPyEmailActivity.this, VerficationActivity.class));
-                                    }
-
-                                }
-                            }
+                        for (UserData loginData : response.body().getData()) {
+                            showToast(BCareApp.getInstance().getContext(),"Welcome " + loginData.getName());
+                            SharedUser.getSharedUser().saveClientLoginData(loginData);
+                            SharedUser.getSharedUser().setToken(loginData.getUsersSocail().getAccessToken());
                         }
+                        startActivity(new Intent(LoginPyEmailActivity.this, HomeActivity.class));
 
-                        @Override
-                        public void onFailure(Call<Registeration> call, Throwable t) {
-                            Toast.makeText(BCareApp.getInstance().getContext(), "Failure", Toast.LENGTH_SHORT).show();
-                            hideLoading();
-                            //startActivity(new Intent(LoginPyPhoneActivity.this, HomeActivity.class));
-                        }
-                    });
-        }
-        else
-        {
-            Toast.makeText(this, getResources().getString(R.string.check_data), Toast.LENGTH_SHORT).show();
-        }
+                        HelperMethod.showToast(LoginPyEmailActivity.this,
+                                SharedUser.getSharedUser().getClientLoginData().getName() + "\n" +
+                                        SharedUser.getSharedUser().getClientLoginData().getUsername() + "\n" +
+                                        SharedUser.getSharedUser().getClientLoginData().getEmail() + "\n" +
+                                        SharedUser.getSharedUser().getClientLoginData().getAge() + "\n" +
+                                        SharedUser.getSharedUser().getClientLoginData().getAddress() + "\n" +
+                                        SharedUser.getSharedUser().getClientLoginData().getCityId() + "\n" +
+                                        SharedUser.getSharedUser().getClientLoginData().getCityId() + "\n" +
+                                        SharedUser.getSharedUser().getToken());
 
+                    } else {
+                        hideLoading();
+                        Toast.makeText(BCareApp.getInstance().getContext(), "Error: " + response.body().getCode()
+                                + response.body().getData(), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginEmail> call, Throwable t) {
+                Toast.makeText(BCareApp.getInstance().getContext(), "Failure", Toast.LENGTH_SHORT).show();
+                hideLoading();
+            }
+        });
     }
 
     /**
@@ -170,17 +165,19 @@ public class LoginPyEmailActivity extends AppCompatActivity {
         isPasswordVisible = !isPasswordVisible;
     }
 
-    public void showLoading()
-    {
+    public void showLoading() {
         progress_view.setVisibility(View.VISIBLE);
     }
 
-    public void hideLoading()
-    {
+    public void hideLoading() {
         progress_view.setVisibility(View.GONE);
     }
 
     public void startTest() {
+
+        //ETLoginPyEmail.setText("adam.lkjuytm@gmail.com");
+        //ETLoginPyEmail.setText("01005220568");
+        //ETLoginPyEmailPassword.setText("12345678");
         ETLoginPyEmail.setText("mohamed0110@yahoo.com");
         //ETLoginPyEmail.setText("01005220568");
         ETLoginPyEmailPassword.setText("12345678");
