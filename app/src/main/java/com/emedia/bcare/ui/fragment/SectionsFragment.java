@@ -6,10 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
@@ -26,6 +28,8 @@ import com.emedia.bcare.data.rest.RetrofitClient;
 import com.emedia.bcare.network.RequestSingletone;
 import com.emedia.bcare.ui.activity.GenderActivity;
 import com.emedia.bcare.ui.activity.HomeActivity;
+import com.emedia.bcare.util.HelperMethod;
+import com.example.fontutil.TextViewCustomFont;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,7 +73,8 @@ public class SectionsFragment extends Fragment {
         // Required empty public constructor
     }
 
-
+    private TextViewCustomFont mToolBarTitle;
+    private ImageView mToolBarIconBack;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,6 +82,23 @@ public class SectionsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_sections, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        Toolbar sectionsBar = view.findViewById(R.id.SectionsToolBar);
+        mToolBarTitle = sectionsBar.findViewById(R.id.TV_Title);
+        mToolBarIconBack = sectionsBar.findViewById(R.id.IV_Back);
+
+        mToolBarTitle.setText(((HomeActivity) getActivity()).getResources().getString(R.string.Choose_services));
+        mToolBarIconBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HelperMethod.intentTo((HomeActivity) getActivity(), HomeActivity.class);
+            }
+        });
+
+        if (getResources().getString(R.string.current_lang).equals("ar")) {
+            mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
+        } else {
+            mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+        }
         initialize();
 
         mSalonDataList = new ArrayList<>();
@@ -92,8 +114,7 @@ public class SectionsFragment extends Fragment {
         return view;
     }
 
-    protected void initialize()
-    {
+    protected void initialize() {
         ((HomeActivity) getActivity()).hideBottomToolbar();
     }
 

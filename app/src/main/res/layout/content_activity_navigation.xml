@@ -23,15 +23,15 @@
         android:theme="@style/Widget.BottomNavigationView"/>
 
     <FrameLayout
-        android:visibility="visible"
         android:id="@+id/fragmentContainerA"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/Bottom_nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

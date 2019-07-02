@@ -8,45 +8,12 @@
     android:focusable="true"
     android:focusableInTouchMode="true">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/review_background_"
+    <include
+        android:id="@+id/SalonServicesToolBar"
+        layout="@layout/custom_tool_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.example.fontutil.TextViewCustomFont
-            android:id="@+id/TV_SalonServices"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension24"
-            android:layout_marginTop="@dimen/dimension16"
-            android:layout_marginBottom="@dimen/dimension16"
-            android:text="@string/Choose_services"
-            app:font_name="@string/VIP_Rawy_Bold_Bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/IV_SalonServicesPackIcon"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/IV_SalonServicesPackIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension24"
-            android:layout_marginEnd="@dimen/dimension24"
-            app:layout_constraintBottom_toBottomOf="@+id/TV_SalonServices"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/TV_SalonServices"
-            app:layout_constraintTop_toTopOf="@+id/TV_SalonServices"
-            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
-
-    </android.support.constraint.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <com.example.fontutil.TextViewCustomFont
@@ -54,12 +21,12 @@
         style="@style/ce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/Choose_the_country"
         app:font_name="@string/VIP_Rawy_Regular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+        app:layout_constraintTop_toBottomOf="@+id/SalonServicesToolBar" />
 
     <Spinner
         android:id="@+id/SpinnerCountrySalonServices"

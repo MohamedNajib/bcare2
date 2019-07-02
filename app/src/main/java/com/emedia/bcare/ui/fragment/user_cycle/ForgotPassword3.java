@@ -39,7 +39,6 @@ public class ForgotPassword3 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forgot_password1, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        cInput = view.findViewById(R.id.CodeInput_ForgotPass);
 
         return view;
     }
@@ -52,19 +51,19 @@ public class ForgotPassword3 extends Fragment {
 
 
     /**
-     * get Character Code From CodeInput View
-     * and Confirm to String
-     *
-     * @param characterCode
-     */
-    private String getStringCode(Character[] characterCode) {
-        StringBuilder stringBuilder = new StringBuilder(characterCode.length);
-        for (Character i : characterCode) {
-            stringBuilder.append(i);
-        }
-        String stringCood = stringBuilder.toString();
-        return stringCood;
-    }
+//     * get Character Code From CodeInput View
+//     * and Confirm to String
+//     *
+//     * @param characterCode
+//     */
+//    private String getStringCode(Character[] characterCode) {
+//        StringBuilder stringBuilder = new StringBuilder(characterCode.length);
+//        for (Character i : characterCode) {
+//            stringBuilder.append(i);
+//        }
+//        String stringCood = stringBuilder.toString();
+//        return stringCood;
+//    }
 
     //@OnClick(R.id.BTN_ForgotPassConfirmPass)
     //public void onViewClicked() {

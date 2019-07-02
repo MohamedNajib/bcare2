@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ import com.emedia.bcare.interfaces.listeners.OnSectionListener;
 import com.emedia.bcare.network.RequestSingletone;
 import com.emedia.bcare.ui.activity.BookingActivity;
 import com.emedia.bcare.ui.activity.HomeActivity;
+import com.emedia.bcare.util.HelperMethod;
 import com.example.fontutil.EditTextCustomFont;
 import com.example.fontutil.TextViewCustomFont;
 
@@ -56,9 +58,6 @@ import static com.emedia.bcare.util.HelperMethod.showToast;
  */
 public class SalonServicesFragment extends Fragment implements OnSectionListener {
 
-
-    @BindView(R.id.IV_SalonServicesPackIcon)
-    ImageView IVSalonServicesPackIcon;
     Unbinder unbinder;
     @BindView(R.id.SpinnerCountrySalonServices)
     Spinner SpinnerCountrySalonServices;
@@ -83,7 +82,8 @@ public class SalonServicesFragment extends Fragment implements OnSectionListener
         // Required empty public constructor
     }
 
-
+    private TextViewCustomFont mToolBarTitle;
+    private ImageView mToolBarIconBack;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -91,11 +91,23 @@ public class SalonServicesFragment extends Fragment implements OnSectionListener
         View view = inflater.inflate(R.layout.fragment_salon_services, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        Toolbar sectionsBar = view.findViewById(R.id.SectionsToolBar);
+        mToolBarTitle = sectionsBar.findViewById(R.id.TV_Title);
+        mToolBarIconBack = sectionsBar.findViewById(R.id.IV_Back);
+
+        mToolBarTitle.setText(((HomeActivity) getActivity()).getResources().getString(R.string.Choose_services));
+        mToolBarIconBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((HomeActivity) getActivity()).onBackPressed();
+            }
+        });
+
         initialize();
         if (((HomeActivity) getActivity()).getResources().getString(R.string.current_lang).equals("ar")) {
-            IVSalonServicesPackIcon.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
+            mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
-            IVSalonServicesPackIcon.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+            mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
 
         mSalonServicesDataList = new ArrayList<>();
@@ -272,11 +284,6 @@ public class SalonServicesFragment extends Fragment implements OnSectionListener
                 }
             });
         }
-    }
-
-    @OnClick(R.id.IV_SalonServicesPackIcon)
-    public void goBack() {
-        ((HomeActivity) getActivity()).onBackPressed();
     }
 
     public void showLoading()

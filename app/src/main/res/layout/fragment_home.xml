@@ -50,6 +50,7 @@
                 android:id="@+id/RV_Advertisements"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -127,19 +128,18 @@
             </LinearLayout>
 
 
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/RV_Specialists"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimension24"
-                android:layout_marginBottom="@dimen/dimension32"
+                android:layout_marginBottom="32dp"
+                android:orientation="horizontal"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont10"
-                android:orientation="horizontal"
-                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_specialists" />
 
 

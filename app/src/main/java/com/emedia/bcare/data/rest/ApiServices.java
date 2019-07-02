@@ -20,6 +20,7 @@ import com.emedia.bcare.data.model.change_password.ChangePassword;
 import com.emedia.bcare.data.model.checkCopoun.CheckCopoun;
 import com.emedia.bcare.data.model.checkCopoun.WithoutCopoun;
 import com.emedia.bcare.data.model.login_email.LoginEmail;
+import com.emedia.bcare.data.model.logoutUser.LogoutUser;
 import com.emedia.bcare.data.model.register.Register;
 import com.emedia.bcare.data.model.salon_reserve.SalonReserve;
 import com.emedia.bcare.data.model.salon_services.SalonServices;
@@ -225,6 +226,10 @@ public interface ApiServices {
     @FormUrlEncoded
     Call<ChangePassword> changePassword(@Field("email") String email,
                                         @Field("newpassword") String newpassword);
+
+    @GET("logout")
+    Call<LogoutUser> logoutUser(@Query("token") String token,
+                                @Query("user_id") int user_id);
 
 
 }

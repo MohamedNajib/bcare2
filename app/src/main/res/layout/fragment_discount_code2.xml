@@ -4,8 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/forgot_background"
+    android:background="@color/backGround_SelectSalon_item"
     tools:context=".ui.fragment.DiscountCode">
+
+    <include
+        android:id="@+id/DiscountTB"
+        layout="@layout/custom_tool_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <com.example.fontutil.TextViewCustomFont
@@ -14,9 +21,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimension24"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="@dimen/dimension24"
-        android:text="ادخال كود الخصم"
+        android:text="@string/Enter_discount_code"
         app:font_name="@string/VIP_Rawy_Bold_Bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,46 +32,50 @@
     <com.example.fontutil.TextViewCustomFont
         android:id="@+id/textView2"
         style="@style/login_description"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimension24"
         android:layout_marginTop="@dimen/dimension8"
         android:layout_marginEnd="@dimen/dimension24"
-        android:text="أخصل على خصومات مميزة بادخال كود الخصم اسفله"
+        android:gravity="center"
+        android:text="@string/Get_special_discounts_by"
         app:font_name="@string/VIP_Rawy_Regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <com.github.glomadrian.codeinputlib.CodeInput
-        android:id="@+id/CodeInput_ForgotPass"
-        android:layout_width="@dimen/dimension182"
+    <com.chaos.view.PinView
+        android:id="@+id/pinViewDiscountCode"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/transparent"
-        app:codes="5"
-        app:hint_color="@android:color/transparent"
-        app:hint_text="Pin code"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/tap_blue"
+        android:textSize="@dimen/text20"
+        android:textStyle="bold"
+        android:theme="@style/PinV"
+        app:itemCount="4"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:text_color="#ff09cac3"
-        app:underline_color="@color/hintColor"
-        app:underline_selected_color="#ff09cac3" />
+        app:lineColor="@color/tap_blue"
+        app:viewType="line" />
 
     <com.example.fontutil.ButtonCustomFont
         android:id="@+id/BTN_GetYourDiscount"
-        style="@style/login_btn"
         android:layout_width="@dimen/dimension0"
         android:layout_height="@dimen/dimension50"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="@dimen/dimension16"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        android:textAllCaps="false"
+        style="@style/zzzz"
         android:background="@drawable/login_btn"
-        android:text="أحصل على الخصم"
+        android:text="@string/get_the_discount"
         app:font_name="@string/VIP_Rawy_Bold_Bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CodeInput_ForgotPass" />
+        app:layout_constraintTop_toBottomOf="@+id/pinViewDiscountCode" />
 
 </android.support.constraint.ConstraintLayout>

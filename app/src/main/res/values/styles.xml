@@ -344,7 +344,7 @@
 
     <style name="login_description">
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="__">

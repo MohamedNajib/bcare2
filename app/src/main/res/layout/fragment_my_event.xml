@@ -33,29 +33,30 @@
         <!--app:layout_constraintTop_toTopOf="@+id/imageView" />-->
 
 
-
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension0"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/CL_BTN_Container">
 
         <LinearLayout
             android:id="@+id/linearLayout7"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension0"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <com.example.fontutil.TextViewCustomFont
                 android:id="@+id/TV_NextEventText"
                 style="@style/ev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimension24"
                 android:layout_marginTop="16dp"
                 android:text="@string/next_Appointment"
-                android:layout_marginStart="@dimen/dimension24"
                 app:font_name="@string/VIP_Rawy_Bold_Bold" />
 
             <android.support.v7.widget.RecyclerView
@@ -89,15 +90,16 @@
 
 
     <android.support.constraint.ConstraintLayout
-        android:visibility="gone"
         android:id="@+id/CL_BTN_Container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimension24"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="@dimen/dimension24"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont11">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.example.fontutil.TextViewCustomFont
             android:id="@+id/textViewCustomFont18"
@@ -105,6 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ليس لديك مواعيد قادما حاليا"
+            app:font_name="@string/VIP_Rawy_Regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

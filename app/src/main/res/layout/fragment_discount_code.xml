@@ -4,8 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/backGround_SelectSalon"
+    android:background="@color/backGround_SelectSalon_item"
     tools:context=".ui.fragment.DiscountCodeFragment">
+
+    <include
+        android:id="@+id/DiscountCodeTB"
+        layout="@layout/custom_tool_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--<android.support.constraint.ConstraintLayout-->
         <!--android:id="@+id/constraintLayout6"-->
@@ -53,12 +60,12 @@
         style="@style/desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:text="@string/congratulations"
         app:font_name="@string/VIP_Rawy_Regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/DiscountCodeTB" />
 
     <com.example.fontutil.TextViewCustomFont
         android:id="@+id/textViewCustomFont43"
@@ -87,7 +94,7 @@
 
     <com.example.fontutil.ButtonCustomFont
         android:id="@+id/BTN_SelectService"
-        style="@style/sttt"
+        style="@style/zzzz"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAllCaps="false"

@@ -25,6 +25,11 @@ public class UsersSocail {
     @Expose
     private String updatedAt;
 
+    public UsersSocail(String accessToken, String userId) {
+        this.accessToken = accessToken;
+        this.userId = userId;
+    }
+
     public Integer getId() {
         return id;
     }

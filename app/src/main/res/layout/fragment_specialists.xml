@@ -7,60 +7,13 @@
     android:background="@color/backGround_SelectSalon"
     tools:context=".ui.fragment.SpecialistsFragment">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_s"
+
+    <include
+        android:id="@+id/SpecialistsTB"
+        layout="@layout/castom_tool_bar_describe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.example.fontutil.TextViewCustomFont
-            android:id="@+id/TV_Specialists"
-            style="@style/sal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension24"
-            android:layout_marginTop="@dimen/dimension16"
-            android:text="أخصائيون"
-            app:font_name="@string/VIP_Rawy_Bold_Bold"
-            app:layout_constraintEnd_toStartOf="@+id/IV_SpecialistsPackIcon"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/IV_SpecialistsPackIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension24"
-            android:layout_marginEnd="@dimen/dimension24"
-            app:layout_constraintBottom_toBottomOf="@+id/TV_Specialists"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/TV_Specialists"
-            app:layout_constraintTop_toTopOf="@+id/TV_Specialists"
-            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
-
-        <com.example.fontutil.TextViewCustomFont
-            android:id="@+id/textViewCustomFont33"
-            style="@style/salon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension24"
-            android:layout_marginBottom="@dimen/dimension8"
-            android:drawableStart="@drawable/ic_path_c"
-            android:drawablePadding="@dimen/dimension5"
-            android:text="دبي, حي التحرير المسكن الرابع"
-            app:font_name="@string/VIP_Rawy_Regular"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TV_Specialists"
-            app:layout_constraintVertical_bias="0.0" />
-
-    </android.support.constraint.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <android.support.v7.widget.RecyclerView
@@ -73,7 +26,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonCustomFont3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+        app:layout_constraintTop_toBottomOf="@+id/SpecialistsTB" />
 
     <com.example.fontutil.ButtonCustomFont
         style="@style/sp"

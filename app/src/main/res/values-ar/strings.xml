@@ -237,6 +237,7 @@
     <string name="New_Requests" translatable="true">طلبات جديدة</string>
     <string name="my_profits" translatable="true">أرباحي</string>
     <string name="My_stats" translatable="true">احصائياتي</string>
+    <string name="Welcome_to_Bakar_application" translatable="true">Bcare مرحبا بك في تطبيق </string>
 
 
     <!-- Popup -->
@@ -253,4 +254,9 @@
     <string name="Current_Password" translatable="true">كلمة المرور الحالية</string>
     <string name="new_password" translatable="true">كلمة المرور الجديدة</string>
     <string name="Save" translatable="true">حفظ</string>
+
+    <string name="Enter_discount_code" translatable="true">ادخال كود الخصم</string>
+    <string name="Get_special_discounts_by" translatable="true">أحصل على خصومات مميزة بادخال كود الخصم اسفله</string>
+    <string name="get_the_discount" translatable="true">أحصل على الخصم</string>
+    <string name="discount_code" translatable="true">كود الخصم</string>
 </resources>

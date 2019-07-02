@@ -113,8 +113,14 @@ public class LoginPyEmailActivity extends AppCompatActivity {
                             showToast(BCareApp.getInstance().getContext(),"Welcome " + loginData.getName());
                             SharedUser.getSharedUser().saveClientLoginData(loginData);
                             SharedUser.getSharedUser().setToken(loginData.getUsersSocail().getAccessToken());
+                            SharedUser.getSharedUser().setUserId(loginData.getUsersSocail().getUserId());
                         }
-                        startActivity(new Intent(LoginPyEmailActivity.this, HomeActivity.class));
+
+                        Intent toHomeActivity = new Intent(LoginPyEmailActivity.this, GenderActivity.class);
+                        toHomeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        toHomeActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(toHomeActivity);
+                        finish();
 
                         HelperMethod.showToast(LoginPyEmailActivity.this,
                                 SharedUser.getSharedUser().getClientLoginData().getName() + "\n" +
@@ -124,7 +130,8 @@ public class LoginPyEmailActivity extends AppCompatActivity {
                                         SharedUser.getSharedUser().getClientLoginData().getAddress() + "\n" +
                                         SharedUser.getSharedUser().getClientLoginData().getCityId() + "\n" +
                                         SharedUser.getSharedUser().getClientLoginData().getCityId() + "\n" +
-                                        SharedUser.getSharedUser().getToken());
+                                        SharedUser.getSharedUser().getToken() + "\n" +
+                                        SharedUser.getSharedUser().getUserId());
 
                     } else {
                         hideLoading();

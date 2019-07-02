@@ -1,126 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backGround_SelectSalon_item"
     tools:context=".ui.fragment.NotificationFragment">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <include
+        android:id="@+id/NotificationToolBar"
+        layout="@layout/custom_tool_bar_with_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <com.example.fontutil.TextViewCustomFont
-            android:id="@+id/textViewCustomFont20"
-            style="@style/notifi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension8"
-            android:layout_marginTop="@dimen/dimension8"
-            android:layout_marginBottom="@dimen/dimension8"
-            android:text="@string/Notifications"
-            app:font_name="@string/VIP_Rawy_Bold_Bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/IV_ReviewsPackIcon"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toEndOf="@+id/imageView15"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension24"
-            android:layout_marginTop="@dimen/dimension16"
-            android:layout_marginBottom="@dimen/dimension16"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_group_notification" />
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/textView12"
+        style="@style/newr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/New"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NotificationToolBar" />
 
-        <ImageView
-            android:id="@+id/IV_ReviewsPackIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension24"
-            android:layout_marginEnd="@dimen/dimension24"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewCustomFont20"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textViewCustomFont20"
-            app:layout_constraintTop_toTopOf="@+id/textViewCustomFont20"
-            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView4"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension0"
-        android:layout_marginBottom="@dimen/dimension8"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        tools:itemCount="2"
+        tools:listitem="@layout/item_notification_b" />
+
+    <com.example.fontutil.TextViewCustomFont
+        android:id="@+id/textView72"
+        style="@style/newr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimension24"
+        android:layout_marginTop="@dimen/dimension16"
+        android:text="@string/Today"
+        app:font_name="@string/VIP_Rawy_Regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView4" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimension8"
+        android:orientation="vertical"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
-        app:layout_constraintVertical_bias="1.0">
-
-        <com.example.fontutil.TextViewCustomFont
-            android:id="@+id/textView12"
-            style="@style/newr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension24"
-            android:layout_marginTop="@dimen/dimension16"
-            android:text="@string/New"
-            app:font_name="@string/VIP_Rawy_Regular"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimension8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
-            android:orientation="vertical"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_notification_b"
-            tools:itemCount="2"/>
-
-        <com.example.fontutil.TextViewCustomFont
-            android:id="@+id/textView72"
-            style="@style/newr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimension24"
-            android:layout_marginTop="@dimen/dimension16"
-            android:text="@string/Today"
-            app:font_name="@string/VIP_Rawy_Regular"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView4" />
-
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/dimension8"
-            android:orientation="vertical"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView72"
-            tools:itemCount="5"
-            tools:listitem="@layout/item_notification_w" />
-    </android.support.constraint.ConstraintLayout>
-
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView72"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_notification_w" />
 
 </android.support.constraint.ConstraintLayout>

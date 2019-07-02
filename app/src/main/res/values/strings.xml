@@ -221,6 +221,7 @@
 
     <!-- ReviewsSpecialFragment -->
     <string name="The_description_must" translatable="true">The description must be at least 10 characters.</string>
+    <string name="Welcome_to_Bakar_application" translatable="true">Welcome to the Bcare Application</string>
 
     <!--  -->
     <string name="Logout" translatable="true">Sign Out</string>
@@ -274,6 +275,7 @@
     <string name="my_profits" translatable="true">My Profits</string>
     <string name="My_stats" translatable="true">My Stats</string>
 
+
     <!-- Popup -->
     <string name="nearest" translatable="true">Nearest</string>
     <string name="Top_rated" translatable="true">Top Rated</string>
@@ -287,5 +289,18 @@
     <string name="Current_Password" translatable="true">Current Password</string>
     <string name="new_password" translatable="true">New Password</string>
     <string name="Save" translatable="true">Save</string>
+
+    <string name="Enter_discount_code" translatable="true">Enter the Discount Code</string>
+    <string name="Get_special_discounts_by" translatable="true">Get Special Discounts by Entering the Discount Code Below</string>
+    <string name="get_the_discount" translatable="true">Get the Discount</string>
+    <string name="discount_code" translatable="true">Discount Code</string>
+
+
+
+
+
+
+
+
 
 </resources>

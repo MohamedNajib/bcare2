@@ -1,9 +1,11 @@
 package com.emedia.bcare.cash;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.emedia.bcare.Config.BCareApp;
 import com.emedia.bcare.data.model.login_email.UserData;
+import com.emedia.bcare.data.model.register.UsersSocail;
 
 import static android.content.Context.MODE_PRIVATE;
 public class SharedUser {
@@ -31,6 +33,7 @@ public class SharedUser {
     private static final String U_CITY_ID = "U_CITY_ID";
     private static final String U_COUNTRY_ID = "U_COUNTRY_ID";
 
+    private static final String LOGIN_USER_ID = "LOGIN_USER_ID";
     private static final String LOGINE_TOKEN = "LE_TOKEN";
     private static final String LOGINE_NAME= "LE_NAME";
     private static final String LOGINE_USERNAME = "LE_USERNAME";
@@ -76,6 +79,37 @@ public class SharedUser {
         );
     }
 
+    public boolean setUserId (String id){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(LOGIN_USER_ID, id);
+        return editor.commit();
+    }
+
+    public String getUserId () {
+        return sharedPreferences.getString(LOGIN_USER_ID, null);
+    }
+
+    public boolean setToken(String token) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(TOKEN, token);
+        return editor.commit();
+    }
+
+    public String getToken() {
+        return sharedPreferences.getString(TOKEN, null);
+    }
+
+//    public void setUserToken(String token){
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString(LOGIN_USER_ID, usersSocail.getUserId());
+//        editor.putString(LOGINE_TOKEN, usersSocail.getAccessToken());
+//    }
+//    public UsersSocail gutToken(){
+//        return new UsersSocail(
+//                sharedPreferences.getString(LOGIN_USER_ID, null),
+//                sharedPreferences.getString(LOGINE_TOKEN, null)
+//        );
+//    }
 
     public void saveClientRegisterData(com.emedia.bcare.data.model.register.UserData userData) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -101,6 +135,7 @@ public class SharedUser {
                 sharedPreferences.getString(U_COUNTRY_ID, null)
         );
     }
+
 
     public String getPhone() {
         return sharedPreferences.getString(PHONE, "");
@@ -138,19 +173,11 @@ public class SharedUser {
         return editor.commit();
     }
 
-    public String getToken() {
-        return sharedPreferences.getString(TOKEN, "");
-    }
-
     public String getId() {
         return sharedPreferences.getString(ID, "");
     }
 
-    public boolean setToken(String token) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(TOKEN, token);
-        return editor.commit();
-    }
+
 
 
     public boolean setEmail(String email) {

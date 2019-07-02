@@ -15,36 +15,121 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="wrap_content"
                 android:background="@color/backGroundItem"
                 app:popupTheme="@style/AppTheme.PopupOverlay" >
 
-                <ImageView
-                    android:id="@+id/IV_NotificationIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginEnd="8dp"
-                    app:srcCompat="@drawable/ic_notification_icon" />
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/IV_MessageIcon"
-                    android:layout_width="@dimen/dimension20"
-                    android:layout_height="@dimen/dimension20"
-                    android:layout_marginEnd="@dimen/dimension16"
-                    app:srcCompat="@drawable/ic_mesag_icon"
-                    android:layout_gravity="start"/>
+                    <ImageView
+                        android:id="@+id/navIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/ic_nav_icon" />
 
-                <com.example.fontutil.TextViewCustomFont
-                    android:id="@+id/textViewCustomFont2"
-                    style="@style/ProfileText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimension24"
-                    android:layout_gravity="end"
-                    android:text="حسابي"
-                    app:font_name="@string/VIP_Rawy_Bold_Bold"
-                    android:layout_marginEnd="@dimen/_10sdp"/>
+                    <ImageView
+                        android:id="@+id/IV_NotificationIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/navIcon"
+                        app:layout_constraintEnd_toStartOf="@+id/navIcon"
+                        app:layout_constraintTop_toTopOf="@+id/navIcon"
+                        app:srcCompat="@drawable/ic_notification_icon" />
+
+                    <ImageView
+                        android:id="@+id/IV_MessageIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/IV_NotificationIcon"
+                        app:layout_constraintEnd_toStartOf="@+id/IV_NotificationIcon"
+                        app:layout_constraintTop_toTopOf="@+id/IV_NotificationIcon"
+                        app:srcCompat="@drawable/ic_mesag_icon" />
+
+                    <com.example.fontutil.TextViewCustomFont
+                        android:visibility="gone"
+                        android:id="@+id/textViewCustomFont2"
+                        style="@style/ProfileText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        tools:text="حسابي"
+                        app:font_name="@string/VIP_Rawy_Bold_Bold"
+                        app:layout_constraintEnd_toStartOf="@+id/IV_MessageIcon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.example.fontutil.TextViewCustomFont
+                        android:visibility="gone"
+                        android:id="@+id/ToolBar_SupTitle1"
+                        style="@style/cont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="8dp"
+                        app:font_name="@string/VIP_Rawy_Regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textViewCustomFont2"
+                        app:layout_constraintTop_toBottomOf="@+id/IV_MessageIcon"
+                        tools:text="دبي, حي التحرير المسكن الرابع" />
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:visibility="gone"
+                        android:id="@+id/CL_EventTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toStartOf="@+id/IV_MessageIcon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/EventIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_path_" />
+
+                        <com.example.fontutil.TextViewCustomFont
+                            android:id="@+id/EventTitle"
+                            style="@style/ProfileText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:drawablePadding="@dimen/dimension5"
+                            tools:text="دبي, حي التحرير المسكن الرابع"
+                            app:font_name="@string/VIP_Rawy_Regular"
+                            app:layout_constraintBottom_toBottomOf="@+id/EventIcon"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/EventIcon"
+                            app:layout_constraintTop_toTopOf="@+id/EventIcon" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
 
             </android.support.v7.widget.Toolbar>
 

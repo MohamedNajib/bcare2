@@ -3,9 +3,11 @@ package com.emedia.bcare.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +24,9 @@ import com.emedia.bcare.data.model.api_model.specialist_info.SpecialistData;
 import com.emedia.bcare.data.model.api_model.specialist_info.SpecialistInfo;
 import com.emedia.bcare.data.model.api_model.specialist_info.SpecialistReview;
 import com.emedia.bcare.data.rest.RetrofitClient;
+import com.emedia.bcare.ui.activity.HomeActivity;
 import com.emedia.bcare.ui.custom.RoundRectCornerImageView;
+import com.emedia.bcare.util.HelperMethod;
 import com.example.fontutil.ButtonCustomFont;
 import com.example.fontutil.EditTextCustomFont;
 import com.example.fontutil.TextViewCustomFont;
@@ -50,10 +54,7 @@ public class ReviewsSpecialFragment extends Fragment {
 
 
     Unbinder unbinder;
-    @BindView(R.id.IV_ReviewsSpecialPackIcon)
-    ImageView IVReviewsSpecialPackIcon;
-    @BindView(R.id.TV_ReviewsSpecialName)
-    TextViewCustomFont TVReviewsSpecialName;
+
     @BindView(R.id.IV_ReviewsSpecialImage)
     RoundRectCornerImageView IVReviewsSpecialImage;
     @BindView(R.id.TV_ReviewsSpecialNameA)
@@ -83,7 +84,8 @@ public class ReviewsSpecialFragment extends Fragment {
     public ReviewsSpecialFragment() {
         // Required empty public constructor
     }
-
+    private TextViewCustomFont mToolBarTitle;
+    private ImageView mToolBarIconBack;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,12 +94,25 @@ public class ReviewsSpecialFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_reviews_special, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        Toolbar sectionsBar = view.findViewById(R.id.ReviewsSpecialTB);
+        sectionsBar.setBackground(ContextCompat.getDrawable((HomeActivity) getActivity(), R.drawable.review_background_));
+        mToolBarTitle = sectionsBar.findViewById(R.id.TV_Title);
+        mToolBarIconBack = sectionsBar.findViewById(R.id.IV_Back);
+
+        mToolBarTitle.setText(((HomeActivity) getActivity()).getResources().getString(R.string.discount_code));
+        mToolBarIconBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               ((HomeActivity) getActivity()).changeFragment(13);
+            }
+        });
+
         if (Locale.getDefault().getLanguage().equals("ar")) {
-            IVReviewsSpecialPackIcon.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
             IVButtonMore.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
+            mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
-            IVReviewsSpecialPackIcon.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
             IVButtonMore.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+            mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
 
         mSpecialistReview = new ArrayList<>();
@@ -110,8 +125,11 @@ public class ReviewsSpecialFragment extends Fragment {
                 "UJAoT31Ms4XK16DkkYGAlmqpecznbvJoLZvf6E2u5taENjKSzYIg0AwOkI0P",
                 getSpecialistId(),
                 "ar");
-
+        initialize();
         return view;
+    }
+    protected void initialize() {
+        ((HomeActivity) getActivity()).hideBottomToolbar();
     }
 
     private void getSpecialistInfo(String token, int specialist_id, String lang) {
@@ -127,7 +145,7 @@ public class ReviewsSpecialFragment extends Fragment {
                         List<SpecialistData> specialistData = response.body().getData();
                         for (SpecialistData specialistData1 : specialistData) {
 
-                            TVReviewsSpecialName.setText(specialistData1.getName());
+                            mToolBarTitle.setText(specialistData1.getName());
                             TVReviewsSpecialNameA.setText(specialistData1.getName());
                             Glide.with(getActivity()).load(specialistData1.getImage()).into(IVReviewsSpecialImage);
                             TVReviewsSpecialSpecialty.setText(specialistData1.getDescription());

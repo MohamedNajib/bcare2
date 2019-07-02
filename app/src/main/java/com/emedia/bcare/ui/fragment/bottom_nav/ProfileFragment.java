@@ -82,10 +82,11 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
-    public void initialize()
-    {
+    public void initialize() {
         ((HomeActivity) getActivity()).showBottomToolbar();
         ((HomeActivity) getActivity()).setToolbar(((HomeActivity) getActivity()).getResources().getString(R.string.my_account));
+        ((HomeActivity) getActivity()).setSupToolbar(null);
+        ((HomeActivity) getActivity()).setEventTitle(null);
     }
 
     private void getUserDetails(String token, String lang) {

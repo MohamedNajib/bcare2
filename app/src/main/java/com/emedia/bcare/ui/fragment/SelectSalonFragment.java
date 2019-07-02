@@ -18,6 +18,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,7 @@ import retrofit2.Response;
 import static com.emedia.bcare.Constants.FragmentsKeys.MY_PERMISSIONS_REQUEST_ACCESS_GPS;
 import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
 import static com.emedia.bcare.adapter.fragments_adapter.SalonServicesAdapterB.mTotalPrice;
+import static com.emedia.bcare.util.HelperMethod.intentTo;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,8 +74,7 @@ public class SelectSalonFragment extends Fragment {
     @BindView(R.id.RV_SelectSalon)
     RecyclerView RVSelectSalon;
     Unbinder unbinder;
-    @BindView(R.id.IV_SelectSalonPackIcon)
-    ImageView IVSelectSalonPackIcon;
+
 
     /* member variable */
     private LinearLayoutManager mLayoutManager;
@@ -91,6 +92,9 @@ public class SelectSalonFragment extends Fragment {
     public SelectSalonFragment() {
         // Required empty public constructor
     }
+    private TextViewCustomFont mToolBarTitle;
+    private TextViewCustomFont mToolBarDiscrib;
+    private ImageView mToolBarIconBack;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -99,16 +103,30 @@ public class SelectSalonFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_select_salon, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        initialize();
+        Toolbar sectionsBar = view.findViewById(R.id.SelectSalonTB);
+        mToolBarTitle = sectionsBar.findViewById(R.id.TV_Title);
+        mToolBarDiscrib = sectionsBar.findViewById(R.id.TV_description);
+        mToolBarIconBack = sectionsBar.findViewById(R.id.IV_Back);
 
+        mToolBarTitle.setText(((HomeActivity) getActivity()).getResources().getString(R.string.Select_Salon));
+        mToolBarDiscrib.setText(SharedUser.getSharedUser().getClientLoginData().getAddress());
+
+        mToolBarIconBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentTo((HomeActivity) getActivity(), HomeActivity.class);
+            }
+        });
+
+        initialize();
         if (SharedPrefManager.getInstance(getContext()).getPopUpState() == null){
             SharedPrefManager.getInstance(getContext()).setPopUpState("nearest");
         }
 
         if (Locale.getDefault().getLanguage().equals("ar")) {
-            IVSelectSalonPackIcon.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
+            mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
-            IVSelectSalonPackIcon.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+            mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
 
         /* Check If The Permission is Granted or Not */
@@ -509,11 +527,6 @@ public class SelectSalonFragment extends Fragment {
             progress_view.setVisibility(View.GONE);
     }
 
-    @OnClick(R.id.IV_SelectSalonPackIcon)
-    void back()
-    {
-        ((HomeActivity) getActivity()).onBackPressed();
-    }
 
 //    @OnClick(R.id.IV_SelectSalonPackIcon)
 //    public void goBack() {

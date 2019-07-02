@@ -21,79 +21,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/IV_ProfileNavIcon"
-                android:layout_width="@dimen/dimension21"
-                android:layout_height="@dimen/dimension16"
-                android:layout_marginTop="@dimen/dimension24"
-                android:layout_marginEnd="@dimen/dimension24"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_nav_icon" />
-
-            <ImageView
-                android:id="@+id/IV_ProfileNotificationIcon"
-                android:layout_width="@dimen/dimension20"
-                android:layout_height="@dimen/dimension20"
-                android:layout_marginEnd="@dimen/dimension16"
-                app:layout_constraintBottom_toBottomOf="@+id/IV_ProfileNavIcon"
-                app:layout_constraintEnd_toStartOf="@+id/IV_ProfileNavIcon"
-                app:layout_constraintTop_toTopOf="@+id/IV_ProfileNavIcon"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/ic_notification_icon" />
-
-            <ImageView
-                android:id="@+id/IV_ProfileMessageIcon"
-                android:layout_width="@dimen/dimension20"
-                android:layout_height="@dimen/dimension20"
-                android:layout_marginEnd="@dimen/dimension16"
-                app:layout_constraintBottom_toBottomOf="@+id/IV_ProfileNotificationIcon"
-                app:layout_constraintEnd_toStartOf="@+id/IV_ProfileNotificationIcon"
-                app:layout_constraintTop_toTopOf="@+id/IV_ProfileNotificationIcon"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/ic_mesag_icon" />
-
-
-            <com.example.fontutil.TextViewCustomFont
-                android:id="@+id/textViewCustomFont2"
-                style="@style/con"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimension24"
-                android:text="@string/welcome"
-                app:font_name="@string/VIP_Rawy_Bold_Bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/IV_ProfileMessageIcon" />
-
-            <com.example.fontutil.TextViewCustomFont
-                android:id="@+id/cont"
-                style="@style/cont"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/The_application_combines"
-                app:font_name="@string/VIP_Rawy_Regular"
-                app:layout_constraintStart_toStartOf="@+id/textViewCustomFont2"
-                app:layout_constraintTop_toBottomOf="@+id/textViewCustomFont2" />
 
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension1"
-                android:layout_marginTop="@dimen/dimension24"
                 android:background="@color/gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cont" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.example.fontutil.TextViewCustomFont
                 android:id="@+id/conmt"
                 style="@style/mon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="@dimen/dimension24"
                 android:text="@string/my_profits"
                 app:font_name="@string/VIP_Rawy_Bold_Bold"
-                app:layout_constraintStart_toStartOf="@+id/cont"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <com.example.fontutil.TextViewCustomFont
@@ -125,8 +72,8 @@
                 style="@style/sdf"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dimension24"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="@dimen/dimension24"
-                android:layout_marginBottom="@dimen/dimension8"
                 android:background="@drawable/servi"
                 android:paddingStart="@dimen/dimension16"
                 android:paddingEnd="@dimen/dimension16"

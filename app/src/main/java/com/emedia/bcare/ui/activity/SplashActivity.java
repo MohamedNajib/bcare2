@@ -11,6 +11,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.emedia.bcare.R;
+import com.emedia.bcare.cash.SharedUser;
+import com.emedia.bcare.util.HelperMethod;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -30,12 +32,34 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                if (SharedUser.getSharedUser().getToken() != null){
+                    //Intent toHomeActivity = new Intent(SplashActivity.this, HomeActivity.class);
+                    Intent toHomeActivity = new Intent(SplashActivity.this, GenderActivity.class);
+                    toHomeActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    toHomeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(toHomeActivity);
+                    finish();
+
+                    HelperMethod.showToast(SplashActivity.this,
+                            SharedUser.getSharedUser().getClientLoginData().getName() + "\n" +
+                                    SharedUser.getSharedUser().getClientLoginData().getUsername() + "\n" +
+                                    SharedUser.getSharedUser().getClientLoginData().getEmail() + "\n" +
+                                    SharedUser.getSharedUser().getClientLoginData().getAge() + "\n" +
+                                    SharedUser.getSharedUser().getClientLoginData().getAddress() + "\n" +
+                                    SharedUser.getSharedUser().getClientLoginData().getCityId() + "\n" +
+                                    SharedUser.getSharedUser().getClientLoginData().getCityId() + "\n" +
+                                    SharedUser.getSharedUser().getToken());
+
+                }else {
+                    startActivity(new Intent(SplashActivity.this, LoginMainActivity.class));
+                    finish();
+                }
                 //startActivity(new Intent(SplashActivity.this, GenderActivity.class));
                 //startActivity(new Intent(SplashActivity.this, HomeActivity.class));
-                startActivity(new Intent(SplashActivity.this, LoginMainActivity.class));
-                finish();
             }
         },3000);
 
     }
+
+
 }

@@ -91,7 +91,6 @@ public class MyEventFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -119,21 +118,20 @@ public class MyEventFragment extends Fragment {
                 //"VAq8gDWHoxQ8NMiy5A9HFpG5Cyplgr54FHYnNuv4c4TFLFcTwe956RizJ8UW",
                 //"UJAoT31Ms4XK16DkkYGAlmqpecznbvJoLZvf6E2u5taENjKSzYIg0AwOkI0P",
                 ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang));
-        //"UJAoT31Ms4XK16DkkYGAlmqpecznbvJoLZvf6E2u5taENjKSzYIg0AwOkI0P"
         return view;
     }
 
-    public void initialize()
-    {
+    public void initialize() {
         ((HomeActivity) getActivity()).showBottomToolbar();
-        ((HomeActivity) getActivity()).setToolbar(((HomeActivity) getActivity()).getResources().getString(R.string.my_appointments));
+        ((HomeActivity) getActivity()).setToolbar(null);
+        ((HomeActivity) getActivity()).setSupToolbar(null);
+        ((HomeActivity) getActivity()).setEventTitle(((HomeActivity) getActivity()).getResources().getString(R.string.my_appointments));
     }
 
     private void getMyEvents(String token, String lang) {
 
         showLoading();
-        Call<MyEvent> myEventCall = RequestSingletone.getInstance().getClient().create(ApiServices.class)
-                .getMyEvents(token, lang);
+        Call<MyEvent> myEventCall = RequestSingletone.getInstance().getClient().create(ApiServices.class).getMyEvents(token, lang);
         myEventCall.enqueue(new Callback<MyEvent>() {
             @Override
             public void onResponse(Call<MyEvent> call, Response<MyEvent> response) {
@@ -142,6 +140,8 @@ public class MyEventFragment extends Fragment {
                 try {
                     if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
                         mNextAppointments = response.body().getData().getNextAppointment();
+
+                        showToast(getContext(), "OK");
                         if (mNextAppointments.size() == 0) {
                             CLBTNContainer.setVisibility(View.VISIBLE);
                             //TVNextEventText.setVisibility(View.GONE);
@@ -180,7 +180,7 @@ public class MyEventFragment extends Fragment {
 
             @Override
             public void onFailure(Call<MyEvent> call, Throwable t) {
-                //showToast(getContext(), "onFailure");
+                showToast(getContext(), "onFailure"+ t.getMessage());
                 hideLoading();
             }
         });

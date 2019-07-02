@@ -119,6 +119,8 @@ public class UserHomeFragment extends Fragment {
     public void initialize() {
         ((HomeActivity) getActivity()).showBottomToolbar();
         ((HomeActivity) getActivity()).setToolbar(((HomeActivity) getActivity()).getResources().getString(R.string.title_home));
+        ((HomeActivity) getActivity()).setSupToolbar(((HomeActivity) getActivity()).getResources().getString(R.string.The_application_combines));
+        ((HomeActivity) getActivity()).setEventTitle(null);
     }
 
 
@@ -181,12 +183,14 @@ public class UserHomeFragment extends Fragment {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    showToast(getContext(), "Exception: " + e.getMessage());
                 }
             }
 
             @Override
             public void onFailure(Call<Home> call, Throwable t) {
                 hideLoading();
+                showToast(getContext(), "Failure");
             }
         });
 

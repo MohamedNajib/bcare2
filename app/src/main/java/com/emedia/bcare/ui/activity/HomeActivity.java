@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -20,7 +21,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.emedia.bcare.Config.BCareApp;
 import com.emedia.bcare.Config.ContextWrapper;
@@ -32,6 +35,8 @@ import com.emedia.bcare.data.model.api_model.booking.Specialist_;
 import com.emedia.bcare.data.model.api_model.booking.TimeAtHome;
 import com.emedia.bcare.data.model.api_model.booking.TimeAtSalon;
 import com.emedia.bcare.data.model.api_model.salons.SalonData;
+import com.emedia.bcare.data.model.logoutUser.LogoutUser;
+import com.emedia.bcare.data.rest.RetrofitClient;
 import com.emedia.bcare.ui.fragment.AboutBcare;
 import com.emedia.bcare.ui.fragment.BookingFragment;
 import com.emedia.bcare.ui.fragment.ChatFragment;
@@ -54,13 +59,20 @@ import com.emedia.bcare.ui.fragment.bottom_nav.ProfileFragment;
 import com.emedia.bcare.ui.fragment.bottom_nav.UserHomeFragment;
 import com.emedia.bcare.ui.fragment.SalonFragment;
 import com.emedia.bcare.util.HelperMethod;
+import com.example.fontutil.TextViewCustomFont;
 
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
 import static com.emedia.bcare.util.HelperMethod.intentTo;
 import static com.emedia.bcare.util.HelperMethod.replaceFragments;
+import static com.emedia.bcare.util.HelperMethod.showToast;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -104,47 +116,71 @@ public class HomeActivity extends AppCompatActivity
     };
 
     public void heden() {
-      // Toolbar toolbar = findViewById(R.id.toolbar);
-      // fragmentContainerA = findViewById(R.id.fragmentContainerA);
-      // FrameLayoutFragmentContainer = findViewById(R.id.FrameLayoutFragment_Container);
-      // BottomNavView = findViewById(R.id.Bottom_nav_view);
-      // BottomNavView.setVisibility(View.GONE);
-      // FrameLayoutFragmentContainer.setVisibility(View.GONE);
-      // fragmentContainerA.setVisibility(View.VISIBLE);
-      // toolbar.setVisibility(View.GONE);
+        // Toolbar toolbar = findViewById(R.id.toolbar);
+        // fragmentContainerA = findViewById(R.id.fragmentContainerA);
+        // FrameLayoutFragmentContainer = findViewById(R.id.FrameLayoutFragment_Container);
+        // BottomNavView = findViewById(R.id.Bottom_nav_view);
+        // BottomNavView.setVisibility(View.GONE);
+        // FrameLayoutFragmentContainer.setVisibility(View.GONE);
+        // fragmentContainerA.setVisibility(View.VISIBLE);
+        // toolbar.setVisibility(View.GONE);
     }
 
-    public void show()
-    {
-       // Toolbar toolbar = findViewById(R.id.toolbar);
-       // fragmentContainerA = findViewById(R.id.fragmentContainerA);
-       // FrameLayoutFragmentContainer = findViewById(R.id.FrameLayoutFragment_Container);
-       // BottomNavView = findViewById(R.id.Bottom_nav_view);
-       // BottomNavView.setVisibility(View.VISIBLE);
-       // FrameLayoutFragmentContainer.setVisibility(View.VISIBLE);
-       // fragmentContainerA.setVisibility(View.VISIBLE);
-       // toolbar.setVisibility(View.VISIBLE);
+    public void show() {
+        // Toolbar toolbar = findViewById(R.id.toolbar);
+        // fragmentContainerA = findViewById(R.id.fragmentContainerA);
+        // FrameLayoutFragmentContainer = findViewById(R.id.FrameLayoutFragment_Container);
+        // BottomNavView = findViewById(R.id.Bottom_nav_view);
+        // BottomNavView.setVisibility(View.VISIBLE);
+        // FrameLayoutFragmentContainer.setVisibility(View.VISIBLE);
+        // fragmentContainerA.setVisibility(View.VISIBLE);
+        // toolbar.setVisibility(View.VISIBLE);
 
     }
 
-    public void showBottomToolbar()
-    {
+    public void showBottomToolbar() {
         toolbar.setVisibility(View.VISIBLE);
         BottomNavView = findViewById(R.id.Bottom_nav_view);
         BottomNavView.setVisibility(View.VISIBLE);
     }
 
-    public void hideBottomToolbar()
-    {
+    public void hideBottomToolbar() {
         toolbar.setVisibility(View.GONE);
         BottomNavView = findViewById(R.id.Bottom_nav_view);
         BottomNavView.setVisibility(View.GONE);
     }
+    private TextViewCustomFont supTitle;
+    public void setSupToolbar(String title) {
+        supTitle  = findViewById(R.id.ToolBar_SupTitle1);
 
-    public void setToolbar(String title)
-    {
-        tvToolbar = (TextView) findViewById(R.id.textViewCustomFont2);
-        tvToolbar.setText(title);
+        if (title == null){
+            supTitle.setVisibility(View.GONE);
+        }else {
+            supTitle.setVisibility(View.VISIBLE);
+            supTitle.setText(title);
+        }
+    }
+
+    public void setToolbar(String title) {
+        if (title == null){
+            tvToolbar.setVisibility(View.GONE);
+        }else {
+            tvToolbar = findViewById(R.id.textViewCustomFont2);
+            tvToolbar.setText(title);
+            tvToolbar.setVisibility(View.VISIBLE);
+        }
+    }
+    ConstraintLayout eventConstraintLayout;
+    private TextViewCustomFont eventTitle;
+    public void setEventTitle(String title){
+        eventConstraintLayout = findViewById(R.id.CL_EventTitle);
+        eventTitle = findViewById(R.id.EventTitle);
+        if (title == null){
+            eventConstraintLayout.setVisibility(View.GONE);
+        }else {
+            eventConstraintLayout.setVisibility(View.VISIBLE);
+            eventTitle.setText(title);
+        }
     }
 
     public static Intent getCallingIntent(Context context) {
@@ -164,21 +200,18 @@ public class HomeActivity extends AppCompatActivity
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.setSelectedItemId(R.id.navigation_home);
 
-//        if (savedInstanceState == null) {
-//            changeFragment(2);
-//        }
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
 
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        toolbar.setNavigationIcon(R.drawable.ic_nav_icon);
-        navigationView.setNavigationItemSelectedListener(this);
+
+        drawer.findViewById(R.id.navIcon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // open right drawer
+                drawer.openDrawer(GravityCompat.START);
+            }
+        });
 
         ImageView imageView = drawer.findViewById(R.id.IV_NotificationIcon);
         ImageView imageView1 = drawer.findViewById(R.id.IV_MessageIcon);
@@ -186,17 +219,68 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 changeFragment(7);
-                heden();
+                //heden();
             }
         });
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 changeFragment(5);
-                heden();
+                //heden();
             }
         });
 
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        LinearLayout logoutNavL = navigationView.findViewById(R.id.LL_LogoutNav);
+        ImageView signOutImage = navigationView.findViewById(R.id.IV_Logout);
+        if (Locale.getDefault().getLanguage().equals("ar")) {
+            signOutImage.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+        } else {
+            signOutImage.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
+        }
+
+        logoutNavL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logoutUser(SharedUser.getSharedUser().getToken(), Integer.valueOf(SharedUser.getSharedUser().getUserId()));
+            }
+        });
+
+    }
+
+    /**
+     * Sign Out User Api Call
+     */
+    private void logoutUser(String token, int userId) {
+        Call<LogoutUser> logoutUserCall = RetrofitClient.getInstance().getApiServices().logoutUser(token, userId);
+        logoutUserCall.enqueue(new Callback<LogoutUser>() {
+            @Override
+            public void onResponse(Call<LogoutUser> call, Response<LogoutUser> response) {
+                try {
+                    if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
+                        HelperMethod.showToast(HomeActivity.this, "Success: " + response.body().getData());
+                        SharedUser.getSharedUser().clear();
+                        Intent toLogin = new Intent(HomeActivity.this, LoginMainActivity.class);
+                        toLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        toLogin.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(toLogin);
+                        finish();
+                    } else {
+                        Toast.makeText(BCareApp.getInstance().getContext(), "Error: " + response.body().getCode()
+                                + response.body().getData(), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LogoutUser> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
@@ -213,35 +297,28 @@ public class HomeActivity extends AppCompatActivity
         if (currentFragment instanceof UserHomeFragment) {
             BCareApp.getInstance().showExitDialogue(this);
             return;
-        }
-        else if (currentFragment instanceof SalonServicesFragment) {
+        } else if (currentFragment instanceof SalonServicesFragment) {
             //Back To select salon
             changeFragment(2);
-        }
-        else if (currentFragment instanceof ConfirmationFragment) {
+        } else if (currentFragment instanceof ConfirmationFragment) {
             //Back To map
             changeFragment(16);
         } else if (currentFragment instanceof SelectSalonFragment) {
             //Back To Salon Services
             intentTo(this, GenderActivity.class);
             //changeFragment(0);
-        }
-        else if (currentFragment instanceof BookingFragment) {
+        } else if (currentFragment instanceof BookingFragment) {
             //Back To Salon Services
             changeFragment(3);
-        }
-        else if (currentFragment instanceof MyEventFragment) {
+        } else if (currentFragment instanceof MyEventFragment) {
             changeFragment(1);
-        }
-        else if (currentFragment instanceof SalonFragment) {
+        } else if (currentFragment instanceof SalonFragment) {
             //selcet salon
             changeFragment(2);
-        }
-        else if (currentFragment instanceof MapFragment) {
+        } else if (currentFragment instanceof MapFragment) {
             //to booking
             changeFragment(4);
-        }
-        else if (currentFragment instanceof SectionsFragment) {
+        } else if (currentFragment instanceof SectionsFragment) {
             //to booking
             changeFragment(21);
         }
@@ -503,24 +580,22 @@ public class HomeActivity extends AppCompatActivity
     }
 
     String monthName;
-    public void setMonthName(String monthName)
-    {
+
+    public void setMonthName(String monthName) {
         this.monthName = monthName;
     }
 
-    public String getMonthName()
-    {
+    public String getMonthName() {
         return monthName;
     }
 
     String dayName;
-    public void setDayName(String dayName)
-    {
+
+    public void setDayName(String dayName) {
         this.dayName = dayName;
     }
 
-    public String getDayName()
-    {
+    public String getDayName() {
         return dayName;
     }
 
