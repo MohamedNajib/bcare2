@@ -75,6 +75,8 @@ dependencies {
 
     //Circle Indicator
     implementation 'me.relex:circleindicator:1.2.2'
+    //implementation "cz.intik:overflow-pager-indicator:1.2.1"
+    //implementation 'com.github.chahine:pageindicator:0.2.8'
 
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.3'
     implementation 'com.chaos.view:pinview:1.4.2'

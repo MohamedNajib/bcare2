@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +73,6 @@ public class UserHomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -93,6 +93,25 @@ public class UserHomeFragment extends Fragment {
         RVAdvertisements.setLayoutManager(mLayoutManager);
         RVAdvertisements.setHasFixedSize(true);
         RVAdvertisements.setItemAnimator(new DefaultItemAnimator());
+
+        //HomeSliderIndicator.attachTo(RVAdvertisements);
+
+
+        // add pager behavior
+        PagerSnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(RVAdvertisements);
+
+        //HomeSliderIndicator.attachToRecyclerView(RVAdvertisements);
+
+//        RVAdvertisements.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL));
+//        CircleIndicator  indicator = view.findViewById(R.id.HomeSliderIndicator);
+
+//        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
+//        pagerSnapHelper.attachToRecyclerView(RVAdvertisements);
+//
+//        CircleIndicator indicator = view.findViewById(R.id.HomeSliderIndicator);
+//        indicator.attachToRecyclerView(RVAdvertisements, pagerSnapHelper);
+
 
         mCategoriesList = new ArrayList<>();
         RVCategories.setLayoutManager(new GridLayoutManager(getContext(), 4));

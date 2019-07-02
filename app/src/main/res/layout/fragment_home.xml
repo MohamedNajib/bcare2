@@ -55,15 +55,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@+id/HomeSliderIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension50"
+                app:ci_drawable="@drawable/indicator_b"
+                app:ci_drawable_unselected="@drawable/indicator_a"
+                app:ci_height="@dimen/dimension5"
+                app:ci_width="@dimen/dimension5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/RV_Advertisements" />
+
             <View
                 android:id="@+id/view1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension1"
-                android:layout_marginTop="@dimen/dimension32"
                 android:background="#ff707070"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/RV_Advertisements" />
+                app:layout_constraintTop_toBottomOf="@+id/HomeSliderIndicator" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/RV_Categories"
