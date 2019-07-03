@@ -7,32 +7,6 @@
     android:background="@drawable/background_event"
     tools:context=".ui.fragment.bottom_nav.MyEventFragment">
 
-
-
-    <!--<ImageView-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="@dimen/dimension24"-->
-        <!--android:layout_marginTop="@dimen/dimension24"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:srcCompat="@drawable/ic_path_" />-->
-
-    <!--<com.example.fontutil.TextViewCustomFont-->
-        <!--android:id="@+id/textViewCustomFont11"-->
-        <!--style="@style/eve"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="@dimen/dimension8"-->
-        <!--android:layout_marginBottom="@dimen/dimension8"-->
-        <!--android:text="مواعيدي"-->
-        <!--app:font_name="@string/VIP_Rawy_Bold_Bold"-->
-        <!--app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
-        <!--app:layout_constraintStart_toEndOf="@+id/imageView"-->
-        <!--app:layout_constraintTop_toTopOf="@+id/imageView" />-->
-
-
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension0"
@@ -106,7 +80,7 @@
             style="@style/no_events"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ليس لديك مواعيد قادما حاليا"
+            android:text="@string/You_currently_have_no_dates"
             app:font_name="@string/VIP_Rawy_Regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -119,7 +93,8 @@
             android:layout_marginTop="@dimen/dimension8"
             android:layout_marginEnd="@dimen/dimension8"
             android:background="@drawable/yy_btn"
-            android:text="حجز موعد"
+            android:text="@string/Appointment_Booking"
+            android:textAllCaps="false"
             app:font_name="@string/VIP_Rawy_Bold_Bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/BTN_MyEventNearbySalon"
@@ -139,7 +114,8 @@
             android:gravity="center"
             android:paddingStart="@dimen/dimension16"
             android:paddingEnd="@dimen/dimension16"
-            android:text="الصالونات القريبة"
+            android:text="@string/Salons_nearby"
+            android:textAllCaps="false"
             app:font_name="@string/VIP_Rawy_Bold_Bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

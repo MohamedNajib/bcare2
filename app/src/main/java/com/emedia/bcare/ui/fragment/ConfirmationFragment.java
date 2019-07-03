@@ -32,6 +32,7 @@ import com.emedia.bcare.ui.activity.BookingActivity;
 import com.emedia.bcare.ui.activity.GenderActivity;
 import com.emedia.bcare.ui.activity.HomeActivity;
 import com.emedia.bcare.ui.fragment.booking_taps.InTheShopBookingTap;
+import com.emedia.bcare.util.HelperMethod;
 import com.example.fontutil.ButtonCustomFont;
 import com.example.fontutil.EditTextCustomFont;
 import com.example.fontutil.TextViewCustomFont;
@@ -52,6 +53,7 @@ import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
 import static com.emedia.bcare.adapter.fragments_adapter.SalonServicesAdapterB.getmTotalPrice;
 import static com.emedia.bcare.adapter.fragments_adapter.SalonServicesAdapterB.mTotalPrice;
 import static com.emedia.bcare.ui.fragment.booking_taps.InTheShopBookingTap.getSpecialistId;
+import static com.emedia.bcare.ui.fragment.booking_taps.InTheShopBookingTap.getTimeAt;
 import static com.emedia.bcare.util.HelperMethod.showToast;
 
 /**
@@ -67,6 +69,7 @@ public class ConfirmationFragment extends Fragment {
 
     @BindView(R.id.ET_DiscountCode)
     EditTextCustomFont ETDiscountCode;
+
     /////////////////////////////
     @BindView(R.id.TV_ServiceType)
     TextViewCustomFont TV_ServiceType;
@@ -111,9 +114,9 @@ public class ConfirmationFragment extends Fragment {
             imageView4.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
 
-        TV_ServiceType.setText(SharedUser.getSharedUser().getPlaceOfService());
-        TVEventDare.setText(InTheShopBookingTap.getTimeAt());
-        TV_Price.setText(String.valueOf(getmTotalPrice()));
+//        TV_ServiceType.setText(SharedUser.getSharedUser().getPlaceOfService());
+//        TVEventDare.setText(getTimeAt());
+//        TV_Price.setText(String.valueOf(getmTotalPrice()));
 
 
         initialize();
@@ -123,14 +126,14 @@ public class ConfirmationFragment extends Fragment {
     public void initialize()
     {
         //TV_Price.setText(((HomeActivity) getActivity()).getGetReserve().getPrice_after_discount());
-        TV_Price.setText(((HomeActivity) getActivity()).getSalon().getMinPrice());
+        TV_Price.setText(String.valueOf(getmTotalPrice()));
         tvMonth.setText(((HomeActivity) getActivity()).getMonthName());
         tvDay.setText(((HomeActivity) getActivity()).getDayName());
         tvTime.setText(((HomeActivity) getActivity()).getReserveTime());
 
         ETDiscountCode.setText("2");
-        TVEventDare.setText(((HomeActivity) getActivity()).getGetReserve().getReservation_date());
-        TV_ServiceType.setText(((HomeActivity) getActivity()).getSalon().getServiceName());
+        TVEventDare.setText(((HomeActivity) getActivity()).getReserveDate() + "    " + getTimeAt());
+        TV_ServiceType.setText(SharedUser.getSharedUser().getPlaceOfService());
         TVPhoneNumber.setText(SharedUser.getSharedUser().getPhone());
     }
 
@@ -220,6 +223,7 @@ public class ConfirmationFragment extends Fragment {
             public void onResponse(Call<SalonReserve> call, Response<SalonReserve> response) {
                 try {
                     if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
+                        HelperMethod.showToast(getContext(), "OK");
                         showDialog();
                     } else {
                         for (ReserveAt reserveAt : response.body().getData()) {
@@ -233,7 +237,7 @@ public class ConfirmationFragment extends Fragment {
 
             @Override
             public void onFailure(Call<SalonReserve> call, Throwable t) {
-
+               // HelperMethod.showToast(getContext(), "Failure");
             }
         });
     }
@@ -369,9 +373,24 @@ public class ConfirmationFragment extends Fragment {
         unbinder.unbind();
     }
 
+//    String token, String lang, int salon_id, float total_price, String reservation_time, String reservation_date,
+//    String client_name, String client_mobile, String place, String services_id0, int specialist_id
     @OnClick(R.id.BTN_ConfirmationRequest)
     public void onViewClicked() {
-        confirmSalonService();
+//        confirmSalonService();
+        salonReserveApiCall1(
+                SharedUser.getSharedUser().getToken(),
+                ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
+                ((HomeActivity) getActivity()).getSalon().getId(),
+                getmTotalPrice(),
+                getTimeAt(),
+                ((HomeActivity) getActivity()).getReserveDate(),
+                SharedUser.getSharedUser().getClientLoginData().getName(),
+                "1111111110",
+                SharedUser.getSharedUser().getPlaceOfService(),
+                "1",
+                Integer.valueOf(getSpecialistId())
+        );
     }
 
     @OnClick(R.id.imageView4)
@@ -384,19 +403,7 @@ public class ConfirmationFragment extends Fragment {
         //OnSuccess
         //showDialog();
         //salonReserveApiCall();
-        salonReserveApiCall1(
-                SharedUser.getSharedUser().getToken(),
-                ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
-                ((HomeActivity) getActivity()).getSalon().getId(),
-                getmTotalPrice(),
-                "",
-                ((HomeActivity) getActivity()).getReserveDate(),
-                SharedUser.getSharedUser().getClientLoginData().getName(),
-                "1111111110",
-                SharedUser.getSharedUser().getPlaceOfService(),
-                "1",
-                Integer.valueOf(getSpecialistId())
-                );
+
     }
 
 
@@ -409,8 +416,7 @@ public class ConfirmationFragment extends Fragment {
     }
 
     @OnClick(R.id.imageView4)
-    void back()
-    {
+    void back() {
         ((HomeActivity) getActivity()).onBackPressed();
     }
 }

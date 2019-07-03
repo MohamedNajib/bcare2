@@ -259,4 +259,7 @@
     <string name="Get_special_discounts_by" translatable="true">أحصل على خصومات مميزة بادخال كود الخصم اسفله</string>
     <string name="get_the_discount" translatable="true">أحصل على الخصم</string>
     <string name="discount_code" translatable="true">كود الخصم</string>
+
+    <string name="Salons_nearby" translatable="true">الصالونات القريبة</string>
+    <string name="You_currently_have_no_dates" translatable="true">ليس لديك مواعيد قادما حاليا</string>
 </resources>

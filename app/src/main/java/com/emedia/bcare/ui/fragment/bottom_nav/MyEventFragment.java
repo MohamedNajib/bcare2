@@ -17,7 +17,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -29,10 +28,8 @@ import com.emedia.bcare.data.model.api_model.my_event.MyEvent;
 import com.emedia.bcare.data.model.api_model.my_event.NextAppointment;
 import com.emedia.bcare.data.model.api_model.my_event.PreviousAppointment;
 import com.emedia.bcare.data.rest.ApiServices;
-import com.emedia.bcare.data.rest.RetrofitClient;
 import com.emedia.bcare.network.RequestSingletone;
 import com.emedia.bcare.ui.activity.HomeActivity;
-import com.example.fontutil.TextViewCustomFont;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -180,7 +177,7 @@ public class MyEventFragment extends Fragment {
 
             @Override
             public void onFailure(Call<MyEvent> call, Throwable t) {
-                showToast(getContext(), "onFailure"+ t.getMessage());
+                showToast(getContext(), "onFailure" + t.getMessage());
                 hideLoading();
             }
         });
@@ -223,6 +220,7 @@ public class MyEventFragment extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.BTN_MyEventNewBooking:
+                ((HomeActivity) getActivity()).changeFragment(1);
                 break;
 
             case R.id.BTN_MyEventNearbySalon:
@@ -230,13 +228,13 @@ public class MyEventFragment extends Fragment {
         }
     }
 
-    public void showLoading()
-    {
+    public void showLoading() {
         this.progress_view.setVisibility(View.VISIBLE);
     }
 
-    public void hideLoading()
-    {
+    public void hideLoading() {
         this.progress_view.setVisibility(View.GONE);
     }
+
+
 }

@@ -77,7 +77,7 @@ public class SectionsAdapterB extends RecyclerView.Adapter<SectionsAdapterB.Sect
                         sectionsHolderB.CLServices.setElevation(8);
                     }
                 }
-                Toast.makeText(mContext, String.valueOf(serviceData.isChick()), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(mContext, String.valueOf(serviceData.isChick()), Toast.LENGTH_SHORT).show();
 
 //                Toast.makeText(mContext, String.valueOf(sectionsHolderB.getAdapterPosition()), Toast.LENGTH_SHORT).show();
             }

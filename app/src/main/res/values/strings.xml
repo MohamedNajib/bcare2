@@ -295,12 +295,8 @@
     <string name="get_the_discount" translatable="true">Get the Discount</string>
     <string name="discount_code" translatable="true">Discount Code</string>
 
-
-
-
-
-
-
+    <string name="Salons_nearby" translatable="true">Salons Nearby</string>
+    <string name="You_currently_have_no_dates" translatable="true">You currently have no dates</string>
 
 
 </resources>

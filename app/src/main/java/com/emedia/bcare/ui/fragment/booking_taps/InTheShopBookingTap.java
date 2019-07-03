@@ -23,6 +23,7 @@ import com.emedia.bcare.data.model.api_model.booking.Specialist_;
 import com.emedia.bcare.data.model.api_model.booking.TimeAtSalon;
 import com.emedia.bcare.data.rest.RetrofitClient;
 import com.emedia.bcare.ui.activity.HomeActivity;
+import com.emedia.bcare.util.HelperMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,6 +131,7 @@ public class InTheShopBookingTap extends Fragment {
                             @Override
                             public void onTimeAtSalonClicked(int position, TextView tv) {
                                 timeAt = mTimeAtSalon.get(position).getTime();
+                                HelperMethod.showToast(getContext(), timeAt);
                                 TimeAtSalon timeAtSalon = mTimeAtSalon.get(position);
                                 //Selected
                                 selectedTimeAtSalon = mTimeAtSalon.get(position);
