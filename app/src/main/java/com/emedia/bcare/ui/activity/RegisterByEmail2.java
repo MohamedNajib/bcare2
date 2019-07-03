@@ -128,17 +128,20 @@ public class RegisterByEmail2 extends AppCompatActivity {
                                 Toast.makeText(BCareApp.getInstance().getContext(), "Success", Toast.LENGTH_SHORT).show();
 
                                 for (UserData userData : response.body().getData()) {
+
                                     SharedUser.getSharedUser().saveClientRegisterData(userData);
                                     SharedUser.getSharedUser().setToken(userData.getUsersSocail().getAccessToken());
-                                    SharedUser.getSharedUser().setName(userData.getName());
-                                    SharedUser.getSharedUser().setEmail(userData.getEmail());
-                                    SharedUser.getSharedUser().setAddress(userData.getAddress());
-                                    SharedUser.getSharedUser().setCityid(userData.getCityId());
-                                    SharedUser.getSharedUser().setCountryid(userData.getCountryId());
-                                    SharedUser.getSharedUser().setPhoto(userData.getProfilePicture());
-                                    if(userData.getMobile() != null)
-                                        SharedUser.getSharedUser().setPhone(userData.getMobile().toString());
-                                    SharedUser.getSharedUser().setUserName(userData.getUsername());
+//                                    SharedUser.getSharedUser().saveClientRegisterData(userData);
+//                                    SharedUser.getSharedUser().setToken(userData.getUsersSocail().getAccessToken());
+//                                    SharedUser.getSharedUser().setName(userData.getName());
+//                                    SharedUser.getSharedUser().setEmail(userData.getEmail());
+//                                    SharedUser.getSharedUser().setAddress(userData.getAddress());
+//                                    SharedUser.getSharedUser().setCityid(userData.getCityId());
+//                                    SharedUser.getSharedUser().setCountryid(userData.getCountryId());
+//                                    SharedUser.getSharedUser().setPhoto(userData.getProfilePicture());
+//                                    if(userData.getMobile() != null)
+//                                        SharedUser.getSharedUser().setPhone(userData.getMobile().toString());
+//                                    SharedUser.getSharedUser().setUserName(userData.getUsername());
                                 }
                                 //intentTo(RegisterByEmail2.this, GenderActivity.class);
                                 Intent i = new Intent(RegisterByEmail2.this, RegisterVerifyActivity.class);
