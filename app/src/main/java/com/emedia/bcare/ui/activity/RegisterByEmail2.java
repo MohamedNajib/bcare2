@@ -1,5 +1,6 @@
 package com.emedia.bcare.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.emedia.bcare.Config.BCareApp;
+import com.emedia.bcare.Config.ContextWrapper;
 import com.emedia.bcare.R;
 import com.emedia.bcare.adapter.CitesSpinnerAdapter;
 import com.emedia.bcare.adapter.CountrySpinnerAdapter;
@@ -28,6 +30,7 @@ import com.emedia.bcare.data.model.register.UserData;
 import com.emedia.bcare.data.rest.ApiServices;
 import com.emedia.bcare.data.rest.RetrofitClient;
 import com.emedia.bcare.network.RequestSingletone;
+import com.emedia.bcare.util.HelperMethod;
 import com.emedia.bcare.util.UserInputValidation;
 import com.example.fontutil.EditTextCustomFont;
 
@@ -105,12 +108,16 @@ public class RegisterByEmail2 extends AppCompatActivity {
             IVBackToMainRegister3.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
 
-
         email = getIntent().getStringExtra("USER_Email");
         username = getIntent().getStringExtra("USER_NAME");
 
         getCountrySpinnerData(getResources().getString(R.string.current_lang));
 
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ContextWrapper.wrap(newBase));
     }
 
     private void signUpUser(final String email, String password, String name, String address, String age,
@@ -128,20 +135,8 @@ public class RegisterByEmail2 extends AppCompatActivity {
                                 Toast.makeText(BCareApp.getInstance().getContext(), "Success", Toast.LENGTH_SHORT).show();
 
                                 for (UserData userData : response.body().getData()) {
-
                                     SharedUser.getSharedUser().saveClientRegisterData(userData);
                                     SharedUser.getSharedUser().setToken(userData.getUsersSocail().getAccessToken());
-//                                    SharedUser.getSharedUser().saveClientRegisterData(userData);
-//                                    SharedUser.getSharedUser().setToken(userData.getUsersSocail().getAccessToken());
-//                                    SharedUser.getSharedUser().setName(userData.getName());
-//                                    SharedUser.getSharedUser().setEmail(userData.getEmail());
-//                                    SharedUser.getSharedUser().setAddress(userData.getAddress());
-//                                    SharedUser.getSharedUser().setCityid(userData.getCityId());
-//                                    SharedUser.getSharedUser().setCountryid(userData.getCountryId());
-//                                    SharedUser.getSharedUser().setPhoto(userData.getProfilePicture());
-//                                    if(userData.getMobile() != null)
-//                                        SharedUser.getSharedUser().setPhone(userData.getMobile().toString());
-//                                    SharedUser.getSharedUser().setUserName(userData.getUsername());
                                 }
                                 //intentTo(RegisterByEmail2.this, GenderActivity.class);
                                 Intent i = new Intent(RegisterByEmail2.this, RegisterVerifyActivity.class);
@@ -257,6 +252,7 @@ public class RegisterByEmail2 extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.IV_BackToMainRegister3:
+                HelperMethod.intentTo(RegisterByEmail2.this, RegisterByEmail1.class);
                 break;
             case R.id.CL_BTN_ContinueRegister3:
 

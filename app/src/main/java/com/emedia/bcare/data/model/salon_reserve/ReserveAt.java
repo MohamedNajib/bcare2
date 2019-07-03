@@ -3,7 +3,7 @@ package com.emedia.bcare.data.model.salon_reserve;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Datum {
+public class ReserveAt {
     @SerializedName("success")
     @Expose
     private String success;

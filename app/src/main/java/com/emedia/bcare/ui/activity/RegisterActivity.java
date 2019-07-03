@@ -50,15 +50,6 @@ import static com.emedia.bcare.util.HelperMethod.intentTo;
 
 public class RegisterActivity extends AppCompatActivity {
 
-
-    //    @BindView(R.id.ET_SignUpPhone_)
-//    EditText ET_SignUpPhone_;
-//    @BindView(R.id.BTN_SignUp_)
-//    ButtonCustomFont BTN_SignUp_;
-
-
-
-
     @BindView(R.id.progress_view)
     ProgressBar progress_view;
 
@@ -73,21 +64,6 @@ public class RegisterActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         this.act = this;
-
-
-
-//        BTN_SignUp_.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (!ET_SignUpPhone_.getText().toString().trim().equals("")) {
-//                    Intent i = new Intent(act, RegisterByEmail2.class);
-//                    i.putExtra("phone", ET_SignUpPhone_.getText().toString().trim());
-//                    startActivity(i);
-//                } else {
-//                }
-//
-//            }
-//        });
 
         mLayoutBottomSheet = findViewById(R.id.layout_bottom_sheet);
 
@@ -116,6 +92,12 @@ public class RegisterActivity extends AppCompatActivity {
         initializeSdks();
 
     }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ContextWrapper.wrap(newBase));
+    }
+
 
 
 //    @OnClick(R.id.BTN_SignUp_)
@@ -161,10 +143,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(ContextWrapper.wrap(newBase));
-    }
     protected void initializeSdks() {
         Parse.enableLocalDatastore(this);
 

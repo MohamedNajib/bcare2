@@ -1,5 +1,6 @@
 package com.emedia.bcare.ui.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.chaos.view.PinView;
+import com.emedia.bcare.Config.ContextWrapper;
 import com.emedia.bcare.R;
 import com.emedia.bcare.data.model.api_model.verify.VerifyMain;
 import com.emedia.bcare.interfaces.nework.IRegister;
@@ -69,6 +71,11 @@ public class RegisterVerifyActivity extends AppCompatActivity {
         } else {
             IVBackToMainRegisterRegister2.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ContextWrapper.wrap(newBase));
     }
 
     private void checkCodeEmail(final String email, final String code, final String userName) {

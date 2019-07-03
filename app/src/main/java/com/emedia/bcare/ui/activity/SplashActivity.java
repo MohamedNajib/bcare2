@@ -47,10 +47,11 @@ public class SplashActivity extends AppCompatActivity {
                                     SharedUser.getSharedUser().getClientLoginData().getAge() + "\n" +
                                     SharedUser.getSharedUser().getClientLoginData().getAddress() + "\n" +
                                     SharedUser.getSharedUser().getClientLoginData().getCityId() + "\n" +
-                                    SharedUser.getSharedUser().getClientLoginData().getCityId() + "\n" +
+                                    SharedUser.getSharedUser().getClientLoginData().getCountryId() + "\n" +
                                     SharedUser.getSharedUser().getToken());
 
                 }else {
+                    //startActivity(new Intent(SplashActivity.this, ForgotPasswordActivity3.class));
                     startActivity(new Intent(SplashActivity.this, LoginMainActivity.class));
                     finish();
                 }

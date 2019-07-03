@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.emedia.bcare.R;
 import com.emedia.bcare.adapter.fragments_adapter.SpecialistsAdapter;
@@ -18,8 +19,8 @@ import com.emedia.bcare.cash.SharedUser;
 import com.emedia.bcare.data.model.api_model.specialists.Specialists;
 import com.emedia.bcare.data.model.api_model.specialists.SpecialistsData;
 import com.emedia.bcare.data.rest.RetrofitClient;
+import com.emedia.bcare.ui.activity.GenderActivity;
 import com.emedia.bcare.ui.activity.HomeActivity;
-import com.emedia.bcare.util.HelperMethod;
 import com.example.fontutil.TextViewCustomFont;
 
 import java.util.ArrayList;
@@ -28,7 +29,6 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,10 +44,11 @@ import static com.emedia.bcare.util.HelperMethod.showToast;
 public class SpecialistsFragment extends Fragment {
 
 
-
     @BindView(R.id.RV_Specialists)
     RecyclerView RVSpecialists;
     Unbinder unbinder;
+    @BindView(R.id.progress_view)
+    ProgressBar progressView;
 
     /* member variable */
     private LinearLayoutManager mLayoutManager;
@@ -100,8 +101,10 @@ public class SpecialistsFragment extends Fragment {
         RVSpecialists.setItemAnimator(new DefaultItemAnimator());
 
         getSpecialists(
-                "Dcfilf27URGHSoLjMScVtJVgcNd6J1aSRoDjpGrorCGeKSBMYLyc6Z9H0RWp",
-                "ar", 1, 1, 1, "rate"
+                SharedUser.getSharedUser().getToken(),
+                ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
+                Integer.valueOf(SharedUser.getSharedUser().getClientLoginData().getCountryId()),
+                GenderActivity.getGenderType(), 1, "rate"
         );
         initialize();
         return view;
@@ -115,13 +118,14 @@ public class SpecialistsFragment extends Fragment {
      * get Specialists Use API Call
      */
     private void getSpecialists(String token, String lang, int country_id, int salontype_id, int specialistgroup_id, String orderBy) {
-
+        showLoading();
         Call<Specialists> specialistsCall = RetrofitClient.getInstance().getApiServices().getSpecialists(
                 token, lang, country_id, salontype_id, specialistgroup_id, orderBy
         );
         specialistsCall.enqueue(new Callback<Specialists>() {
             @Override
             public void onResponse(Call<Specialists> call, Response<Specialists> response) {
+                hideLoading();
                 try {
                     if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
                         //showToast(getContext(), "ok");
@@ -159,5 +163,13 @@ public class SpecialistsFragment extends Fragment {
 
     public static int getSpecialistId() {
         return mSpecialistId;
+    }
+
+    public void showLoading() {
+        progressView.setVisibility(View.VISIBLE);
+    }
+
+    public void hideLoading() {
+        progressView.setVisibility(View.GONE);
     }
 }

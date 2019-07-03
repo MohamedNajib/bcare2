@@ -43,7 +43,7 @@ public class SharedUser {
     private static final String LOGINE_CITYID = "LE_CITYID";
     private static final String LOGINE_COUNTRYID = "LE_TOKEN";
 
-
+private static final String PLACE = "place";
 
     private SharedPreferences sharedPreferences;
 
@@ -54,6 +54,18 @@ public class SharedUser {
     public static SharedUser getSharedUser() {
         return new SharedUser();
     }
+
+    public String getPlaceOfService() {
+        return sharedPreferences.getString(PLACE, "");
+    }
+
+    public boolean setPlaceOfService(String place) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PLACE, place);
+        return editor.commit();
+    }
+
+
 
     public void saveClientLoginData(UserData loginData) {
         SharedPreferences.Editor editor = sharedPreferences.edit();

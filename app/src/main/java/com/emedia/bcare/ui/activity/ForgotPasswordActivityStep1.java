@@ -5,31 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import com.emedia.bcare.Config.BCareApp;
 import com.emedia.bcare.Config.ContextWrapper;
 import com.emedia.bcare.R;
-import com.emedia.bcare.data.model.ErrorUtils;
 import com.emedia.bcare.data.model.api_model.forgotPass_sendmail.EmailDatum;
 import com.emedia.bcare.data.model.api_model.forgotPass_sendmail.ForgotPassSendMail;
-import com.emedia.bcare.data.model.api_model.login.LogInMain;
-import com.emedia.bcare.data.model.api_model.login.LoginErrorMain2;
-import com.emedia.bcare.data.model.api_model.register.Registeration;
 import com.emedia.bcare.data.rest.RetrofitClient;
-import com.emedia.bcare.interfaces.nework.ILogin;
-import com.emedia.bcare.network.RequestSingletone;
-import com.emedia.bcare.ui.activity.ForgotPasswordActivityStep2;
-import com.emedia.bcare.ui.activity.GenderActivity;
-import com.emedia.bcare.ui.activity.HomeActivity;
-import com.emedia.bcare.ui.activity.LoginMainActivity;
-import com.emedia.bcare.ui.activity.RegisterActivity;
-import com.emedia.bcare.ui.activity.VerficationActivity;
-import com.emedia.bcare.util.HelperMethod;
 import com.emedia.bcare.util.UserInputValidation;
-import com.example.fontutil.ButtonCustomFont;
 import com.example.fontutil.EditTextCustomFont;
 
 import java.util.List;
@@ -48,8 +31,11 @@ import static com.emedia.bcare.util.HelperMethod.showToast;
 
 public class ForgotPasswordActivityStep1 extends AppCompatActivity {
 
+
     @BindView(R.id.ET_ForgotPassEmail)
     EditTextCustomFont ETForgotPassEmail;
+    @BindView(R.id.progress_view)
+    ProgressBar progressView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +49,8 @@ public class ForgotPasswordActivityStep1 extends AppCompatActivity {
         super.attachBaseContext(ContextWrapper.wrap(newBase));
     }
 
-    private void sendEmail(String email){
+    private void sendEmail(String email) {
+        showLoading();
         Call<ForgotPassSendMail> forgotPassSendMailCall = RetrofitClient.getInstance().getApiServices().SendMail(email);
         forgotPassSendMailCall.enqueue(new Callback<ForgotPassSendMail>() {
             @Override
@@ -71,6 +58,7 @@ public class ForgotPasswordActivityStep1 extends AppCompatActivity {
                 try {
                     if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
                         List<EmailDatum> emailData = response.body().getData();
+                        hideLoading();
                         for (EmailDatum emailDatum : emailData) {
                             showToast(ForgotPasswordActivityStep1.this, emailDatum.getEmail());
                             Intent toForgotPasswordActivityStep2 = new Intent(ForgotPasswordActivityStep1.this, ForgotPasswordActivityStep2.class);
@@ -81,15 +69,17 @@ public class ForgotPasswordActivityStep1 extends AppCompatActivity {
 
                     } else {
                         showToast(ForgotPasswordActivityStep1.this, "NO");
+                        hideLoading();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    hideLoading();
                 }
             }
 
             @Override
             public void onFailure(Call<ForgotPassSendMail> call, Throwable t) {
-
+                hideLoading();
             }
         });
     }
@@ -101,7 +91,7 @@ public class ForgotPasswordActivityStep1 extends AppCompatActivity {
 
                 if (!UserInputValidation.isValidMail(ETForgotPassEmail.getText().toString().trim())) {
                     ETForgotPassEmail.setError(getResources().getString(R.string.Email_Error));
-                }else {
+                } else {
                     sendEmail(ETForgotPassEmail.getText().toString().trim());
                 }
                 break;
@@ -112,6 +102,14 @@ public class ForgotPasswordActivityStep1 extends AppCompatActivity {
                 intentTo(this, RegisterActivity.class);
                 break;
         }
+    }
+
+    public void showLoading() {
+        progressView.setVisibility(View.VISIBLE);
+    }
+
+    public void hideLoading() {
+        progressView.setVisibility(View.GONE);
     }
 
 //    public static class LoginActivity extends AppCompatActivity {
@@ -217,13 +215,7 @@ public class ForgotPasswordActivityStep1 extends AppCompatActivity {
 //
 //        }
 //
-//        public void showLoading() {
-//            progress_view.setVisibility(View.VISIBLE);
-//        }
 //
-//        public void hideLoading() {
-//            progress_view.setVisibility(View.GONE);
-//        }
 //
 //        public void startTest() {
 //            ETLoginEmail.setText("mohamed0110@yahoo.com");

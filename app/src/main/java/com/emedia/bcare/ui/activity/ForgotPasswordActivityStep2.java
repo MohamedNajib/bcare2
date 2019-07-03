@@ -1,12 +1,16 @@
 package com.emedia.bcare.ui.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.emedia.bcare.Config.ContextWrapper;
 import com.emedia.bcare.R;
 import com.emedia.bcare.util.HelperMethod;
+
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,13 +33,18 @@ public class ForgotPasswordActivityStep2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password_step2);
         ButterKnife.bind(this);
-        if (getResources().getString(R.string.current_lang).equals("ar")) {
+        if (Locale.getDefault().getLanguage().equals("ar")) {
             IVBackIconForgot2.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
             IVBackIconForgot2.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
 
         mEmail = getIntent().getStringExtra("FORGOT_PASSWORD_EMAIL");
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ContextWrapper.wrap(newBase));
     }
 
     @OnClick({R.id.BTN_Ending, R.id.IV_BackIconForgot2})

@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +53,7 @@ public class BookingFragment extends Fragment {
 
     @BindView(R.id.tv_year_month)
     TextViewCustomFont tv_year_month;
+
     @BindView(R.id.iv_left)
     ImageView ivLeft;
     @BindView(R.id.iv_right)
@@ -78,6 +80,18 @@ public class BookingFragment extends Fragment {
         setupClientViewPager(BookingViewPager);
         BookingTabLayout.setupWithViewPager(BookingViewPager);
 
+        ImageView iv_back = view.findViewById(R.id.iv_back);
+
+        if (Locale.getDefault().getLanguage().equals("ar")) {
+            ivLeft.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
+            ivRight.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
+            iv_back.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
+        } else {
+            ivLeft.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+            ivRight.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+            iv_back.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
+        }
+
         initialize();
 
         Calendar c = Calendar.getInstance();
@@ -94,7 +108,7 @@ public class BookingFragment extends Fragment {
 
         addData();
         Calendar cal = Calendar.getInstance();
-        addDaysByMonth(cal.get(Calendar.MONTH) + 1);
+        addDaysByMonth(cal.get(Calendar.MONTH));
 
         RecyclerViewDate.setHasFixedSize(true);
         RecyclerViewDate.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));

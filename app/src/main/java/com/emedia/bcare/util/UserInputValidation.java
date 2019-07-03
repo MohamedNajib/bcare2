@@ -33,7 +33,7 @@ public class UserInputValidation {
     }
 
     public static boolean isValidPassword(String passwordInput) {
-        if (passwordInput.isEmpty() || passwordInput.length() < 7){
+        if (passwordInput.isEmpty() || passwordInput.length() < 8){
             return false;
         }
         return true;

@@ -23,6 +23,7 @@ import com.emedia.bcare.data.model.api_model.home.Category;
 import com.emedia.bcare.data.model.api_model.home.Home;
 import com.emedia.bcare.data.model.api_model.home.Specialist;
 import com.emedia.bcare.data.rest.RetrofitClient;
+import com.emedia.bcare.ui.activity.GenderActivity;
 import com.emedia.bcare.ui.activity.HomeActivity;
 
 import java.util.ArrayList;
@@ -130,7 +131,7 @@ public class UserHomeFragment extends Fragment {
         getHomeData(
                 SharedUser.getSharedUser().getToken(),
                 ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
-                1);
+                GenderActivity.getGenderType());
         return view;
     }
 

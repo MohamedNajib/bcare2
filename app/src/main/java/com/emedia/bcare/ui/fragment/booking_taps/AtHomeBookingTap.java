@@ -36,6 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
+import static com.emedia.bcare.ui.fragment.SelectSalonFragment.getmSalonId;
 import static com.emedia.bcare.util.HelperMethod.showToast;
 
 /**
@@ -91,7 +92,7 @@ public class AtHomeBookingTap extends Fragment {
                 //"Dcfilf27URGHSoLjMScVtJVgcNd6J1aSRoDjpGrorCGeKSBMYLyc6Z9H0RWp",
                 SharedUser.getSharedUser().getToken(),
                 ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
-                1);
+                getmSalonId());
         //((HomeActivity) getActivity()).getSalon().getId());
 
         return view;
@@ -179,6 +180,7 @@ public class AtHomeBookingTap extends Fragment {
     @OnClick(R.id.BTN_BookNowAtHome)
     public void onViewClicked() {
         //FIXME will by dynamic from the calendar
+        SharedUser.getSharedUser().setPlaceOfService("Home");
         selectedDate = ((HomeActivity) getActivity()).getReserveDate();
         ((HomeActivity) getActivity()).setReserveTime(selectedTimeAtHome.getTime());
         ((HomeActivity) getActivity()).setGetReserveSalon(selectedSpecialist, selectedDate, null, selectedTimeAtHome);

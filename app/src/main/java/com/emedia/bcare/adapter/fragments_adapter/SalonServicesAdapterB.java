@@ -27,8 +27,13 @@ public class SalonServicesAdapterB extends RecyclerView.Adapter<SalonServicesAda
     private Context mContext;
     private List<SalonServicesData> mSalonServicesDataList;
     private TextViewCustomFont mPriceText;
+    public static float mTotalPrice;
 
-    public static int mTotalPrice;
+    public static float getmTotalPrice() {
+        return mTotalPrice;
+    }
+
+
     public static List<String> mServicesIdList;
     OnSectionListener listener;
 

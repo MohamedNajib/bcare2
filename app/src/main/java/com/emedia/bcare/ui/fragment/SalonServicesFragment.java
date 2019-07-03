@@ -91,7 +91,7 @@ public class SalonServicesFragment extends Fragment implements OnSectionListener
         View view = inflater.inflate(R.layout.fragment_salon_services, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        Toolbar sectionsBar = view.findViewById(R.id.SectionsToolBar);
+        Toolbar sectionsBar = view.findViewById(R.id.SalonServicesToolBar);
         mToolBarTitle = sectionsBar.findViewById(R.id.TV_Title);
         mToolBarIconBack = sectionsBar.findViewById(R.id.IV_Back);
 
@@ -104,7 +104,7 @@ public class SalonServicesFragment extends Fragment implements OnSectionListener
         });
 
         initialize();
-        if (((HomeActivity) getActivity()).getResources().getString(R.string.current_lang).equals("ar")) {
+        if (Locale.getDefault().getLanguage().equals("ar")) {
             mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
             mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
@@ -118,7 +118,7 @@ public class SalonServicesFragment extends Fragment implements OnSectionListener
 
         getSalonServicesAPI(SharedUser.getSharedUser().getToken(),
                 ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
-                Integer.parseInt(SharedUser.getSharedUser().getCountryid()));
+                Integer.parseInt(SharedUser.getSharedUser().getClientLoginData().getCountryId()));
 
         return view;
     }
@@ -131,7 +131,6 @@ public class SalonServicesFragment extends Fragment implements OnSectionListener
      * get Salon Services API Call
      */
     private void getSalonServicesAPI(String token, String lang, int country_id) {
-
         showLoading();
 
         RetrofitClient.getInstance().getApiServices().
@@ -200,10 +199,12 @@ public class SalonServicesFragment extends Fragment implements OnSectionListener
 
     @OnClick(R.id.CL_Continue)
     public void onViewClicked() {
+        ((HomeActivity) getActivity()).changeFragment(4);
         //discountCopounCode("Dcfilf27URGHSoLjMScVtJVgcNd6J1aSRoDjpGrorCGeKSBMYLyc6Z9H0RWp",
-        discountCopounCode(SharedUser.getSharedUser().getToken(),
-                ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
-                ETDiscountCodeSalonServices.getText().toString().trim(), 1);
+//        discountCopounCode(SharedUser.getSharedUser().getToken(),
+//                ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
+//                ETDiscountCodeSalonServices.getText().toString().trim(),
+//                ((HomeActivity) getActivity()).getSalon().getId());
     }
 
     private void discountCopounCode(String apiToken, String lang, String code, int salon_id) {
@@ -224,8 +225,8 @@ public class SalonServicesFragment extends Fragment implements OnSectionListener
                             if(getmServicesIdList().size() > 0)
                             {
                                 ((HomeActivity) getActivity()).setListOfCats(getmServicesIdList());
-                                startActivity(new Intent(getContext(), BookingActivity.class));
-                                // ((HomeActivity) getActivity()).changeFragment(4);
+                               // startActivity(new Intent(getContext(), BookingActivity.class));
+                                 ((HomeActivity) getActivity()).changeFragment(4);
                             }
                             else
                             {

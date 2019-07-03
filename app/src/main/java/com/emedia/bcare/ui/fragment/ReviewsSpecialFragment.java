@@ -12,12 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.emedia.bcare.R;
 import com.emedia.bcare.adapter.fragments_adapter.SpecialistReviewAdapter;
+import com.emedia.bcare.cash.SharedUser;
 import com.emedia.bcare.data.model.api_model.add_specialist_rate.AddSpecialistRate;
 import com.emedia.bcare.data.model.api_model.add_specialist_rate.RateDatum;
 import com.emedia.bcare.data.model.api_model.specialist_info.SpecialistData;
@@ -26,7 +27,6 @@ import com.emedia.bcare.data.model.api_model.specialist_info.SpecialistReview;
 import com.emedia.bcare.data.rest.RetrofitClient;
 import com.emedia.bcare.ui.activity.HomeActivity;
 import com.emedia.bcare.ui.custom.RoundRectCornerImageView;
-import com.emedia.bcare.util.HelperMethod;
 import com.example.fontutil.ButtonCustomFont;
 import com.example.fontutil.EditTextCustomFont;
 import com.example.fontutil.TextViewCustomFont;
@@ -74,6 +74,8 @@ public class ReviewsSpecialFragment extends Fragment {
     RatingBar RBAddSpecialistRate;
     @BindView(R.id.ET_ReviewText)
     EditTextCustomFont ETReviewText;
+    @BindView(R.id.progress_view)
+    ProgressBar progressView;
 
 
     /* member variable */
@@ -84,6 +86,7 @@ public class ReviewsSpecialFragment extends Fragment {
     public ReviewsSpecialFragment() {
         // Required empty public constructor
     }
+
     private TextViewCustomFont mToolBarTitle;
     private ImageView mToolBarIconBack;
 
@@ -103,7 +106,7 @@ public class ReviewsSpecialFragment extends Fragment {
         mToolBarIconBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               ((HomeActivity) getActivity()).changeFragment(13);
+                ((HomeActivity) getActivity()).changeFragment(13);
             }
         });
 
@@ -122,18 +125,19 @@ public class ReviewsSpecialFragment extends Fragment {
         RVSpecialistReview.setItemAnimator(new DefaultItemAnimator());
 
         getSpecialistInfo(
-                "UJAoT31Ms4XK16DkkYGAlmqpecznbvJoLZvf6E2u5taENjKSzYIg0AwOkI0P",
+                SharedUser.getSharedUser().getToken(),
                 getSpecialistId(),
-                "ar");
+                ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang));
         initialize();
         return view;
     }
+
     protected void initialize() {
         ((HomeActivity) getActivity()).hideBottomToolbar();
     }
 
     private void getSpecialistInfo(String token, int specialist_id, String lang) {
-
+        showLoading();
         Call<SpecialistInfo> specialistInfoCall = RetrofitClient.getInstance().getApiServices().getSpecialistInfo(token, specialist_id, lang);
         specialistInfoCall.enqueue(new Callback<SpecialistInfo>() {
             @Override
@@ -144,7 +148,7 @@ public class ReviewsSpecialFragment extends Fragment {
 
                         List<SpecialistData> specialistData = response.body().getData();
                         for (SpecialistData specialistData1 : specialistData) {
-
+                            hideLoading();
                             mToolBarTitle.setText(specialistData1.getName());
                             TVReviewsSpecialNameA.setText(specialistData1.getName());
                             Glide.with(getActivity()).load(specialistData1.getImage()).into(IVReviewsSpecialImage);
@@ -186,17 +190,20 @@ public class ReviewsSpecialFragment extends Fragment {
     }
 
     private void addSpecialistRate(String token, int rate, String description, int specialist_id) {
+        showLoading();
         Call<AddSpecialistRate> addSpecialistRateCall = RetrofitClient
                 .getInstance().getApiServices().addSpecialistRate(token, rate, description, specialist_id);
         addSpecialistRateCall.enqueue(new Callback<AddSpecialistRate>() {
             @Override
             public void onResponse(Call<AddSpecialistRate> call, Response<AddSpecialistRate> response) {
+                hideLoading();
                 try {
                     if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
                         for (RateDatum rateDatum : response.body().getData()) {
                             showToast(getContext(), rateDatum.getSuccess());
+                            ETReviewText.setText("");
                         }
-                        mSpecialistReviewAdapter.notifyItemInserted(mSpecialistReview.size()+1);
+                        mSpecialistReviewAdapter.notifyItemInserted(mSpecialistReview.size() + 1);
 
 
                     } else {
@@ -229,10 +236,18 @@ public class ReviewsSpecialFragment extends Fragment {
 
         } else {
             addSpecialistRate(
-                    "UJAoT31Ms4XK16DkkYGAlmqpecznbvJoLZvf6E2u5taENjKSzYIg0AwOkI0P",
+                    SharedUser.getSharedUser().getToken(),
                     Integer.valueOf((int) RBAddSpecialistRate.getRating()),
                     ETReviewText.getText().toString(),
                     getSpecialistId());
         }
+    }
+
+    public void showLoading() {
+        progressView.setVisibility(View.VISIBLE);
+    }
+
+    public void hideLoading() {
+        progressView.setVisibility(View.GONE);
     }
 }

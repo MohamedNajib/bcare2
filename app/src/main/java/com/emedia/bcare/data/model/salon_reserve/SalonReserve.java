@@ -14,7 +14,7 @@ public class SalonReserve {
     private String code;
     @SerializedName("data")
     @Expose
-    private List<Datum> data = null;
+    private List<ReserveAt> data = null;
 
     public String getCode() {
         return code;
@@ -24,11 +24,11 @@ public class SalonReserve {
         this.code = code;
     }
 
-    public List<Datum> getData() {
+    public List<ReserveAt> getData() {
         return data;
     }
 
-    public void setData(List<Datum> data) {
+    public void setData(List<ReserveAt> data) {
         this.data = data;
     }
 

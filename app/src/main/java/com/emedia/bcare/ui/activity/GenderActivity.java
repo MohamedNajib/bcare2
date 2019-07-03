@@ -43,8 +43,7 @@ public class GenderActivity extends AppCompatActivity {
     ConstraintLayout BTNWomen;
     @BindView(R.id.BTN_Men)
     ConstraintLayout BTNMen;
-    @BindView(R.id.IV_GenderBackIcon)
-    ImageView IVGenderBackIcon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +51,6 @@ public class GenderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gender);
         ButterKnife.bind(this);
 
-        if (Locale.getDefault().getLanguage().equals("ar")) {
-            IVGenderBackIcon.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
-        } else {
-            IVGenderBackIcon.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
-
-        }
     }
 
     @Override
@@ -66,7 +59,7 @@ public class GenderActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.BTN_Women, R.id.BTN_Men, R.id.BTN_Children, R.id.BTN_ContinueButton, R.id.IV_GenderBackIcon})
+    @OnClick({R.id.BTN_Women, R.id.BTN_Men, R.id.BTN_Children, R.id.BTN_ContinueButton})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.BTN_Women:
@@ -119,9 +112,6 @@ public class GenderActivity extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.IV_GenderBackIcon:
-                //TODO: Gender Back Icon Clicked
-                break;
         }
     }
     public static int getGenderType() {

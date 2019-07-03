@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.emedia.bcare.R;
 import com.emedia.bcare.adapter.fragments_adapter.BookingSalonSpecialistAdapter;
 import com.emedia.bcare.adapter.fragments_adapter.BookingTimeAtSalonAdapter;
+import com.emedia.bcare.cash.SharedUser;
 import com.emedia.bcare.data.model.api_model.booking.Booking;
 import com.emedia.bcare.data.model.api_model.booking.Specialist;
 import com.emedia.bcare.data.model.api_model.booking.Specialist_;
@@ -35,6 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
+import static com.emedia.bcare.ui.fragment.SelectSalonFragment.getmSalonId;
 import static com.emedia.bcare.util.HelperMethod.showToast;
 
 /**
@@ -48,6 +50,7 @@ public class InTheShopBookingTap extends Fragment {
     RecyclerView RVInTheShopSp;
     Unbinder unbinder;
 
+    //service_type
 
     /* member variable */
     private BookingTimeAtSalonAdapter mBookingTimeAtSalonAdapter;
@@ -59,6 +62,18 @@ public class InTheShopBookingTap extends Fragment {
     private TimeAtSalon selectedTimeAtSalon;
     private Specialist_ selectedSpecialist;
     private String selectedDate;
+
+    public static String timeAt;
+    public static String specialistId;
+
+
+    public static String getTimeAt() {
+        return timeAt;
+    }
+
+    public static String getSpecialistId() {
+        return specialistId;
+    }
 
     @BindView(R.id.progress_view)
     ProgressBar progress_view;
@@ -86,9 +101,9 @@ public class InTheShopBookingTap extends Fragment {
         RVInTheShopSp.setItemAnimator(new DefaultItemAnimator());
 
         getSalonBookingTimes(
-                "Dcfilf27URGHSoLjMScVtJVgcNd6J1aSRoDjpGrorCGeKSBMYLyc6Z9H0RWp",
+                SharedUser.getSharedUser().getToken(),
                 ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
-                1);
+                getmSalonId());
                 //((HomeActivity) getActivity()).getSalon().getId());
 
         return view;
@@ -100,9 +115,7 @@ public class InTheShopBookingTap extends Fragment {
     private void getSalonBookingTimes(String token, String lang, int salon_id) {
 
         showLoading();
-        Call<Booking> bookingCall = RetrofitClient.getInstance()
-                .getApiServices()
-                .salonTimeSpecialist(token, lang, salon_id);
+        Call<Booking> bookingCall = RetrofitClient.getInstance().getApiServices().salonTimeSpecialist(token, lang, salon_id);
         bookingCall.enqueue(new Callback<Booking>() {
             @Override
             public void onResponse(Call<Booking> call, Response<Booking> response) {
@@ -116,10 +129,10 @@ public class InTheShopBookingTap extends Fragment {
                                 mTimeAtSalon, new BookingTimeAtSalonAdapter.OnClickTimeItem() {
                             @Override
                             public void onTimeAtSalonClicked(int position, TextView tv) {
+                                timeAt = mTimeAtSalon.get(position).getTime();
                                 TimeAtSalon timeAtSalon = mTimeAtSalon.get(position);
                                 //Selected
                                 selectedTimeAtSalon = mTimeAtSalon.get(position);
-
                                 for (int i = 0; i < mTimeAtSalon.size(); i++) {
                                     TimeAtSalon current = mTimeAtSalon.get(i);
                                     mTimeAtSalon.get(i).isChecked = timeAtSalon.getTime().equals(current.getTime());
@@ -137,6 +150,7 @@ public class InTheShopBookingTap extends Fragment {
                                 new BookingSalonSpecialistAdapter.OnClickTimeItem() {
                                     @Override
                                     public void onSpecializedClicked(Specialist_ specialist, int position) {
+                                        specialistId = specialist.getSpecialistId();
                                         selectedSpecialist = specialist;
                                         showToast(getContext(), "Selected " + specialist.getSpecialistId());
                                         Specialist_ specialistlist = specialistList.get(position);
@@ -172,10 +186,14 @@ public class InTheShopBookingTap extends Fragment {
     @OnClick(R.id.BTN_BookNowInTheShop)
     public void onViewClicked() {
         //FIXME will by dynamic from the calendar
-        selectedDate = ((HomeActivity) getActivity()).getReserveDate();
-        ((HomeActivity) getActivity()).setReserveTime(selectedTimeAtSalon.getTime());
-        ((HomeActivity) getActivity()).setGetReserveSalon(selectedSpecialist, selectedDate, selectedTimeAtSalon,null );
-        ((HomeActivity) getActivity()).changeFragment(16);
+        SharedUser.getSharedUser().setPlaceOfService("Salon");
+        ((HomeActivity) getActivity()).changeFragment(6);
+
+
+//        selectedDate = ((HomeActivity) getActivity()).getReserveDate();
+//        ((HomeActivity) getActivity()).setReserveTime(selectedTimeAtSalon.getTime());
+//        ((HomeActivity) getActivity()).setGetReserveSalon(selectedSpecialist, selectedDate, selectedTimeAtSalon,null );
+//        ((HomeActivity) getActivity()).changeFragment(16);
     }
 
     public void showLoading()

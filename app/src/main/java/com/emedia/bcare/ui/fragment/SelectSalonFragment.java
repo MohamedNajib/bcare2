@@ -87,6 +87,10 @@ public class SelectSalonFragment extends Fragment {
     private double mLatitude;
     private double mLongitude;
 
+    public static int getmSalonId() {
+        return mSalonId;
+    }
+
     public static int mSalonId;
 
     public SelectSalonFragment() {
@@ -192,11 +196,13 @@ public class SelectSalonFragment extends Fragment {
                             @Override
                             public void onBookingClicked(int position) {
                                 mTotalPrice = 0;
+                                mSalonId = mSalonDataList.get(position).getId();
                                 //showToast(getContext(), "  Booking Clicked");
 
                                 //Navigate to Booking
                                 ((HomeActivity) getActivity()).setSalon(mSalonDataList.get(position));
-                                ((HomeActivity) getActivity()).changeFragment(4);
+                                ((HomeActivity) getActivity()).changeFragment(3);
+                                //((HomeActivity) getActivity()).changeFragment(4);
                                 //startActivity(new Intent((HomeActivity) getActivity() , BookingActivity.class));
                             }
 

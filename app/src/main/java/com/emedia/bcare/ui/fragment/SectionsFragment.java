@@ -1,6 +1,7 @@
 package com.emedia.bcare.ui.fragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
+import com.emedia.bcare.Config.ContextWrapper;
 import com.emedia.bcare.R;
 import com.emedia.bcare.adapter.CountrySpinnerAdapter;
 import com.emedia.bcare.adapter.fragments_adapter.SectionsAdapterA;
@@ -35,6 +37,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import butterknife.BindView;
@@ -94,7 +97,7 @@ public class SectionsFragment extends Fragment {
             }
         });
 
-        if (getResources().getString(R.string.current_lang).equals("ar")) {
+        if (Locale.getDefault().getLanguage().equals("ar")) {
             mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
             mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
@@ -113,6 +116,7 @@ public class SectionsFragment extends Fragment {
                 GenderActivity.getGenderType());
         return view;
     }
+
 
     protected void initialize() {
         ((HomeActivity) getActivity()).hideBottomToolbar();

@@ -14,6 +14,8 @@ import com.emedia.bcare.R;
 import com.emedia.bcare.ui.activity.HomeActivity;
 import com.example.fontutil.TextViewCustomFont;
 
+import java.util.Locale;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
@@ -53,7 +55,7 @@ public class DiscountCodeFragment extends Fragment {
             }
         });
 
-        if (((HomeActivity) getActivity()).getResources().getString(R.string.current_lang).equals("ar")) {
+        if (Locale.getDefault().getLanguage().equals("ar")) {
             mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
             mToolBarIconBack.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));

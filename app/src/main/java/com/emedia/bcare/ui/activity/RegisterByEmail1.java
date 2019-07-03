@@ -1,11 +1,13 @@
 package com.emedia.bcare.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.emedia.bcare.Config.ContextWrapper;
 import com.emedia.bcare.R;
 import com.emedia.bcare.util.UserInputValidation;
 import com.example.fontutil.EditTextCustomFont;
@@ -53,11 +55,16 @@ public class RegisterByEmail1 extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ContextWrapper.wrap(newBase));
+    }
+
     @OnClick({R.id.IV_BackToMainRegisterByEmail1, R.id.CL_BTN_ContinueRegisterByEmail1})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.IV_BackToMainRegisterByEmail1:
-                intentTo(this, RegisterActivity.class);
+                intentTo(RegisterByEmail1.this, RegisterActivity.class);
                 break;
 
             case R.id.CL_BTN_ContinueRegisterByEmail1:

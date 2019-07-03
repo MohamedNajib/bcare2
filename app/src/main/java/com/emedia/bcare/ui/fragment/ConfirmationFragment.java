@@ -2,6 +2,7 @@ package com.emedia.bcare.ui.fragment;
 
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,13 +20,18 @@ import android.widget.TextView;
 
 import com.emedia.bcare.R;
 import com.emedia.bcare.adapter.fragments_adapter.SalonServicesAdapterB;
+import com.emedia.bcare.adapter.fragments_adapter.SelectSalonAdapter;
 import com.emedia.bcare.cash.SharedUser;
 import com.emedia.bcare.data.model.api_model.home.Home;
+import com.emedia.bcare.data.model.salon_reserve.ReserveAt;
 import com.emedia.bcare.data.model.salon_reserve.SalonReserve;
 import com.emedia.bcare.data.rest.ApiServices;
+import com.emedia.bcare.data.rest.RetrofitClient;
 import com.emedia.bcare.network.RequestSingletone;
 import com.emedia.bcare.ui.activity.BookingActivity;
+import com.emedia.bcare.ui.activity.GenderActivity;
 import com.emedia.bcare.ui.activity.HomeActivity;
+import com.emedia.bcare.ui.fragment.booking_taps.InTheShopBookingTap;
 import com.example.fontutil.ButtonCustomFont;
 import com.example.fontutil.EditTextCustomFont;
 import com.example.fontutil.TextViewCustomFont;
@@ -42,6 +48,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.emedia.bcare.Constants.FragmentsKeys.REQUEST_STATUS_OK;
+import static com.emedia.bcare.adapter.fragments_adapter.SalonServicesAdapterB.getmTotalPrice;
+import static com.emedia.bcare.adapter.fragments_adapter.SalonServicesAdapterB.mTotalPrice;
+import static com.emedia.bcare.ui.fragment.booking_taps.InTheShopBookingTap.getSpecialistId;
 import static com.emedia.bcare.util.HelperMethod.showToast;
 
 /**
@@ -57,6 +67,7 @@ public class ConfirmationFragment extends Fragment {
 
     @BindView(R.id.ET_DiscountCode)
     EditTextCustomFont ETDiscountCode;
+    /////////////////////////////
     @BindView(R.id.TV_ServiceType)
     TextViewCustomFont TV_ServiceType;
     @BindView(R.id.TV_EventDate)
@@ -94,15 +105,18 @@ public class ConfirmationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_confirmation, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        if (((HomeActivity) getActivity()).getResources().getString(R.string.current_lang).equals("ar")) {
+        if (Locale.getDefault().getLanguage().equals("ar")) {
             imageView4.setRotationY(getResources().getInteger(R.integer.Image_Locale_RTL_Mood));
         } else {
             imageView4.setRotationY(getResources().getInteger(R.integer.Image_locale_LTR_Mood));
         }
 
-        initialize();
-        //initialize();
+        TV_ServiceType.setText(SharedUser.getSharedUser().getPlaceOfService());
+        TVEventDare.setText(InTheShopBookingTap.getTimeAt());
+        TV_Price.setText(String.valueOf(getmTotalPrice()));
 
+
+        initialize();
         return view;
     }
 
@@ -194,6 +208,36 @@ public class ConfirmationFragment extends Fragment {
 //
 //    }
 
+    private void salonReserveApiCall1(String token, String lang, int salon_id, float total_price, String reservation_time, String reservation_date,
+                                     String client_name, String client_mobile, String place, String services_id0, int specialist_id) {
+
+        Call<SalonReserve> salonReserveApiCall = RetrofitClient.getInstance().getApiServices().salonReserve(
+                token, lang, salon_id, total_price, reservation_time, reservation_date,
+                client_name, client_mobile, place, services_id0, specialist_id
+        );
+        salonReserveApiCall.enqueue(new Callback<SalonReserve>() {
+            @Override
+            public void onResponse(Call<SalonReserve> call, Response<SalonReserve> response) {
+                try {
+                    if (response.body().getCode().equals(String.valueOf(REQUEST_STATUS_OK))) {
+                        showDialog();
+                    } else {
+                        for (ReserveAt reserveAt : response.body().getData()) {
+                            showToast(getContext(), reserveAt.getSuccess());
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SalonReserve> call, Throwable t) {
+
+            }
+        });
+    }
+
     /**
      * Reserve Request Salon Api Call
      * mTotalPrice && mServicesIdList >> Total Price And  List Of Services ID >>
@@ -203,6 +247,8 @@ public class ConfirmationFragment extends Fragment {
      */
     private void salonReserveApiCall() {
 
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
         showLoading();
         Call<SalonReserve> salonReserveCall = RequestSingletone.getInstance().getClient()
                 .create(ApiServices.class).
@@ -337,7 +383,20 @@ public class ConfirmationFragment extends Fragment {
     public void confirmSalonService() {
         //OnSuccess
         //showDialog();
-        salonReserveApiCall();
+        //salonReserveApiCall();
+        salonReserveApiCall1(
+                SharedUser.getSharedUser().getToken(),
+                ((HomeActivity) getActivity()).getResources().getString(R.string.current_lang),
+                ((HomeActivity) getActivity()).getSalon().getId(),
+                getmTotalPrice(),
+                "",
+                ((HomeActivity) getActivity()).getReserveDate(),
+                SharedUser.getSharedUser().getClientLoginData().getName(),
+                "1111111110",
+                SharedUser.getSharedUser().getPlaceOfService(),
+                "1",
+                Integer.valueOf(getSpecialistId())
+                );
     }
 
 
